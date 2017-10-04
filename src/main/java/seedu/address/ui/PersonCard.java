@@ -56,7 +56,7 @@ public class PersonCard extends UiPart<Region> {
         bindListeners(person);
     }
 
-    private static int getRandom(){
+    private static int getRandom() {
         int randNum = random.nextInt(colors.length);
         return randNum;
     }
@@ -89,7 +89,7 @@ public class PersonCard extends UiPart<Region> {
             Label tagLabel = new Label(tag.tagName);
             int randNum = getRandom();
             tagLabel.setStyle("-fx-background-color: " + getColorForTag(tag.tagName, randNum));
-            if(randNum > 6){
+            if (randNum > 6) {
                 tagLabel.setStyle("-fx-text-fill: black");
             }
             tags.getChildren().add(tagLabel);
