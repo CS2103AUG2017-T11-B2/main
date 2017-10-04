@@ -78,7 +78,7 @@ public class PersonCard extends UiPart<Region> {
         });
     }
 
-    /**Initialize the tags for each person
+    /**Initialize the tags for a {@code Person}
       */
     private void initTags(ReadOnlyPerson person) {
         person.getTags().forEach(tag -> {
