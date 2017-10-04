@@ -2,6 +2,7 @@ package seedu.address.ui;
 
 import java.util.HashMap;
 import java.util.Random;
+
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -16,8 +17,7 @@ import seedu.address.model.person.ReadOnlyPerson;
 public class PersonCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
-    private static String[] colors = { "red", "yellow", "blue",
-            "orange", "brown", "green", "pink", "black", "grey" };
+    private static String[] colors = { "red", "yellow", "blue", "orange", "brown", "green", "pink", "black", "grey" };
     private static HashMap<String, String> tagColors = new HashMap<String, String>();
     private static Random random = new Random();
     /**
@@ -78,11 +78,13 @@ public class PersonCard extends UiPart<Region> {
         });
     }
 
+    /**Initialize the tags for each person
+      */
     private void initTags(ReadOnlyPerson person) {
         person.getTags().forEach(tag -> {
             Label tagLabel = new Label(tag.tagName);
-            tagLabel.setStyle("-fx-background-color: " +
-                                getColorForTag(tag.tagName));
+            tagLabel.setStyle("-fx-background-color: "
+                    + getColorForTag(tag.tagName));
             tags.getChildren().add(tagLabel);
         });
     }
