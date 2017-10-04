@@ -763,7 +763,7 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* *` |user |favourite a person |have ease of access to that person
 
-|`* *` |user |import contacts from cloud |
+|`* *` |user |import contacts from iCloud |
 
 |`* *` |demanding user |have suggestions for persons |have ease of access base on the frequency of accessing the person
 
