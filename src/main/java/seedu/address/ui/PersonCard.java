@@ -85,7 +85,7 @@ public class PersonCard extends UiPart<Region> {
     }
 
 	/**
- 	* create a Label UI for each tag associated to the person
+ 	* Initialise the tags for each person
  	*/
     private void initTags(ReadOnlyPerson person) {
         person.getTags().forEach(tag -> {
