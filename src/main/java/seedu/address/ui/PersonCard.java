@@ -1,5 +1,7 @@
 package seedu.address.ui;
 
+import java.util.HashMap;
+import java.util.Random;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -7,8 +9,6 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.person.ReadOnlyPerson;
-import java.util.HashMap;
-import java.util.Random;
 
 /**
  * An UI component that displays information of a {@code Person}.
@@ -17,7 +17,6 @@ public class PersonCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
     private static String[] colors = { "red", "yellow", "blue",
-
             "orange", "brown", "green", "pink", "black", "grey" };
     private static HashMap<String, String> tagColors = new HashMap<String, String>();
     private static Random random = new Random();
