@@ -15,7 +15,7 @@ public class Birthday {
     public static final String MESSAGE_BIRTHDAY_CONSTRAINTS =
             "Birthday must be in the format of DD/MM/YYYY";
 
-    public static final String Birthday_VALIDATION_REGEX =
+    public static final String BIRTHDAY_VALIDATION_REGEX =
             "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
 
     public final String value;
@@ -34,16 +34,16 @@ public class Birthday {
      * Returns true if a given String is a valid Birthday.
      */
     public static boolean isValidBirthday(String test) {
-        return test.matches(Birthday_VALIDATION_REGEX);
+        return test.matches(BIRTHDAY_VALIDATION_REGEX);
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return value;
     }
 
     @Override
-    public boolean equals(Object other){
+    public boolean equals(Object other) {
         return other == this //short circuit if same object
                 || (other instanceof Birthday
                 && this.value.equals(((Birthday) other).value));
