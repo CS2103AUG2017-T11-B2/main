@@ -16,7 +16,7 @@ public class Birthday {
             "Birthday must be in the format of DD/MM/YYYY";
 
     public static final String BIRTHDAY_VALIDATION_REGEX =
-            "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
+            "\\d{2}/\\d{2}/\\d{4}";
 
     public final String value;
 
