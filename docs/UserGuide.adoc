@@ -124,7 +124,7 @@ Finds persons whose tags contain any of the given keywords. +
 Format: `findTag KEYWORD [MORE_KEYWORDS]`
 
 ****
-* The search is case insensitive. e.g `FRIENDS` will match `friends`
+* The search is case insensitive. e.g `FrIeNdS` will match `friends`
 * The order of the keywords does not matter. e.g. `colleagues friends` will match `friends colleagues`
 * Only the tags is searched.
 * Only full words will be matched e.g. `friend` will not match `friends`
