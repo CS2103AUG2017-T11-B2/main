@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import javafx.scene.control.TextField;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,6 +26,7 @@ public class CommandBoxTest extends GuiUnitTest {
     private ArrayList<String> defaultStyleOfCommandBox;
     private ArrayList<String> errorStyleOfCommandBox;
 
+    private CommandBox commandBoxForTest;
     private CommandBoxHandle commandBoxHandle;
 
     @Before
@@ -33,6 +35,7 @@ public class CommandBoxTest extends GuiUnitTest {
         Logic logic = new LogicManager(model);
 
         CommandBox commandBox = new CommandBox(logic);
+        commandBoxForTest = commandBox;
         commandBoxHandle = new CommandBoxHandle(getChildNode(commandBox.getRoot(),
                 CommandBoxHandle.COMMAND_INPUT_FIELD_ID));
         uiPartRule.setUiPart(commandBox);
@@ -70,19 +73,37 @@ public class CommandBoxTest extends GuiUnitTest {
     }
 
     @Test
-    public void handleKeyPress_Escape(){
+    public void handleKeyPress_Escape() {
         //empty command box
         guiRobot.push(KeyCode.ESCAPE);
         assertTrue("".equals(commandBoxHandle.getInput()));
 
-        //Enter text in command box
+        //enter text in command box
         guiRobot.write("Test");
-        //Check if command box has correct input
+        //check if command box has correct input
         assertTrue("Test".equals(commandBoxHandle.getInput()));
-        //Push ESCAPE and check if command box is empty
+        //push ESCAPE and check if command box is empty
         guiRobot.push(KeyCode.ESCAPE);
         assertFalse("Test".equals(commandBoxHandle.getInput()));
         assertTrue("".equals(commandBoxHandle.getInput()));
+    }
+
+    @Test
+    public void handleKeyPress_Control() {
+        //gets text field
+        TextField myTextField = commandBoxForTest.getCommandTextField();
+        //insert text for testing
+        guiRobot.write("Test");
+        assertTrue("Test".equals(myTextField.getText()));
+
+        //check if myTextField text cursor is same length as text in command box
+        assertTrue(myTextField.getCaretPosition() == commandBoxHandle.getInput().length());
+
+        //check if text cursor is flushed to the right after move left once and Control is pushed
+        guiRobot.push(KeyCode.LEFT);
+        guiRobot.push(KeyCode.CONTROL);
+        assertFalse(myTextField.getCaretPosition() == 3);
+        assertTrue(myTextField.getCaretPosition() == 4);
     }
 
     @Test
