@@ -263,7 +263,7 @@ Exits the program. +
 Format: `exit` +
 Format: `x`
 
-=== Keyboard shortcuts
+=== Keyboard shortcuts [Since v1.2]
 
 Several keyboard keys have special operations when typing in command box. +
 
