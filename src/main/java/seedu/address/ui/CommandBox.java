@@ -157,7 +157,7 @@ public class CommandBox extends UiPart<Region> {
     /**
      * Gets text field for test
      */
-    public TextField getCommandTextField(){
+    public TextField getCommandTextField() {
         return commandTextField;
     }
 }
