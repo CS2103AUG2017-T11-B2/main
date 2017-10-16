@@ -1,6 +1,8 @@
 package seedu.address.ui;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -62,11 +64,25 @@ public class CommandBoxTest extends GuiUnitTest {
     public void commandBox_handleKeyPress() {
         commandBoxHandle.run(COMMAND_THAT_FAILS);
         assertEquals(errorStyleOfCommandBox, commandBoxHandle.getStyleClass());
-        guiRobot.push(KeyCode.ESCAPE);
-        assertEquals(errorStyleOfCommandBox, commandBoxHandle.getStyleClass());
 
         guiRobot.push(KeyCode.A);
         assertEquals(defaultStyleOfCommandBox, commandBoxHandle.getStyleClass());
+    }
+
+    @Test
+    public void handleKeyPress_Escape(){
+        //empty command box
+        guiRobot.push(KeyCode.ESCAPE);
+        assertTrue("".equals(commandBoxHandle.getInput()));
+
+        //Enter text in command box
+        guiRobot.write("Test");
+        //Check if command box has correct input
+        assertTrue("Test".equals(commandBoxHandle.getInput()));
+        //Push ESCAPE and check if command box is empty
+        guiRobot.push(KeyCode.ESCAPE);
+        assertFalse("Test".equals(commandBoxHandle.getInput()));
+        assertTrue("".equals(commandBoxHandle.getInput()));
     }
 
     @Test
