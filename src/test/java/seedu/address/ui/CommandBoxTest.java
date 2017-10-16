@@ -6,11 +6,11 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import javafx.scene.control.TextField;
 import org.junit.Before;
 import org.junit.Test;
 
 import guitests.guihandles.CommandBoxHandle;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
@@ -73,7 +73,7 @@ public class CommandBoxTest extends GuiUnitTest {
     }
 
     @Test
-    public void handleKeyPress_Escape() {
+    public void handleKeyPress_escape() {
         //empty command box
         guiRobot.push(KeyCode.ESCAPE);
         assertTrue("".equals(commandBoxHandle.getInput()));
@@ -89,7 +89,7 @@ public class CommandBoxTest extends GuiUnitTest {
     }
 
     @Test
-    public void handleKeyPress_Control() {
+    public void handleKeyPress_control() {
         //gets text field
         TextField myTextField = commandBoxForTest.getCommandTextField();
         //insert text for testing
