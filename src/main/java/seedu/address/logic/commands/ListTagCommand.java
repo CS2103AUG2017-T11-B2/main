@@ -28,10 +28,16 @@ public class ListTagCommand extends Command {
         return new CommandResult(MESSAGE_SUCCESS + "\n" + tagString + formatTagString());
     }
 
+    /**
+     * Formats the tag list into a string
+     */
     private String formatTagString() {
         return tempList.toString().replace(",", "]").replace(" ", " [");
     }
 
+    /**
+     * Sorts the tags alphabetically
+     */
     private void sortTags() {
         for (Tag t : tagList) {
             tempList.add(t.tagName);
@@ -40,6 +46,9 @@ public class ListTagCommand extends Command {
         Collections.sort(tempList);
     }
 
+    /**
+     * Extract all the tags from the address book and stores it in a list
+     */
     private void extractAllTags() {
         for (ReadOnlyPerson person : model.getAddressBook().getPersonList()) {
             for (Tag tag : person.getTags()) {
