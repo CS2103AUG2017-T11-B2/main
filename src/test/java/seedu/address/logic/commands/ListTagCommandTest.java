@@ -5,10 +5,10 @@ import static seedu.address.testutil.TypicalPersons.AMY;
 import static seedu.address.testutil.TypicalPersons.BOB;
 import static seedu.address.testutil.TypicalPersons.BOB_EDITED;
 import static seedu.address.testutil.TypicalPersons.CARRIE;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_CHEF;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -66,7 +66,8 @@ public class ListTagCommandTest {
     }
 
     @Test
-    public void execute_addNewPersonWithNewTag_showsCorrectTagList() throws DuplicatePersonException {
+    public void execute_addNewPersonWithNewTag_showsCorrectTagList()
+            throws DuplicatePersonException {
         model.addPerson(AMY);
         expectedModel.addPerson(AMY);
         tempList.add(VALID_TAG_FRIEND);
@@ -76,7 +77,8 @@ public class ListTagCommandTest {
     }
 
     @Test
-    public void execute_addNewPersonWithNoTag_showsCorrectTagList() throws DuplicatePersonException {
+    public void execute_addNewPersonWithNoTag_showsCorrectTagList()
+            throws DuplicatePersonException {
         model.addPerson(CARRIE);
         expectedModel.addPerson(CARRIE);
         expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
@@ -84,7 +86,8 @@ public class ListTagCommandTest {
     }
 
     @Test
-    public void execute_editPersonWithPresentTag_showsCorrectTagList() throws DuplicatePersonException, PersonNotFoundException {
+    public void execute_editPersonWithPresentTag_showsCorrectTagList()
+            throws DuplicatePersonException, PersonNotFoundException {
         model.addPerson(BOB);
         expectedModel.addPerson(BOB);
         tempList.add(VALID_TAG_HUSBAND);
@@ -100,7 +103,8 @@ public class ListTagCommandTest {
     }
 
     @Test
-    public void execute_deletePersonWithUniqueTag_showsCorrectTagList() throws DuplicatePersonException, PersonNotFoundException {
+    public void execute_deletePersonWithUniqueTag_showsCorrectTagList()
+            throws DuplicatePersonException, PersonNotFoundException {
         model.addPerson(AMY);
         model.addPerson(BOB);
         model.addPerson(CARRIE);

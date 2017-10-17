@@ -68,18 +68,21 @@ public class TypicalPersons {
             .withBirthday("01/01/1991").build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
-    public static final ReadOnlyPerson AMY = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
-            .withBirthday(VALID_BIRTHDAY_AMY).withEmail(VALID_EMAIL_AMY)
-            .withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
-    public static final ReadOnlyPerson BOB = new PersonBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-            .withBirthday(VALID_BIRTHDAY_BOB).withEmail(VALID_EMAIL_BOB)
-            .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
-    public static final ReadOnlyPerson BOB_EDITED = new PersonBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-            .withBirthday(VALID_BIRTHDAY_BOB).withEmail(VALID_EMAIL_BOB)
-            .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_CHEF, VALID_TAG_FRIEND).build();
-    public static final ReadOnlyPerson CARRIE = new PersonBuilder().withName(VALID_NAME_CARRIE).withPhone(VALID_PHONE_CARRIE)
-            .withBirthday(VALID_BIRTHDAY_BOB).withEmail(VALID_EMAIL_BOB)
-            .withAddress(VALID_ADDRESS_CARRIE).build();
+    public static final ReadOnlyPerson AMY = new PersonBuilder().withName(VALID_NAME_AMY)
+            .withPhone(VALID_PHONE_AMY).withBirthday(VALID_BIRTHDAY_AMY)
+            .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
+            .withTags(VALID_TAG_FRIEND).build();
+    public static final ReadOnlyPerson BOB = new PersonBuilder().withName(VALID_NAME_BOB)
+            .withPhone(VALID_PHONE_BOB).withBirthday(VALID_BIRTHDAY_BOB)
+            .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+            .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+    public static final ReadOnlyPerson BOB_EDITED = new PersonBuilder().withName(VALID_NAME_BOB)
+            .withPhone(VALID_PHONE_BOB).withBirthday(VALID_BIRTHDAY_BOB)
+            .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+            .withTags(VALID_TAG_CHEF, VALID_TAG_FRIEND).build();
+    public static final ReadOnlyPerson CARRIE = new PersonBuilder().withName(VALID_NAME_CARRIE)
+            .withPhone(VALID_PHONE_CARRIE).withBirthday(VALID_BIRTHDAY_CARRIE)
+            .withEmail(VALID_EMAIL_CARRIE).withAddress(VALID_ADDRESS_CARRIE).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
