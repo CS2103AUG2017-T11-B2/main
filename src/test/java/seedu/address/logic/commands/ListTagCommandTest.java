@@ -1,20 +1,20 @@
 package seedu.address.logic.commands;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalPersons.AMY;
 import static seedu.address.testutil.TypicalPersons.BOB;
 import static seedu.address.testutil.TypicalPersons.BOB_EDITED;
 import static seedu.address.testutil.TypicalPersons.CARRIE;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_CHEF;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.UndoRedoStack;
@@ -34,7 +34,7 @@ public class ListTagCommandTest {
     private ArrayList<String> tempList;
     private String expectedMessage;
 
-    public final String MESSAGE = listTagCommand.MESSAGE_SUCCESS + "\n" + "Tag names: ";
+    public final String listTagMessage = listTagCommand.MESSAGE_SUCCESS + "\n" + "Tag names: ";
 
     @Before
     public void setUp() {
@@ -56,7 +56,7 @@ public class ListTagCommandTest {
         }
         Collections.sort(tempList);
 
-        expectedMessage = MESSAGE + tempList.toString().replace(",", "]").replace(" ", " [");
+        expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
 
     }
 
@@ -71,7 +71,7 @@ public class ListTagCommandTest {
         expectedModel.addPerson(AMY);
         tempList.add(VALID_TAG_FRIEND);
         Collections.sort(tempList);
-        expectedMessage = MESSAGE + tempList.toString().replace(",", "]").replace(" ", " [");
+        expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
         assertCommandSuccess(listTagCommand, model, expectedMessage, expectedModel);
     }
 
@@ -79,7 +79,7 @@ public class ListTagCommandTest {
     public void execute_addNewPersonWithNoTag_showsCorrectTagList() throws DuplicatePersonException {
         model.addPerson(CARRIE);
         expectedModel.addPerson(CARRIE);
-        expectedMessage = MESSAGE + tempList.toString().replace(",", "]").replace(" ", " [");
+        expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
         assertCommandSuccess(listTagCommand, model, expectedMessage, expectedModel);
     }
 
@@ -95,7 +95,7 @@ public class ListTagCommandTest {
         tempList.remove(VALID_TAG_HUSBAND);
         tempList.add(VALID_TAG_CHEF);
         Collections.sort(tempList);
-        expectedMessage = MESSAGE + tempList.toString().replace(",", "]").replace(" ", " [");
+        expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
         assertCommandSuccess(listTagCommand, model, expectedMessage, expectedModel);
     }
 
@@ -114,7 +114,7 @@ public class ListTagCommandTest {
         expectedModel.deletePerson(BOB);
         tempList.remove(VALID_TAG_HUSBAND);
         Collections.sort(tempList);
-        expectedMessage = MESSAGE + tempList.toString().replace(",", "]").replace(" ", " [");
+        expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
         assertCommandSuccess(listTagCommand, model, expectedMessage, expectedModel);
     }
 }
