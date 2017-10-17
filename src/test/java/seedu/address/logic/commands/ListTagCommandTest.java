@@ -117,4 +117,5 @@ public class ListTagCommandTest {
         expectedMessage = MESSAGE + tempList.toString().replace(",", "]").replace(" ", " [");
         assertCommandSuccess(listTagCommand, model, expectedMessage, expectedModel);
     }
+
 }
