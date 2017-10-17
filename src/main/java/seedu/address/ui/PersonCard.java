@@ -20,7 +20,9 @@ import seedu.address.model.person.ReadOnlyPerson;
 public class PersonCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
+
     private static String[] colors = { "red", "blue", "orange", "brown", "green", "black", "grey", "yellow", "pink" };
+
     private static HashMap<String, String> tagColors = new HashMap<String, String>();
     private static Random random = new Random();
     /**
@@ -41,6 +43,8 @@ public class PersonCard extends UiPart<Region> {
     private Label id;
     @FXML
     private Label phone;
+    @FXML
+    private Label birthday;
     @FXML
     private Label address;
     @FXML
@@ -64,6 +68,7 @@ public class PersonCard extends UiPart<Region> {
     private static String getColorForTag(String tagValue, int randNum) {
         if (!tagColors.containsKey(tagValue)) {
             tagColors.put(tagValue, colors[randNum]);
+
         }
 
         return tagColors.get(tagValue);
@@ -76,6 +81,7 @@ public class PersonCard extends UiPart<Region> {
     private void bindListeners(ReadOnlyPerson person) {
         name.textProperty().bind(Bindings.convert(person.nameProperty()));
         phone.textProperty().bind(Bindings.convert(person.phoneProperty()));
+        birthday.textProperty().bind(Bindings.convert(person.birthdayProperty()));
         address.textProperty().bind(Bindings.convert(person.addressProperty()));
         email.textProperty().bind(Bindings.convert(person.emailProperty()));
         person.tagProperty().addListener((observable, oldValue, newValue) -> {
@@ -95,6 +101,7 @@ public class PersonCard extends UiPart<Region> {
             if (randNum > 6) {
                 tagLabel.setStyle("-fx-text-fill: black");
             }
+
             tags.getChildren().add(tagLabel);
         });
     }
