@@ -61,12 +61,12 @@ public class BrowserPanel extends UiPart<Region> {
         File htmlTemplateFile = new File(classLoader.getResource("view/LocatedAddress.html").getFile());
         resetAddressPage(htmlTemplateFile);
         String htmlString = FileUtils.readFileToString(htmlTemplateFile);
+        System.out.println(htmlString);
         int stopIndex = person.getAddress().getGMapsAddress().indexOf(',');
         String address = person.getAddress().getGMapsAddress().substring(0, stopIndex);
         System.out.println(address);
         String body = "<div class=" +"\"" + "mapouter" + "\"" + "><div class=" + "\"" + "gmap_canvas" + "\"" + "><iframe width=" + "\"" + "600" + "\"" + " height=" + "\"" + "500" + "\"" + " id=" + "\"" + "gmap_canvas" + "\"" + " src= " +  "\"" + "https://maps.google.com/maps?q=" + address + "&t=&z=13&ie=UTF8&iwloc=&output=embed" + "\"" + " frameborder=" + "\"" + "0" + "\"" + " scrolling=" + "\"" + "no" + "\"" + " marginheight=" + "\"" + "0" + "\"" + " marginwidth=" + "\"" + "0" + "\"" + "></iframe>google maps einbinden <a href=" + "\"" + "http://www.pureblack.de/google-maps/" + "\"" + ">pureblack.de</a></div><style>.mapouter{overflow:hidden;height:500px;width:600px;}.gmap_canvas {background:none!important;height:500px;width:600px;}</style></div>";
         System.out.println(body);
-        System.out.println(htmlString);
         htmlString = htmlString.replace("$body", body);
         FileUtils.writeStringToFile(htmlTemplateFile, htmlString);
         URL addressPage = MainApp.class.getResource(FXML_FILE_FOLDER + ADDRESS_PAGE);
@@ -87,17 +87,6 @@ public class BrowserPanel extends UiPart<Region> {
                 "</html>";
         FileUtils.writeStringToFile(file, reset);
 
-        ClassLoader classLoader = getClass().getClassLoader();
-        File htmlTemplateFile = new File(classLoader.getResource("view/LocatedAddress.html").getFile());
-        String htmlString = FileUtils.readFileToString(htmlTemplateFile);
-        String title = "UserAddress";
-        String body = "<div class=\"mapouter\"><div class=\"gmap_canvas\"><iframe width=\"600\" height=\"500\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=" + person.getAddress().value + "&t=&z=13&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>google maps einbinden <a href=\"http://www.pureblack.de/google-maps/\">pureblack.de</a></div><style>.mapouter{overflow:hidden;height:500px;width:600px;}.gmap_canvas {background:none!important;height:500px;width:600px;}</style></div>";
-        htmlString = htmlString.replace("$title", title);
-        htmlString = htmlString.replace("$body", body);
-        File newHtmlFile = new File("view/new.html");
-        FileUtils.writeStringToFile(newHtmlFile, htmlString);
-        URL addressPage = MainApp.class.getResource(FXML_FILE_FOLDER + "new.html");
-        loadPage(addressPage.toExternalForm());
     }
 
     public void loadPage(String url) {
