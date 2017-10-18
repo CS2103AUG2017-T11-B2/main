@@ -13,11 +13,11 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.web.WebView;
 import org.apache.commons.io.FileUtils;
-
 import seedu.address.MainApp;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.ui.PersonPanelSelectionChangedEvent;
 import seedu.address.model.person.ReadOnlyPerson;
+
 /**
  * The Browser Panel of the App.
  */
@@ -82,18 +82,21 @@ public class BrowserPanel extends UiPart<Region> {
         System.out.println(FileUtils.readFileToString(htmlTemplateFile));
     }
 
+    /**
+     * Resets the webpage
+     */
     private void resetAddressPage(File file) throws IOException {
-        String reset = "<!DOCTYPE html>\n" +
-                "<html lang=\"en\">\n" +
-                "<head>\n" +
-                "<link rel=\"stylesheet\" href=\"DarkTheme.css\">" +
-                "    <meta charset=\"UTF-8\">\n" +
-                "    <title>Title</title>\n" +
-                "</head>\n" +
-                "<body class=\"background\">\n" +
-                "$body\n" +
-                "</body>\n" +
-                "</html>";
+        String reset = "<!DOCTYPE html>\n"
+                + "<html lang=\"en\">\n"
+                + "<head>\n"
+                + "<link rel=\"stylesheet\" href=\"DarkTheme.css\">"
+                + "    <meta charset=\"UTF-8\">\n"
+                + "    <title>Title</title>\n"
+                + "</head>\n"
+                + "<body class=\"background\">\n"
+                + "$body\n"
+                + "</body>\n"
+                + "</html>";
         FileUtils.writeStringToFile(file, reset);
 
     }
