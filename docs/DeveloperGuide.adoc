@@ -1043,6 +1043,23 @@ Use case ends.
 Use case ends.
 
 [discrete]
+=== Use case: Find person(s) with associated tag name(s)
+
+*MSS*
+
+1.  User requests to find a person(s) with the associated tag name(s) keyed in
+2.  AddressBook displays a list of person(s) with the associated tag name(s) keyed in
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a. AddressBook does not contain anyone with the associated tag name(s) keyed in.
++
+Use case ends.
+
+[discrete]
 === Use case: Delete person
 
 *MSS*
