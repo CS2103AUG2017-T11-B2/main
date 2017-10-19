@@ -425,13 +425,10 @@ public void sortPersonListByName() {
 }
 ----
 
-<<<<<<< Updated upstream
-=======
 Suppose that the user has just launched ContactHub. The contact list will be arranged based on the add order at the beginning.
 
 image::ListCommand.png[width="300"]
 
->>>>>>> Stashed changes
 The user executes `SortCommand`, the list is now sorted alphabetically.
 
 image::SortCommand.png[width="300"]
