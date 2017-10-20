@@ -13,7 +13,6 @@ import javafx.scene.layout.Region;
 import seedu.address.model.person.ReadOnlyPerson;
 
 
-
 /**
  * An UI component that displays information of a {@code Person}.
  */
@@ -100,8 +99,8 @@ public class PersonCard extends UiPart<Region> {
      */
     private void initPhones(ReadOnlyPerson person) {
        person.getPhones().forEach(phone -> {
-           Label phoneLabel = new Label(phone.value);
-               phones.getChildren().add(phoneLabel);
+            Label phoneLabel = new Label(phone.value);
+            phones.getChildren().add(phoneLabel);
        });
     }
 

@@ -5,6 +5,9 @@ import javax.xml.bind.annotation.XmlValue;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Phone;
 
+/**
+ * JAXB-friendly adapted version of the Phone.
+ */
 public class XmlAdaptedPhone {
 
     @XmlValue

@@ -12,6 +12,13 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.exceptions.DuplicateDataException;
 import seedu.address.commons.util.CollectionUtil;
 
+/**
+ * A list of phones that enforces no nulls and uniqueness between its elements.
+ *
+ * Supports minimal set of list operations for the app's features.
+ *
+ * @see Phone#equals(Object)
+ */
 public class PhoneList implements Iterable<Phone> {
 
     private final ObservableList<Phone> internalList = FXCollections.observableArrayList();
