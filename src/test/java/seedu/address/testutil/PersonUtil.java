@@ -29,7 +29,7 @@ public class PersonUtil {
         StringBuilder sb = new StringBuilder();
         sb.append(PREFIX_NAME + person.getName().fullName + " ");
         person.getPhones().stream().forEach(
-                s -> sb.append(PREFIX_PHONE + s.value + " ")
+            s -> sb.append(PREFIX_PHONE + s.value + " ")
         );
         sb.append(PREFIX_BIRTHDAY + person.getBirthday().value + " ");
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
