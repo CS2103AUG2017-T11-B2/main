@@ -98,7 +98,7 @@ public class PersonCard extends UiPart<Region> {
      * Initialise the phones for each person
      */
     private void initPhones(ReadOnlyPerson person) {
-       person.getPhones().forEach(phone -> {
+        person.getPhones().forEach(phone -> {
             Label phoneLabel = new Label(phone.value);
             phones.getChildren().add(phoneLabel);
        });
