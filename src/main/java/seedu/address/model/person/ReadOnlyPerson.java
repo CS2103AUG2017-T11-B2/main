@@ -45,9 +45,8 @@ public interface ReadOnlyPerson {
     default String getAsText() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append(" Phones: ");
-        getPhones().forEach(builder::append);
-        builder.append(getPhones())
+                .append(" Phones: ")
+                .append(getPhones().toString())
                 .append(" Birthday: ")
                 .append(getBirthday())
                 .append(" Email: ")

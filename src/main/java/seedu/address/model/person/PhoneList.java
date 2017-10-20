@@ -90,14 +90,14 @@ public class PhoneList implements Iterable<Phone> {
         return this == other || new HashSet<>(this.internalList).equals(new HashSet<>(other.internalList));
     }
 
-//    @Override
-//    public String toString() {=
-//        StringBuilder phoneList = new StringBuilder();
-//        for (Phone phone : internalList) {
-//            phoneList.append(phone.toString() + "\n");
-//        }
-//        return phoneList.toString();
-//    }
+    @Override
+    public String toString() {
+        StringBuilder phoneList = new StringBuilder();
+        for (Phone phone : internalList) {
+            phoneList.append(phone.toString() + "\n");
+        }
+        return phoneList.toString();
+    }
 
     /**
      * Signals that an operation would have violated the 'no duplicates' property of the list.
