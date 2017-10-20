@@ -89,7 +89,7 @@ public class PersonBuilder {
     /**
      * Sets the {@code Phone} of the {@code Person} that we are building.
      */
-    public PersonBuilder withPhone(String ... phones) {
+    public PersonBuilder withPhones(String ... phones) {
         try {
             this.person.setPhones(SampleDataUtil.getPhoneSet(phones));
         } catch (IllegalValueException ive) {
