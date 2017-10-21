@@ -146,10 +146,6 @@ public class FindTagCommandSystemTest extends AddressBookSystemTest {
         ModelHelper.setFilteredList(expectedModel, CARL);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
-
-        /* Case: mixed case command word -> rejected */
-        command = "FiNdtag friends";
-        assertCommandFailure(command, MESSAGE_UNKNOWN_COMMAND);
     }
 
     /**
