@@ -33,7 +33,7 @@ public class PersonUtil {
         );
         sb.append(PREFIX_BIRTHDAY + person.getBirthday().value + " ");
         person.getEmails().stream().forEach(
-                s -> sb.append(PREFIX_EMAIL + s.value + " ")
+            s -> sb.append(PREFIX_EMAIL + s.value + " ")
         );
         sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
         person.getTags().stream().forEach(
