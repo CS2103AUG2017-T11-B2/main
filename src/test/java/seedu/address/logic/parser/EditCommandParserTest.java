@@ -27,8 +27,6 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.model.person.Phone.MESSAGE_PHONE_CONSTRAINTS;
-import static seedu.address.model.person.Email.MESSAGE_EMAIL_CONSTRAINTS;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_PERSON;
@@ -40,8 +38,8 @@ import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
@@ -187,12 +185,12 @@ public class EditCommandParserTest {
         // no other valid values specified
         Index targetIndex = INDEX_FIRST_PERSON;
         String userInput = targetIndex.getOneBased() + INVALID_PHONE_DESC + PHONE_DESC_BOB;
-        assertParseFailure(parser, userInput, MESSAGE_PHONE_CONSTRAINTS);
+        assertParseFailure(parser, userInput, Phone.MESSAGE_PHONE_CONSTRAINTS);
 
         // other valid values specified
         userInput = targetIndex.getOneBased() + EMAIL_DESC_BOB + INVALID_PHONE_DESC + ADDRESS_DESC_BOB
                 + PHONE_DESC_BOB;
-        assertParseFailure(parser, userInput, MESSAGE_PHONE_CONSTRAINTS);
+        assertParseFailure(parser, userInput, Phone.MESSAGE_PHONE_CONSTRAINTS);
     }
 
     @Test

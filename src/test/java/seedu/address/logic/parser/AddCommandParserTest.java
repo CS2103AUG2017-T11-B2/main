@@ -53,32 +53,33 @@ public class AddCommandParserTest {
     public void parse_allFieldsPresent_success() {
         Person expectedPerson = new PersonBuilder().withName(VALID_NAME_BOB)
                 .withPhones(VALID_PHONE_AMY, VALID_PHONE_BOB).withBirthday(VALID_BIRTHDAY_BOB)
-                .withEmails(VALID_EMAIL_AMY, VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_FRIEND).build();
+                .withEmails(VALID_EMAIL_AMY, VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+                .withTags(VALID_TAG_FRIEND).build();
 
         // multiple names - last name accepted
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_AMY + NAME_DESC_BOB + PHONE_DESC_AMY
-                + PHONE_DESC_BOB + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_FRIEND,
-                new AddCommand(expectedPerson));
+                + PHONE_DESC_BOB + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
+                        + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
 
         // multiple phones - multiple phones accepted
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_AMY + PHONE_DESC_AMY
-                + PHONE_DESC_BOB + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_FRIEND,
-                new AddCommand(expectedPerson));
+                + PHONE_DESC_BOB + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
+                        + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
 
         // multiple emails - multiple emails accepted
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_AMY + PHONE_DESC_BOB
-                + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_FRIEND,
-                new AddCommand(expectedPerson));
+                + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
+                        + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
 
         // multiple addresses - last address accepted
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_AMY + PHONE_DESC_BOB
-                + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_AMY + ADDRESS_DESC_BOB + TAG_DESC_FRIEND,
-                new AddCommand(expectedPerson));
+                + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_AMY + ADDRESS_DESC_BOB
+                        + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
 
         // multiple birthdays - last birthday accepted
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_AMY + PHONE_DESC_BOB
-                + BIRTHDAY_DESC_AMY + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_FRIEND,
-                new AddCommand(expectedPerson));
+                + BIRTHDAY_DESC_AMY + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
+                        + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
 
         // multiple tags - all accepted
         Person expectedPersonMultipleTags = new PersonBuilder().withName(VALID_NAME_BOB)
@@ -86,8 +87,8 @@ public class AddCommandParserTest {
                 .withEmails(VALID_EMAIL_AMY, VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND).build();
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_AMY + PHONE_DESC_BOB
-                + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
-                new AddCommand(expectedPersonMultipleTags));
+                + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND
+                        + TAG_DESC_FRIEND, new AddCommand(expectedPersonMultipleTags));
     }
 
     @Test
