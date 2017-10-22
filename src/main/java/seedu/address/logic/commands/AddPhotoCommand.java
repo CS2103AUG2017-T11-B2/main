@@ -45,7 +45,7 @@ public class AddPhotoCommand extends UndoableCommand {
     @Override
     public CommandResult executeUndoableCommand() throws CommandException {
         List<ReadOnlyPerson> latestList = model.getFilteredPersonList();
-        if(index.getZeroBased() >= latestList.size()) {
+        if (index.getZeroBased() >= latestList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 

@@ -18,11 +18,12 @@ public class Photo {
             "Person's photo must have a valid image URL.";
 
     public static final String PHOTO_VALIDATION_REGEX = "[^\\s].*";
-    private static final String DEFAULT_PHOTO = "file:///C:/Users/User/Desktop/repos intelliJ/addressbook-level4" +
-            "(mine)/src/main/resources/images/defaultPhoto.png";
+    public final String value;
+    
+    private static final String DEFAULT_PHOTO = "file:///C:/Users/User/Desktop/repos intelliJ/addressbook-level4"
+            + "(mine)/src/main/resources/images/defaultPhoto.png";
 
     private Image image;
-    public String value;
 
     /**
      * Validates given photo
@@ -45,14 +46,14 @@ public class Photo {
      * Returns true if a given string is a valid url.
      */
     private boolean isValidPhoto(String test) {
-        if(test.equals("images/defaultPhoto.png")){
+        if (test.equals("images/defaultPhoto.png")) {
             return true;
         }
 
         if (test.matches(PHOTO_VALIDATION_REGEX)) {
             try {
                 image = ImageIO.read(new URL(test));
-                if(image == null) {
+                if (image == null) {
                     return false;
                 }
             } catch (IOException e) {
