@@ -18,11 +18,11 @@ public class Photo {
             "Person's photo must have a valid image URL.";
 
     public static final String PHOTO_VALIDATION_REGEX = "[^\\s].*";
-    public final String value;
-    
+
     private static final String DEFAULT_PHOTO = "file:///C:/Users/User/Desktop/repos intelliJ/addressbook-level4"
             + "(mine)/src/main/resources/images/defaultPhoto.png";
 
+    public final String value;
     private Image image;
 
     /**
