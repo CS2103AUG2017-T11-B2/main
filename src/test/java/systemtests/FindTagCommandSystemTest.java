@@ -1,12 +1,14 @@
 package systemtests;
 
 import static seedu.address.commons.core.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BENSON;
 import static seedu.address.testutil.TypicalPersons.CARL;
 import static seedu.address.testutil.TypicalPersons.DANIEL;
 import static seedu.address.testutil.TypicalPersons.KEYWORD_MATCHING_OWESMONEY;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -17,6 +19,8 @@ import seedu.address.logic.commands.FindTagCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Phone;
 
 public class FindTagCommandSystemTest extends AddressBookSystemTest {
 
@@ -114,7 +118,8 @@ public class FindTagCommandSystemTest extends AddressBookSystemTest {
         assertSelectedCardUnchanged();
 
         /* Case: find phone number of person in address book -> 0 persons found */
-        command = FindTagCommand.COMMAND_WORD + " " + DANIEL.getPhone().value;
+        List<Phone> phones = new ArrayList<>(DANIEL.getPhones());
+        command = FindTagCommand.COMMAND_WORD + " " + phones.get(0);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
@@ -124,7 +129,8 @@ public class FindTagCommandSystemTest extends AddressBookSystemTest {
         assertSelectedCardUnchanged();
 
         /* Case: find email of person in address book -> 0 persons found */
-        command = FindTagCommand.COMMAND_WORD + " " + DANIEL.getEmail().value;
+        List<Email> emails = new ArrayList<>(DANIEL.getEmails());
+        command = FindTagCommand.COMMAND_WORD + " " + emails.get(0);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
@@ -146,10 +152,6 @@ public class FindTagCommandSystemTest extends AddressBookSystemTest {
         ModelHelper.setFilteredList(expectedModel, CARL);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
-
-        /* Case: mixed case command word -> rejected */
-        command = "FiNdtag friends";
-        assertCommandFailure(command, MESSAGE_UNKNOWN_COMMAND);
     }
 
     /**

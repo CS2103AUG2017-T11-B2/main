@@ -6,12 +6,13 @@ import java.util.Random;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 
 import seedu.address.model.person.ReadOnlyPerson;
-
 
 
 /**
@@ -20,6 +21,7 @@ import seedu.address.model.person.ReadOnlyPerson;
 public class PersonCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
+    private static final double GAP = 8;
 
     private static String[] colors = { "red", "blue", "orange", "brown", "green", "black", "grey", "yellow", "pink" };
 
@@ -42,13 +44,15 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label phone;
+    private FlowPane phones;
     @FXML
     private Label birthday;
     @FXML
     private Label address;
     @FXML
-    private Label email;
+    private FlowPane emails;
+    @FXML
+    private ImageView imageView;
     @FXML
     private FlowPane tags;
 
@@ -56,7 +60,10 @@ public class PersonCard extends UiPart<Region> {
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
+        initPhones(person);
+        initEmails(person);
         initTags(person);
+        initPhoto(person);
         bindListeners(person);
     }
 
@@ -80,13 +87,45 @@ public class PersonCard extends UiPart<Region> {
      */
     private void bindListeners(ReadOnlyPerson person) {
         name.textProperty().bind(Bindings.convert(person.nameProperty()));
-        phone.textProperty().bind(Bindings.convert(person.phoneProperty()));
+        person.phoneProperty().addListener((observable, oldValue, newValue) -> {
+            phones.getChildren().clear();
+            initPhones(person);
+                });
         birthday.textProperty().bind(Bindings.convert(person.birthdayProperty()));
         address.textProperty().bind(Bindings.convert(person.addressProperty()));
-        email.textProperty().bind(Bindings.convert(person.emailProperty()));
+        person.emailProperty().addListener((observable, oldValue, newValue) -> {
+                    emails.getChildren().clear();
+                    initEmails(person);
+                });
+        person.photoProperty().addListener((observable, oldValue, newValue) -> {
+            imageView.setImage(new Image(person.getPhoto().toString(), 120, 120,
+                    true, false));
+                });  
         person.tagProperty().addListener((observable, oldValue, newValue) -> {
             tags.getChildren().clear();
             initTags(person);
+        });
+    }
+
+    /**
+     * Initialise the phones for each person
+     */
+    private void initPhones(ReadOnlyPerson person) {
+        person.getPhones().forEach(phone -> {
+            Label phoneLabel = new Label(phone.value);
+            phones.getChildren().add(phoneLabel);
+            phones.setHgap(GAP);
+        });
+    }
+
+    /**
+     * Initialise the emails for each person
+     */
+    private void initEmails(ReadOnlyPerson person) {
+        person.getEmails().forEach(email -> {
+            Label emailLabel = new Label(email.value);
+            emails.getChildren().add(emailLabel);
+            emails.setHgap(GAP);
         });
     }
 
@@ -106,6 +145,15 @@ public class PersonCard extends UiPart<Region> {
         });
     }
 
+    /**
+     *
+     * Initialise the photo for each person
+     */
+    private void initPhoto(ReadOnlyPerson person) {
+        imageView.setImage(new Image(person.getPhoto().toString(), 126, 126, true,
+                false));
+    }
+
     @Override
     public boolean equals(Object other) {
         // short circuit if same object
@@ -123,4 +171,6 @@ public class PersonCard extends UiPart<Region> {
         return id.getText().equals(card.id.getText())
                 && person.equals(card.person);
     }
+
+
 }

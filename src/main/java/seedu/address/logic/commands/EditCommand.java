@@ -23,6 +23,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Photo;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
@@ -103,13 +104,15 @@ public class EditCommand extends UndoableCommand {
         assert personToEdit != null;
 
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
-        Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
+        Set<Phone> updatedPhones = editPersonDescriptor.getPhones().orElse(personToEdit.getPhones());
         Birthday updatedBirthday = editPersonDescriptor.getBirthday().orElse(personToEdit.getBirthday());
-        Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
+        Set<Email> updatedEmails = editPersonDescriptor.getEmails().orElse(personToEdit.getEmails());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        Photo updatedPhoto = personToEdit.getPhoto();
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedBirthday, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhones, updatedBirthday, updatedEmails, updatedAddress, 
+                updatedPhoto, updatedTags);
     }
 
     @Override
@@ -136,9 +139,9 @@ public class EditCommand extends UndoableCommand {
      */
     public static class EditPersonDescriptor {
         private Name name;
-        private Phone phone;
+        private Set<Phone> phones;
         private Birthday birthday;
-        private Email email;
+        private Set<Email> emails;
         private Address address;
         private Set<Tag> tags;
 
@@ -146,9 +149,9 @@ public class EditCommand extends UndoableCommand {
 
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             this.name = toCopy.name;
-            this.phone = toCopy.phone;
+            this.phones = toCopy.phones;
             this.birthday = toCopy.birthday;
-            this.email = toCopy.email;
+            this.emails = toCopy.emails;
             this.address = toCopy.address;
             this.tags = toCopy.tags;
         }
@@ -157,7 +160,7 @@ public class EditCommand extends UndoableCommand {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(this.name, this.phone, this.birthday, this.email,
+            return CollectionUtil.isAnyNonNull(this.name, this.phones, this.birthday, this.emails,
                     this.address, this.tags);
         }
 
@@ -169,12 +172,12 @@ public class EditCommand extends UndoableCommand {
             return Optional.ofNullable(name);
         }
 
-        public void setPhone(Phone phone) {
-            this.phone = phone;
+        public void setPhones(Set<Phone> phones) {
+            this.phones = phones;
         }
 
-        public Optional<Phone> getPhone() {
-            return Optional.ofNullable(phone);
+        public Optional<Set<Phone>> getPhones() {
+            return Optional.ofNullable(phones);
         }
 
         public void setBirthday(Birthday birthday) {
@@ -185,12 +188,12 @@ public class EditCommand extends UndoableCommand {
             return Optional.ofNullable(birthday);
         }
 
-        public void setEmail(Email email) {
-            this.email = email;
+        public void setEmails(Set<Email> emails) {
+            this.emails = emails;
         }
 
-        public Optional<Email> getEmail() {
-            return Optional.ofNullable(email);
+        public Optional<Set<Email>> getEmails() {
+            return Optional.ofNullable(emails);
         }
 
         public void setAddress(Address address) {
@@ -225,9 +228,9 @@ public class EditCommand extends UndoableCommand {
             EditPersonDescriptor e = (EditPersonDescriptor) other;
 
             return getName().equals(e.getName())
-                    && getPhone().equals(e.getPhone())
+                    && getPhones().equals(e.getPhones())
                     && getBirthday().equals(e.getBirthday())
-                    && getEmail().equals(e.getEmail())
+                    && getEmails().equals(e.getEmails())
                     && getAddress().equals(e.getAddress())
                     && getTags().equals(e.getTags());
         }

@@ -14,16 +14,18 @@ public interface ReadOnlyPerson {
 
     ObjectProperty<Name> nameProperty();
     Name getName();
-    ObjectProperty<Phone> phoneProperty();
-    Phone getPhone();
+    ObjectProperty<PhoneList> phoneProperty();
+    Set<Phone> getPhones();
     ObjectProperty<Birthday> birthdayProperty();
     Birthday getBirthday();
-    ObjectProperty<Email> emailProperty();
-    Email getEmail();
+    ObjectProperty<EmailList> emailProperty();
+    Set<Email> getEmails();
     ObjectProperty<Address> addressProperty();
     Address getAddress();
     ObjectProperty<UniqueTagList> tagProperty();
     Set<Tag> getTags();
+    ObjectProperty<Photo> photoProperty();
+    Photo getPhoto();
 
     /**
      * Returns true if both have the same state. (interfaces cannot override .equals)
@@ -32,10 +34,11 @@ public interface ReadOnlyPerson {
         return other == this // short circuit if same object
                 || (other != null // this is first to avoid NPE below
                 && other.getName().equals(this.getName()) // state checks here onwards
-                && other.getPhone().equals(this.getPhone())
+                && other.getPhones().equals(this.getPhones())
                 && other.getBirthday().equals(this.getBirthday())
-                && other.getEmail().equals(this.getEmail())
-                && other.getAddress().equals(this.getAddress()));
+                && other.getEmails().equals(this.getEmails())
+                && other.getAddress().equals(this.getAddress()))
+                && other.getPhoto().equals(this.getPhoto());
     }
 
     /**
@@ -44,14 +47,16 @@ public interface ReadOnlyPerson {
     default String getAsText() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append(" Phone: ")
-                .append(getPhone())
+                .append(" Phone(s): ")
+                .append(getPhones().toString())
                 .append(" Birthday: ")
                 .append(getBirthday())
-                .append(" Email: ")
-                .append(getEmail())
+                .append(" Email(s): ")
+                .append(getEmails().toString())
                 .append(" Address: ")
                 .append(getAddress())
+                .append(" Photo url: ")
+                .append(getPhoto())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

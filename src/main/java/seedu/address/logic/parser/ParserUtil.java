@@ -15,6 +15,7 @@ import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Photo;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -57,12 +58,15 @@ public class ParserUtil {
      * Parses a {@code Optional<String> phone} into an {@code Optional<Phone>} if {@code phone} is present.
      * See header comment of this class regarding the use of {@code Optional} parameters.
      */
-    public static Optional<Phone> parsePhone(Optional<String> phone) throws IllegalValueException {
-        requireNonNull(phone);
-        return phone.isPresent() ? Optional.of(new Phone(phone.get())) : Optional.empty();
+    public static Set<Phone> parsePhones(Collection<String> phones) throws IllegalValueException {
+        requireNonNull(phones);
+        final Set<Phone> phoneSet = new HashSet<>();
+        for (String phoneNum : phones) {
+            phoneSet.add(new Phone(phoneNum));
+        }
+        return phoneSet;
     }
 
-    //@@author viviantan95
     /**
      * Parses a {@code Optional<String> Address} into an {@code Optional<Address>} if {@code Address} is present.
      * See header comment of this class regarding the use of {@code Optional} parameters.
@@ -85,9 +89,13 @@ public class ParserUtil {
      * Parses a {@code Optional<String> email} into an {@code Optional<Email>} if {@code email} is present.
      * See header comment of this class regarding the use of {@code Optional} parameters.
      */
-    public static Optional<Email> parseEmail(Optional<String> email) throws IllegalValueException {
-        requireNonNull(email);
-        return email.isPresent() ? Optional.of(new Email(email.get())) : Optional.empty();
+    public static Set<Email> parseEmails(Collection<String> emails) throws IllegalValueException {
+        requireNonNull(emails);
+        final Set<Email> emailSet = new HashSet<>();
+        for (String e : emails) {
+            emailSet.add(new Email(e));
+        }
+        return emailSet;
     }
 
     /**
@@ -100,5 +108,14 @@ public class ParserUtil {
             tagSet.add(new Tag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses {@code Optional<String> photo} into a {@code Optional<Photo>}.
+     * See header comment of this class regarding the use of {@code Optional} parameters.
+     */
+    public static Optional<Photo> parsePhoto(Optional<String> photo) throws IllegalValueException {
+        requireNonNull(photo);
+        return photo.isPresent() ? Optional.of(new Photo(photo.get())) : Optional.empty();
     }
 }

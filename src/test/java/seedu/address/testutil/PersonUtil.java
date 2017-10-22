@@ -28,9 +28,13 @@ public class PersonUtil {
     public static String getPersonDetails(ReadOnlyPerson person) {
         StringBuilder sb = new StringBuilder();
         sb.append(PREFIX_NAME + person.getName().fullName + " ");
-        sb.append(PREFIX_PHONE + person.getPhone().value + " ");
+        person.getPhones().stream().forEach(
+            s -> sb.append(PREFIX_PHONE + s.value + " ")
+        );
         sb.append(PREFIX_BIRTHDAY + person.getBirthday().value + " ");
-        sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
+        person.getEmails().stream().forEach(
+            s -> sb.append(PREFIX_EMAIL + s.value + " ")
+        );
         sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
         person.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
