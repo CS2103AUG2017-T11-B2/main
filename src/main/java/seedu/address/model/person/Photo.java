@@ -46,14 +46,14 @@ public class Photo {
     /**
      * Returns true if a given string is a valid url.
      */
-    private boolean isValidPhoto(String test) {
+    public static boolean isValidPhoto(String test) {
         if (test.equals("images/defaultPhoto.png")) {
             return true;
         }
 
         if (test.matches(PHOTO_VALIDATION_REGEX)) {
             try {
-                image = ImageIO.read(new URL(test));
+                Image image = ImageIO.read(new URL(test));
                 if (image == null) {
                     return false;
                 }
