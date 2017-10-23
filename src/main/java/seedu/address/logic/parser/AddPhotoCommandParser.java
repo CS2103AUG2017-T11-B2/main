@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHOTO;
 
+import java.nio.file.Paths;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.AddPhotoCommand;
@@ -38,6 +40,11 @@ public class AddPhotoCommandParser implements Parser<AddPhotoCommand> {
             ParserUtil.parsePhoto(argMultimap.getValue(PREFIX_PHOTO)).ifPresent(toAddPhotoPerson::setPhoto);
         } catch (IllegalValueException e) {
             throw new ParseException(e.getMessage(), e);
+        }
+
+        if(toAddPhotoPerson.getPhoto().toString().equals("file://"
+                + Paths.get("src/main/resources/images/defaultPhoto.png").toAbsolutePath().toUri().getPath())){
+            throw new ParseException(AddPhotoCommand.MESSAGE_ADDPHOTO_UNSUCCESS);
         }
 
         return new AddPhotoCommand(index, toAddPhotoPerson.getPhoto());

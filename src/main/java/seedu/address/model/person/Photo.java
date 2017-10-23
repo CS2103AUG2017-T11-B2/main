@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import javax.imageio.ImageIO;
 
 import seedu.address.commons.exceptions.IllegalValueException;
@@ -19,8 +20,8 @@ public class Photo {
 
     public static final String PHOTO_VALIDATION_REGEX = "[^\\s].*";
 
-    private static final String DEFAULT_PHOTO = "file:///C:/Users/User/Desktop/repos intelliJ/addressbook-level4"
-            + "(mine)/src/main/resources/images/defaultPhoto.png";
+    private static final String DEFAULT_PHOTO = "file://" + Paths.get("src/main/resources/images/defaultPhoto.png")
+            .toAbsolutePath().toUri().getPath();
 
     public final String value;
     private Image image;
