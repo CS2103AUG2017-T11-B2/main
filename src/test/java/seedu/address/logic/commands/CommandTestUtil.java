@@ -49,7 +49,7 @@ public class CommandTestUtil {
     public static final String VALID_WEB_PHOTO_URL = "https://cdn.images.express.co.uk/img/dynamic/36/590x"
             + "/secondary/CHRIS-EVANS-865133.jpg";
     public static final String VALID_LOCAL_PHOTO_URL = "file://"
-            + Paths.get("src/main/resources/images/help_icon.png").toAbsolutePath().toUri().getPath();
+            + Paths.get("src/main/resources/images/defaultPhoto.png").toAbsolutePath().toUri().getPath();
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
     public static final String NAME_DESC_CARRIE = " " + PREFIX_NAME + VALID_NAME_CARRIE;
