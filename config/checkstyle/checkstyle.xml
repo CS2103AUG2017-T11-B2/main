@@ -257,7 +257,7 @@
     ORDER CHECKS
     -->
 
-    <!-- Checks that the order of at-clauses follows the tagOrder default property value order.
+    <!-- Checks that the order of at-clauses follows the modOrder default property value order.
          @author, @version, @param, @return, @throws, @exception, @see, @since, @serial, @serialField, @serialData, @deprecated
     -->
     <module name="AtclauseOrder"/>
@@ -402,7 +402,7 @@
       <property name="allowThrowsTagsForSubclasses" value="true"/>
       <property name="allowMissingParamTags" value="true"/>
       <property name="allowMissingThrowsTags" value="true"/>
-      <property name="allowMissingReturnTag" value="true"/>
+      <property name="allowMissingReturnMod" value="true"/>
       <property name="allowMissingPropertyJavadoc" value="true"/>
       <property name="ignoreMethodNamesRegex" value="(set.*|get.*)"/>
       <property name="tokens" value="METHOD_DEF, ANNOTATION_FIELD_DEF"/>
@@ -419,7 +419,7 @@
       <property name="allowThrowsTagsForSubclasses" value="true"/>
       <property name="allowMissingParamTags" value="true"/>
       <property name="allowMissingThrowsTags" value="true"/>
-      <property name="allowMissingReturnTag" value="true"/>
+      <property name="allowMissingReturnMod" value="true"/>
       <property name="allowMissingPropertyJavadoc" value="true"/>
       <property name="ignoreMethodNamesRegex" value="(set.*|get.*)"/>
       <property name="tokens" value="METHOD_DEF, ANNOTATION_FIELD_DEF"/>

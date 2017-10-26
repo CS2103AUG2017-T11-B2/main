@@ -32,7 +32,7 @@
         </Label>
         <Label fx:id="name" styleClass="cell_big_label" text="\$first" />
       </HBox>
-      <FlowPane fx:id="tags" />
+      <FlowPane fx:id="mods" />
       <FlowPane fx:id="phones" prefHeight="16.0" prefWidth="130.0" styleClass="cell_small_label" />
       <Label fx:id="birthday" styleClass="cell_small_label" text="\$birthday" />
       <Label fx:id="address" styleClass="cell_small_label" text="\$address" />

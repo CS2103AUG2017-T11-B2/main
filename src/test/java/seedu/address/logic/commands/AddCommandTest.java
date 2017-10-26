@@ -24,7 +24,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.mod.Mod;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandTest {
@@ -141,7 +141,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void deleteTag(Tag tag) throws DuplicatePersonException, PersonNotFoundException {
+        public void deleteMod(Mod mod) throws DuplicatePersonException, PersonNotFoundException {
             fail("This method should not be called.");
         }
     }
