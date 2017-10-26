@@ -45,7 +45,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 *Command Format*
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-* Items in square brackets are optional e.g `n/NAME [t/MOD]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+* Items in square brackets are optional e.g `n/NAME [m/MOD]` can be used as `n/John Doe m/CS2101` or as `n/John Doe`.
 * Items with `…`​ after them can be used multiple times e.g. `p/PHONE_NUMBER...` can be used as `p/12345678`, `p/12345678 p/87654321` etc.
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 ====
@@ -149,8 +149,8 @@ Format: `t KEYWORD [MORE_KEYWORDS]` +
 Examples:
 
 * `findMod CS2101` or `fm CS2101` +
-Returns `Alex Yeoh` and `Bernice Yu` with mods containing 'friends' inside
-* `findMod friends colleagues` or `fm CS2101 CS2103` + +
+Returns `Alex Yeoh` and `Bernice Yu` with mods containing 'CS2101' inside
+* `findMod CS2101 CS2103` or `fm CS2101 CS2103` + +
 Returns any person having mods `CS2101` or `CS2103`
 
 === Deleting a person : `delete` or `d`
@@ -223,7 +223,7 @@ Format: `h`
 Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and next input respectively in the command box.
 ====
 
-// mod::undoredo[]
+// tag::undoredo[]
 === Undoing previous command : `undo` or `u`
 
 Restores the address book to the state before the previous _undoable_ command was executed. +
@@ -315,8 +315,8 @@ There is no need to save manually.
 == Command Summary
 
 * *Add* `add` or `a n/NAME p/PHONE_NUMBER... b/BIRTHDAY e/EMAIL... a/ADDRESS [t/MOD]...` +
-e.g. `add n/James Ho p/22224444 p/66669999 b/02/02/1992 e/jamesho@example.com e/jho@live.com a/123, Clementi Rd, 1234665 t/friend t/colleague` +
-e.g. `a n/James Ho p/22224444 p/ 66669999 e/jamesho@example.com e/jho@live.com a/123, Clementi Rd, 1234665 t/friend t/colleague` +
+e.g. `add n/James Ho p/22224444 p/66669999 b/02/02/1992 e/jamesho@example.com e/jho@live.com a/123, Clementi Rd, 1234665 t/CS2101 t/colleague` +
+e.g. `a n/James Ho p/22224444 p/ 66669999 e/jamesho@example.com e/jho@live.com a/123, Clementi Rd, 1234665 t/CS2101 t/colleague` +
 * *Clear* : `clear` or `c`
 * *Delete* : `delete INDEX` +
 e.g. `delete 3` +
@@ -327,9 +327,9 @@ e.g. `e 2 n/James Lee e/jameslee@example.com`
 * *Find* : `find` or `f KEYWORD [MORE_KEYWORDS]` +
 e.g. `find James Jake` +
 e.g. `f James Jake`
-* *Find Mod* : `findMod` or `ft KEYWORD [MORE_KEYWORDS]` +
-e.g. `findMod Family Friends` +
-e.g. `t Family Friends`
+* *Find Mod* : `findMod` or `fm KEYWORD [MORE_KEYWORDS]` +
+e.g. `findMod CS2101 CS2103` +
+e.g. `fm CS2101 CS2103`
 * *Help* : `help`
 * *History* : `history` or `h`
 * *List* : `list` or `l`

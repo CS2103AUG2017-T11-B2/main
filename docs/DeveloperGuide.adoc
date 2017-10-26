@@ -218,7 +218,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-// ::undoredo[]
+// tag::undoredo[]
 === Undo/Redo mechanism
 
 The undo/redo mechanism is facilitated by an `UndoRedoStack`, which resides inside `LogicManager`. It supports undoing and redoing of commands that modifies the state of the address book (e.g. `add`, `edit`). Such commands will inherit from `UndoableCommand`.
@@ -346,7 +346,7 @@ image::UndoRedoActivityDiagram.png[width="200"]
 // end::undoredo[]
 
 
-// ::findMod[]
+// tag::findMod[]
 === Find Mod mechanism
 
 The Find Mod mechanism is implemented using the `FindModCommand`, which resides inside `Logic`. It supports listing all the contacts in the address book associated with.
@@ -398,7 +398,7 @@ Upon exiting ContactHub, the contact list will not be filtered for according to 
 **Cons:** We must ensure that the algorithm's logic is right and efficient.
 // end::findMod[]
 
-// mod::sort[]
+// tag::sort[]
 === Sort mechanism
 
 The sort mechanism is implemented using the `SortCommand`, which resides inside `Logic`. It supports sorting all the contacts in the address book in an alphabetical order.

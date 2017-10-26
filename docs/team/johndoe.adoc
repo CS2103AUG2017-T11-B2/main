@@ -15,7 +15,7 @@ AddressBook - Level 4 is a desktop address book application used for teaching So
 ---
 #Start of Extract [from: User Guide]#
 
-include::../UserGuide.adoc[mod=undoredo]
+include::../UserGuide.adoc[tag=undoredo]
 
 #End of Extract#
 
@@ -30,7 +30,7 @@ include::../UserGuide.adoc[mod=undoredo]
 ---
 #Start of Extract [from: Developer Guide]#
 
-include::../DeveloperGuide.adoc[mod=undoredo]
+include::../DeveloperGuide.adqoc[tag=undoredo]
 
 #End of Extract#
 
