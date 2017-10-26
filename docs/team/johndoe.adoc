@@ -30,7 +30,7 @@ include::../UserGuide.adoc[tag=undoredo]
 ---
 #Start of Extract [from: Developer Guide]#
 
-include::../DeveloperGuide.adqoc[tag=undoredo]
+include::../DeveloperGuide.adoc[tag=undoredo]
 
 #End of Extract#
 
