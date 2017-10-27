@@ -3,8 +3,8 @@ package seedu.address.logic.commands;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.mod.Mod;
+import seedu.address.model.person.ReadOnlyPerson;
 
 /**
  * Lists all mods in the address book to the user.

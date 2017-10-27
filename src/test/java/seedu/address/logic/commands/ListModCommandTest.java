@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_CS2103;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_CS2101;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_CS2103;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_GER1000;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalPersons.AMY;
@@ -21,10 +21,10 @@ import seedu.address.logic.UndoRedoStack;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.mod.Mod;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
-import seedu.address.model.mod.Mod;
 
 public class ListModCommandTest {
     private Model model;

@@ -9,15 +9,15 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_BIRTHDAY_CARRIE
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_CARRIE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_CS2101;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_CS2103;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_GER1000;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_CARRIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_CARRIE;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_CS2103;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_CS2101;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_GER1000;
 
 import java.util.ArrayList;
 import java.util.Arrays;
