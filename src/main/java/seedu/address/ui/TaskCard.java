@@ -96,6 +96,4 @@ public class TaskCard extends UiPart<Region> {
         return idtask.getText().equals(card.idtask.getText())
                 && task.equals(card.task);
     }
-
-
 }
