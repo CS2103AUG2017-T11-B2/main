@@ -2,9 +2,6 @@ package seedu.address.model.task;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import seedu.address.model.person.*;
-import seedu.address.model.tag.Tag;
-import seedu.address.model.tag.UniqueTagList;
 
 import java.util.Collections;
 import java.util.Objects;
@@ -19,14 +16,11 @@ public class Task implements ReadOnlyTask {
     private ObjectProperty<Date> date;
     private ObjectProperty<StartTime> startTime;
 
-    private ObjectProperty<UniqueTagList> tags;
-
-
     /**
      * Every field must be present and not null.
      */
     public Task(Appointment name, Date date, StartTime startTime) {
-        //requireAllNonNull(name, date, startTime);
+        requireAllNonNull(name, date, startTime);
         this.name = new SimpleObjectProperty<>(name);
         this.date = new SimpleObjectProperty<>(date);
         this.startTime = new SimpleObjectProperty<>(startTime);
