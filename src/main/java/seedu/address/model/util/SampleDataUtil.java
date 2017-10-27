@@ -58,7 +58,6 @@ public class SampleDataUtil {
 
     public static Task[] getSampleTasks() {
         try {
-            System.out.println( new Task(new Appointment("Meeting"), new Date("27/10/2017"), new StartTime("12:00")));
             return new Task[] {
                 new Task(new Appointment("Meeting"), new Date("27/10/2017"), new StartTime("12:00")),
                 new Task(new Appointment("Birthday"), new Date("30/11/2017"), new StartTime("12:00"))
@@ -73,11 +72,9 @@ public class SampleDataUtil {
             AddressBook sampleAb = new AddressBook();
             for (Person samplePerson : getSamplePersons()) {
                 sampleAb.addPerson(samplePerson);
-                System.out.println(samplePerson);
             }
             for (Task sampleTask : getSampleTasks()) {
                 sampleAb.addTask(sampleTask);
-                System.out.println(sampleTask);
             }
             return sampleAb;
         } catch (DuplicatePersonException e) {

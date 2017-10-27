@@ -5,8 +5,8 @@ import javax.xml.bind.annotation.XmlElement;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.task.Appointment;
 import seedu.address.model.task.Date;
-import seedu.address.model.task.StartTime;
 import seedu.address.model.task.ReadOnlyTask;
+import seedu.address.model.task.StartTime;
 import seedu.address.model.task.Task;
 
 /**
