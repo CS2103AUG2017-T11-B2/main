@@ -1,10 +1,12 @@
 package seedu.address.model.task;
 
-import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Birthday;
-
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.exceptions.IllegalValueException;
+
+/**
+ * Represents teh date of the Task in the address book.
+ */
 public class Date {
     public static final String MESSAGE_DATE_CONSTRAINTS =
             "Birthday must be in the format of DD/MM/YYYY";

@@ -1,14 +1,17 @@
 package seedu.address.storage;
 
-import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.task.*;
-
 import javax.xml.bind.annotation.XmlElement;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
+import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.task.Appointment;
+import seedu.address.model.task.Date;
+import seedu.address.model.task.StartTime;
+import seedu.address.model.task.ReadOnlyTask;
+import seedu.address.model.task.Task;
+
+/**
+ * JAXB-friendly version of the Task.
+ */
 public class XmlAdaptedTask {
 
     @XmlElement(required = true)

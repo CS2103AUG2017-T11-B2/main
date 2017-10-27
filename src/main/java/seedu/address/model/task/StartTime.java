@@ -1,10 +1,12 @@
 package seedu.address.model.task;
 
-import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Birthday;
-
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.exceptions.IllegalValueException;
+
+/**
+ * Represents teh start time of the Task in the address book.
+ */
 public class StartTime {
 
     public static final String MESSAGE_TIME_CONSTRAINTS =

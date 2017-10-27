@@ -60,8 +60,8 @@ public class SampleDataUtil {
         try {
             System.out.println( new Task(new Appointment("Meeting"), new Date("27/10/2017"), new StartTime("12:00")));
             return new Task[] {
-                    new Task(new Appointment("Meeting"), new Date("27/10/2017"), new StartTime("12:00")),
-                    new Task(new Appointment("Birthday"), new Date("30/11/2017"), new StartTime("12:00"))
+                new Task(new Appointment("Meeting"), new Date("27/10/2017"), new StartTime("12:00")),
+                new Task(new Appointment("Birthday"), new Date("30/11/2017"), new StartTime("12:00"))
             };
         } catch (IllegalValueException e) {
             throw new AssertionError("sample data cannot be invalid", e);

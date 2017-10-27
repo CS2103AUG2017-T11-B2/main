@@ -1,27 +1,30 @@
 package seedu.address.ui;
 
+import java.util.logging.Logger;
+
+import org.fxmisc.easybind.EasyBind;
+
 import com.google.common.eventbus.Subscribe;
+
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
-import org.fxmisc.easybind.EasyBind;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.ui.JumpToListRequestEvent;
-import seedu.address.commons.events.ui.PersonPanelSelectionChangedEvent;
 import seedu.address.commons.events.ui.TaskPanelSelectionChangedEvent;
-import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.task.ReadOnlyTask;
 
-import java.util.logging.Logger;
-
+/**
+ * Panel containing the list of tasks.
+ */
 public class TaskListPanel extends UiPart<Region> {
     private static final String FXML = "TaskListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(TaskListPanel.class);
 
-    @javafx.fxml.FXML
+    @FXML
     private ListView<TaskCard> taskListView;
 
     public TaskListPanel(ObservableList<ReadOnlyTask> taskList) {

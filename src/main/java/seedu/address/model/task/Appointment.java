@@ -1,9 +1,12 @@
 package seedu.address.model.task;
 
-import seedu.address.model.person.Name;
-
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.model.person.Name;
+
+/**
+ * Represents a Task's appointment in the address book.
+ */
 public class Appointment {
 
     public final String appointmentName;

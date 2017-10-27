@@ -1,23 +1,23 @@
 package seedu.address.model.task;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import org.fxmisc.easybind.EasyBind;
-import seedu.address.model.person.Person;
-import seedu.address.model.task.Task;
-import seedu.address.model.person.ReadOnlyPerson;
-import seedu.address.model.person.UniquePersonList;
-import seedu.address.model.person.exceptions.DuplicatePersonException;
-import seedu.address.model.person.exceptions.PersonNotFoundException;
-import seedu.address.model.task.exceptions.TaskNotFoundException;
+import static java.util.Objects.requireNonNull;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import static java.util.Objects.requireNonNull;
+import org.fxmisc.easybind.EasyBind;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import seedu.address.model.task.exceptions.TaskNotFoundException;
+
+/**
+ * A list of tasks that enforces uniqueness between its elements and does not allow nulls.
+ *
+ * Supports a minimal set of list operations.
+ */
 public class UniqueTaskList implements Iterable<Task> {
 
     private final ObservableList<Task> internalList = FXCollections.observableArrayList();
@@ -27,7 +27,7 @@ public class UniqueTaskList implements Iterable<Task> {
     /**
      * Returns true if the list contains an equivalent person as the given argument.
      */
-    public boolean contains(ReadOnlyPerson toCheck) {
+    public boolean contains(ReadOnlyTask toCheck) {
         requireNonNull(toCheck);
         return internalList.contains(toCheck);
     }
