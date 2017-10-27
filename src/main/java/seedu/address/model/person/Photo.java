@@ -2,7 +2,7 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 
-import java.awt.*;
+import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
