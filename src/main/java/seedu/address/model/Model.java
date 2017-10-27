@@ -7,6 +7,7 @@ import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.task.ReadOnlyTask;
 
 /**
  * The API of the Model component.
@@ -53,4 +54,5 @@ public interface Model {
 
     void deleteTag(Tag tag)throws DuplicatePersonException, PersonNotFoundException;
 
+    ObservableList<ReadOnlyTask> getFilteredTaskList();
 }

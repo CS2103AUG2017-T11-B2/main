@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
+import org.controlsfx.control.textfield.TextFields;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.ui.NewResultAvailableEvent;
 import seedu.address.logic.ListElementPointer;
@@ -30,11 +31,14 @@ public class CommandBox extends UiPart<Region> {
     @FXML
     private TextField commandTextField;
 
+    private String[] suggestions = {"add", "sort", "delete", "list", "find", "findTag"};
+
     public CommandBox(Logic logic) {
         super(FXML);
         this.logic = logic;
         // calls #setStyleToDefault() whenever there is a change to the text of the command box.
         commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
+        TextFields.bindAutoCompletion(commandTextField, suggestions);
         historySnapshot = logic.getHistorySnapshot();
     }
 
