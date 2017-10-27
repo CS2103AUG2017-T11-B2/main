@@ -1,6 +1,5 @@
 package seedu.address.model.task;
 
-import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Name;
 
 import static java.util.Objects.requireNonNull;
