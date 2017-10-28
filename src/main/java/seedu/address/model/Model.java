@@ -60,6 +60,9 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<ReadOnlyPerson> getFilteredPersonList();
 
+    /** Returns an unmodifiable view of the filtered task list */
+    ObservableList<ReadOnlyTask> getFilteredTaskList();
+
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
@@ -79,5 +82,4 @@ public interface Model {
 
     void deleteModule(Module module)throws DuplicatePersonException, PersonNotFoundException;
 
-    ObservableList<ReadOnlyTask> getFilteredTaskList();
 }
