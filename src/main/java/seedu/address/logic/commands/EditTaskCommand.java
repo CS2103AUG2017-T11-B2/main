@@ -134,55 +134,55 @@ public class EditTaskCommand extends UndoableCommand {
         }
 
 
-    /**
-     * Returns true if at least one field is edited.
-     */
-    public boolean isAnyFieldEdited() {
-        return CollectionUtil.isAnyNonNull(this.appointment, this.date, this.startTime);
-    }
-
-    public void setAppointment(Appointment appointment) {
-        this.appointment = appointment;
-    }
-
-    public Optional<Appointment> getAppointment() {
-        return Optional.ofNullable(appointment);
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Optional<Date> getDate() {
-        return Optional.ofNullable(date);
-    }
-
-    public void setStartTime(StartTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public Optional<StartTime> getStartTime() {
-        return Optional.ofNullable(startTime);
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        // short circuit if same object
-        if (other == this) {
-            return true;
+        /**
+         * Returns true if at least one field is edited.
+         */
+        public boolean isAnyFieldEdited() {
+            return CollectionUtil.isAnyNonNull(this.appointment, this.date, this.startTime);
         }
 
-        // instanceof handles nulls
-        if (!(other instanceof EditTaskCommand.EditTaskDescriptor)) {
-            return false;
+        public void setAppointment(Appointment appointment) {
+            this.appointment = appointment;
         }
 
-        // state check
-        EditTaskCommand.EditTaskDescriptor e = (EditTaskCommand.EditTaskDescriptor) other;
+        public Optional<Appointment> getAppointment() {
+            return Optional.ofNullable(appointment);
+        }
 
-        return getAppointment().equals(e.getAppointment())
-                && getDate().equals(e.getDate())
-                && getStartTime().equals(e.getStartTime());
+        public void setDate(Date date) {
+            this.date = date;
+        }
+
+        public Optional<Date> getDate() {
+            return Optional.ofNullable(date);
+        }
+
+        public void setStartTime(StartTime startTime) {
+            this.startTime = startTime;
+        }
+
+        public Optional<StartTime> getStartTime() {
+            return Optional.ofNullable(startTime);
+        }
+
+        @Override
+        public boolean equals(Object other) {
+            // short circuit if same object
+            if (other == this) {
+                return true;
+            }
+
+            // instanceof handles nulls
+            if (!(other instanceof EditTaskCommand.EditTaskDescriptor)) {
+                return false;
+            }
+
+            // state check
+            EditTaskCommand.EditTaskDescriptor e = (EditTaskCommand.EditTaskDescriptor) other;
+
+            return getAppointment().equals(e.getAppointment())
+                    && getDate().equals(e.getDate())
+                    && getStartTime().equals(e.getStartTime());
         }
     }
 }
