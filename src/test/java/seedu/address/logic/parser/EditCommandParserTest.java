@@ -96,13 +96,16 @@ public class EditCommandParserTest {
 
         // while parsing {@code PREFIX_MOD} alone will reset the mods of the {@code Person} being edited,
         // parsing it together with a valid module results in error
-        assertParseFailure(parser, "1" + MOD_DESC_CS2101 + MOD_DESC_GER1000 + MOD_EMPTY, Module.MESSAGE_MODULE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + MOD_DESC_CS2101 + MOD_EMPTY + MOD_DESC_GER1000, Module.MESSAGE_MODULE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + MOD_EMPTY + MOD_DESC_CS2101 + MOD_DESC_GER1000, Module.MESSAGE_MODULE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + MOD_DESC_CS2101 + MOD_DESC_GER1000
+                + MOD_EMPTY, Module.MESSAGE_MODULE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + MOD_DESC_CS2101 + MOD_EMPTY
+                + MOD_DESC_GER1000, Module.MESSAGE_MODULE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + MOD_EMPTY + MOD_DESC_CS2101
+                + MOD_DESC_GER1000, Module.MESSAGE_MODULE_CONSTRAINTS);
 
         // multiple invalid values, but only the first invalid value is captured
-        assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC + VALID_ADDRESS_AMY + VALID_PHONE_AMY,
-                Name.MESSAGE_NAME_CONSTRAINTS);
+        assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC
+                        + VALID_ADDRESS_AMY + VALID_PHONE_AMY, Name.MESSAGE_NAME_CONSTRAINTS);
     }
 
     @Test

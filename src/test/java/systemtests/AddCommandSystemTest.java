@@ -65,7 +65,8 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
     @Test
     public void add() throws Exception {
         Model model = getModel();
-        /* Case: add a person without modules to a non-empty address book, command with leading spaces and trailing spaces
+        /* Case: add a person without modules to a non-empty address book,
+         * command with leading spaces and trailing spaces
          * -> added
          */
         ReadOnlyPerson toAdd = AMY;
