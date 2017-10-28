@@ -77,25 +77,27 @@ public class CommandBox extends UiPart<Region> {
     private void deleteChunk() {
         int caretPos = commandTextField.getCaretPosition();
         int newCaretPos;
-        boolean caretAtMostRight = false;
 
         if (caretPos == 0) {
             return;
         }
 
         if (caretPos == commandTextField.getText().length()) {   //caret at the extreme right of command box text
-            caretAtMostRight = true;
             if (noCharBefore(caretPos)) {
                 //remove chunk of space
                 newCaretPos = caretPos;
+
                 for (int i = newCaretPos; i > 0; i--) {
                     if (!noCharBefore(newCaretPos)) {
                         break;
                     }
                     newCaretPos -= 1;
+                    System.out.println(newCaretPos);
                 }
             } else {
+                //remove chunk of words
                 newCaretPos = caretPos;
+
                 for (int i = newCaretPos; i > 0; i--) {
                     if (noCharBefore(newCaretPos)) {
                         break;
@@ -103,24 +105,24 @@ public class CommandBox extends UiPart<Region> {
                     newCaretPos -= 1;
                 }
             }
-        }
-
-        if (!caretAtMostRight && !noCharBefore(caretPos) && !noCharAfter(caretPos)) { //caret between a word
+        } else if (!noCharBefore(caretPos) && !noCharAfter(caretPos)) { //caret between a word
             return;
-        }
-
-        if (!caretAtMostRight && noCharBefore(caretPos) && caretPos != commandTextField.getText().length()) {
+        } else if (noCharBefore(caretPos) && caretPos != commandTextField.getText().length()) {
             //remove chunk of space
             int tempCaretPos = caretPos;
+
             for (int i = tempCaretPos; i > 0; i--) {
-                if (!noCharBefore(tempCaretPos)) {
-                    break;
-                }
-                tempCaretPos -= 1;
+                 if (!noCharBefore(tempCaretPos)) {
+                     break;
+                 }
+                 tempCaretPos -= 1;
             }
             newCaretPos = tempCaretPos;
-        } else {                         //remove chunk of words
+
+            } else {
+            //remove chunk of words
             int tempCaretPos = caretPos;
+
             for (int i = tempCaretPos; i > 0; i--) {
                 if (noCharBefore(tempCaretPos)) {
                     break;
@@ -138,6 +140,7 @@ public class CommandBox extends UiPart<Region> {
         String newCommandBoxText;
         if (oldCaretPos == 0 || oldCaretPos == commandTextField.getText().length()){
             newCommandBoxText = oldCommandBoxText;
+            System.out.println("im here");
         } else {
             newCommandBoxText = oldCommandBoxText + commandTextField.getText().substring(oldCaretPos);
         }
