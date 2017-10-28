@@ -1,7 +1,5 @@
 package seedu.address.logic.parser;
 
-import seedu.address.logic.commands.RedoCommand;
-
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
@@ -22,6 +20,7 @@ import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ListModCommand;
+import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.SortCommand;
 import seedu.address.logic.commands.UndoCommand;

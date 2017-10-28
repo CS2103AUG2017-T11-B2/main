@@ -10,7 +10,11 @@ import java.util.stream.Stream;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.AddTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.task.*;
+import seedu.address.model.task.Appointment;
+import seedu.address.model.task.Date;
+import seedu.address.model.task.ReadOnlyTask;
+import seedu.address.model.task.StartTime;
+import seedu.address.model.task.Task;
 
 /**
  * Parses input arguments and creates a new AddTaskCommand object
