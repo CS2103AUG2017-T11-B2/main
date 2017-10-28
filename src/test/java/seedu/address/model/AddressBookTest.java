@@ -16,7 +16,7 @@ import org.junit.rules.ExpectedException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.model.mod.Mod;
+import seedu.address.model.module.Mod;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.task.ReadOnlyTask;
@@ -31,7 +31,7 @@ public class AddressBookTest {
     @Test
     public void constructor() {
         assertEquals(Collections.emptyList(), addressBook.getPersonList());
-        assertEquals(Collections.emptyList(), addressBook.getTagList());
+        assertEquals(Collections.emptyList(), addressBook.getModList());
     }
 
     @Test
@@ -65,9 +65,9 @@ public class AddressBookTest {
     }
 
     @Test
-    public void getTagList_modifyList_throwsUnsupportedOperationException() {
+    public void getModList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
-        addressBook.getTagList().remove(0);
+        addressBook.getModList().remove(0);
     }
 
     /**
@@ -92,7 +92,7 @@ public class AddressBookTest {
         public ObservableList<ReadOnlyTask> getTaskList() { return tasks; }
 
         @Override
-        public ObservableList<Mod> getTagList() {
+        public ObservableList<Mod> getModList() {
             return mods;
         }
     }

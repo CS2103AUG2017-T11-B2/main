@@ -36,7 +36,7 @@ import org.junit.Test;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
-import seedu.address.model.mod.Mod;
+import seedu.address.model.module.Mod;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -85,7 +85,7 @@ public class EditCommandParserTest {
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_PHONE_CONSTRAINTS); // invalid phone
         assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_EMAIL_CONSTRAINTS); // invalid email
         assertParseFailure(parser, "1" + INVALID_ADDRESS_DESC, Address.MESSAGE_ADDRESS_CONSTRAINTS); // invalid address
-        assertParseFailure(parser, "1" + INVALID_MOD_DESC, Mod.MESSAGE_MOD_CONSTRAINTS); // invalid mod
+        assertParseFailure(parser, "1" + INVALID_MOD_DESC, Mod.MESSAGE_MOD_CONSTRAINTS); // invalid module
 
         // invalid phone followed by valid email
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC + EMAIL_DESC_AMY, Phone.MESSAGE_PHONE_CONSTRAINTS);
@@ -95,7 +95,7 @@ public class EditCommandParserTest {
         assertParseFailure(parser, "1" + PHONE_DESC_BOB + INVALID_PHONE_DESC, Phone.MESSAGE_PHONE_CONSTRAINTS);
 
         // while parsing {@code PREFIX_MOD} alone will reset the mods of the {@code Person} being edited,
-        // parsing it together with a valid mod results in error
+        // parsing it together with a valid module results in error
         assertParseFailure(parser, "1" + MOD_DESC_CS2101 + MOD_DESC_GER1000 + MOD_EMPTY, Mod.MESSAGE_MOD_CONSTRAINTS);
         assertParseFailure(parser, "1" + MOD_DESC_CS2101 + MOD_EMPTY + MOD_DESC_GER1000, Mod.MESSAGE_MOD_CONSTRAINTS);
         assertParseFailure(parser, "1" + MOD_EMPTY + MOD_DESC_CS2101 + MOD_DESC_GER1000, Mod.MESSAGE_MOD_CONSTRAINTS);
@@ -194,7 +194,7 @@ public class EditCommandParserTest {
     }
 
     @Test
-    public void parse_resetTags_success() {
+    public void parse_resetMods_success() {
         Index targetIndex = INDEX_THIRD_PERSON;
         String userInput = targetIndex.getOneBased() + MOD_EMPTY;
 

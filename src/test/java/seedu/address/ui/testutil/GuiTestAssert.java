@@ -23,7 +23,7 @@ public class GuiTestAssert {
         assertEquals(expectedCard.getEmails(), actualCard.getEmails());
         assertEquals(expectedCard.getName(), actualCard.getName());
         assertEquals(expectedCard.getPhones(), actualCard.getPhones());
-        assertEquals(expectedCard.getTags(), actualCard.getTags());
+        assertEquals(expectedCard.getMods(), actualCard.getMods());
     }
 
     /**
@@ -37,7 +37,7 @@ public class GuiTestAssert {
                 .collect(Collectors.toList()), actualCard.getEmails());
         assertEquals(expectedPerson.getAddress().value, actualCard.getAddress());
         assertEquals(expectedPerson.getMods().stream().map(mod -> mod.modName).collect(Collectors.toList()),
-                actualCard.getTags());
+                actualCard.getMods());
     }
 
     /**

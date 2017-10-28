@@ -31,7 +31,7 @@ public class FindModCommandSystemTest extends AddressBookSystemTest {
          */
         String command = "   " + FindModCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_OWESMONEY + "   ";
         Model expectedModel = getModel();
-        ModelHelper.setFilteredList(expectedModel, BENSON, CARL); // mod of Benson is "owesMoney"
+        ModelHelper.setFilteredList(expectedModel, BENSON, CARL); // module of Benson is "owesMoney"
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
@@ -81,7 +81,7 @@ public class FindModCommandSystemTest extends AddressBookSystemTest {
         expectedResultMessage = RedoCommand.MESSAGE_FAILURE;
         assertCommandFailure(command, expectedResultMessage);
 
-        /* Case: find same mod in address book after deleting 1 of them -> 1 person found */
+        /* Case: find same module in address book after deleting 1 of them -> 1 person found */
         executeCommand(DeleteCommand.COMMAND_WORD + " 2");
         assert !getModel().getAddressBook().getPersonList().contains(BENSON);
         command = FindModCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_OWESMONEY;

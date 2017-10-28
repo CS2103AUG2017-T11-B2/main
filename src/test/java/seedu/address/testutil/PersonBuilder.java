@@ -3,7 +3,7 @@ package seedu.address.testutil;
 import java.util.Set;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.mod.Mod;
+import seedu.address.model.module.Mod;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
@@ -36,9 +36,9 @@ public class PersonBuilder {
             Set<Email> defaultEmails = SampleDataUtil.getEmailSet(DEFAULT_EMAILS);
             Address defaultAddress = new Address(DEFAULT_ADDRESS);
             Photo defaultPhoto = new Photo();
-            Set<Mod> defaultTags = SampleDataUtil.getModSet(DEFAULT_MODS);
+            Set<Mod> defaultMods = SampleDataUtil.getModSet(DEFAULT_MODS);
             this.person = new Person(defaultName, defaultPhones, defaultBirthday, defaultEmails,
-                    defaultAddress, defaultPhoto, defaultTags);
+                    defaultAddress, defaultPhoto, defaultMods);
         } catch (IllegalValueException ive) {
             throw new AssertionError("Default person's values are invalid.");
         }
@@ -66,9 +66,9 @@ public class PersonBuilder {
     /**
      * Parses the {@code mods} into a {@code Set<Mod>} and set it to the {@code Person} that we are building.
      */
-    public PersonBuilder withTags(String ... mods) {
+    public PersonBuilder withMods(String ... mods) {
         try {
-            this.person.setTags(SampleDataUtil.getModSet(mods));
+            this.person.setMods(SampleDataUtil.getModSet(mods));
         } catch (IllegalValueException ive) {
             throw new IllegalArgumentException("mods are expected to be unique.");
         }

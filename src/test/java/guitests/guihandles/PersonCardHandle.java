@@ -80,7 +80,7 @@ public class PersonCardHandle extends NodeHandle<Node> {
                 .collect(Collectors.toList());
     }
 
-    public List<String> getTags() {
+    public List<String> getMods() {
         return modLabels
                 .stream()
                 .map(Label::getText)

@@ -4,7 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import seedu.address.model.mod.UniqueModList;
+import seedu.address.model.module.UniqueModList;
 
 public class UniqueModListTest {
     @Rule

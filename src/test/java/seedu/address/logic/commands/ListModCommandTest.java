@@ -21,7 +21,7 @@ import seedu.address.logic.UndoRedoStack;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.mod.Mod;
+import seedu.address.model.module.Mod;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
@@ -29,12 +29,12 @@ import seedu.address.model.person.exceptions.PersonNotFoundException;
 public class ListModCommandTest {
     private Model model;
     private Model expectedModel;
-    private ListModCommand listTagCommand;
+    private ListModCommand listModCommand;
     private ArrayList<Mod> modList;
     private ArrayList<String> tempList;
     private String expectedMessage;
 
-    public final String listTagMessage = listTagCommand.MESSAGE_SUCCESS + "\n" + "Mod names: ";
+    public final String listModMessage = listModCommand.MESSAGE_SUCCESS + "\n" + "Module names: ";
 
     @Before
     public void setUp() {
@@ -42,8 +42,8 @@ public class ListModCommandTest {
         expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         modList = new ArrayList<>();
         tempList = new ArrayList<>();
-        listTagCommand = new ListModCommand();
-        listTagCommand.setData(model, new CommandHistory(), new UndoRedoStack());
+        listModCommand = new ListModCommand();
+        listModCommand.setData(model, new CommandHistory(), new UndoRedoStack());
         for (ReadOnlyPerson person : model.getAddressBook().getPersonList()) {
             for (Mod mod : person.getMods()) {
                 if (!modList.contains(mod)) {
@@ -56,37 +56,37 @@ public class ListModCommandTest {
         }
         Collections.sort(tempList);
 
-        expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
+        expectedMessage = listModMessage + tempList.toString().replace(",", "]").replace(" ", " [");
 
     }
 
     @Test
-    public void execute_showsCorrectTagList() {
-        assertCommandSuccess(listTagCommand, model, expectedMessage, expectedModel);
+    public void execute_showsCorrectModList() {
+        assertCommandSuccess(listModCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
-    public void execute_addNewPersonWithNewTag_showsCorrectTagList()
+    public void execute_addNewPersonWithNewMod_showsCorrectModList()
             throws DuplicatePersonException {
         model.addPerson(AMY);
         expectedModel.addPerson(AMY);
         tempList.add(VALID_MOD_CS2101);
         Collections.sort(tempList);
-        expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
-        assertCommandSuccess(listTagCommand, model, expectedMessage, expectedModel);
+        expectedMessage = listModMessage + tempList.toString().replace(",", "]").replace(" ", " [");
+        assertCommandSuccess(listModCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
-    public void execute_addNewPersonWithNoTag_showsCorrectTagList()
+    public void execute_addNewPersonWithNoMod_showsCorrectModList()
             throws DuplicatePersonException {
         model.addPerson(CARRIE);
         expectedModel.addPerson(CARRIE);
-        expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
-        assertCommandSuccess(listTagCommand, model, expectedMessage, expectedModel);
+        expectedMessage = listModMessage + tempList.toString().replace(",", "]").replace(" ", " [");
+        assertCommandSuccess(listModCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
-    public void execute_editPersonWithPresentTag_showsCorrectTagList()
+    public void execute_editPersonWithPresentMod_showsCorrectModList()
             throws DuplicatePersonException, PersonNotFoundException {
         model.addPerson(BOB);
         expectedModel.addPerson(BOB);
@@ -98,12 +98,12 @@ public class ListModCommandTest {
         tempList.remove(VALID_MOD_GER1000);
         tempList.add(VALID_MOD_CS2103);
         Collections.sort(tempList);
-        expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
-        assertCommandSuccess(listTagCommand, model, expectedMessage, expectedModel);
+        expectedMessage = listModMessage + tempList.toString().replace(",", "]").replace(" ", " [");
+        assertCommandSuccess(listModCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
-    public void execute_deletePersonWithUniqueTag_showsCorrectTagList()
+    public void execute_deletePersonWithUniqueMod_showsCorrectModList()
             throws DuplicatePersonException, PersonNotFoundException {
         model.addPerson(AMY);
         model.addPerson(BOB);
@@ -118,7 +118,7 @@ public class ListModCommandTest {
         expectedModel.deletePerson(BOB);
         tempList.remove(VALID_MOD_GER1000);
         Collections.sort(tempList);
-        expectedMessage = listTagMessage + tempList.toString().replace(",", "]").replace(" ", " [");
-        assertCommandSuccess(listTagCommand, model, expectedMessage, expectedModel);
+        expectedMessage = listModMessage + tempList.toString().replace(",", "]").replace(" ", " [");
+        assertCommandSuccess(listModCommand, model, expectedMessage, expectedModel);
     }
 }

@@ -42,7 +42,7 @@ import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
-import seedu.address.model.mod.Mod;
+import seedu.address.model.module.Mod;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
@@ -72,7 +72,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
                 + MOD_DESC_GER1000 + " ";
         Person editedPerson = new PersonBuilder().withName(VALID_NAME_BOB).withPhones(VALID_PHONE_BOB)
                 .withBirthday(VALID_BIRTHDAY_BOB).withEmails(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
-                .withTags(VALID_MOD_GER1000).build();
+                .withMods(VALID_MOD_GER1000).build();
         assertCommandSuccess(command, index, editedPerson);
 
         /* Case: undo editing the last person in the list -> last person restored */
@@ -96,13 +96,13 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         index = INDEX_FIRST_PERSON;
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + MOD_DESC_CS2101;
         ReadOnlyPerson personToEdit = getModel().getFilteredPersonList().get(index.getZeroBased());
-        editedPerson = new PersonBuilder(personToEdit).withTags(VALID_MOD_CS2101).build();
+        editedPerson = new PersonBuilder(personToEdit).withMods(VALID_MOD_CS2101).build();
         assertCommandSuccess(command, index, editedPerson);
 
         /* Case: clear mods -> cleared */
         index = INDEX_FIRST_PERSON;
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + " " + PREFIX_MOD.getPrefix();
-        editedPerson = new PersonBuilder(personToEdit).withTags().build();
+        editedPerson = new PersonBuilder(personToEdit).withMods().build();
         assertCommandSuccess(command, index, editedPerson);
 
         /* ------------------ Performing edit operation while a filtered list is being shown ------------------------ */
@@ -186,7 +186,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
                         + INVALID_ADDRESS_DESC,
                 Address.MESSAGE_ADDRESS_CONSTRAINTS);
 
-        /* Case: invalid mod -> rejected */
+        /* Case: invalid module -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased()
                         + INVALID_MOD_DESC,
                 Mod.MESSAGE_MOD_CONSTRAINTS);
