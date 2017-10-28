@@ -31,9 +31,9 @@ public class TypicalTasks {
      */
     public static AddressBook getTypicalAddressBookTasks() {
         AddressBook ab = new AddressBook();
-            for (ReadOnlyTask task : getTypicalTasks()) {
-                ab.addTask(task);
-            }
+        for (ReadOnlyTask task : getTypicalTasks()) {
+            ab.addTask(task);
+        }
         return ab;
     }
 
