@@ -104,9 +104,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Adds a person to the address book.
-     * Also checks the new person's tags and updates {@link #tags} with any new tags found,
-     * and updates the Tag objects in the person to point to those in {@link #tags}.
+     * Adds a task to the address book.
+     * Also checks the new task.
      *
      */
     public void addTask(ReadOnlyTask t) {
