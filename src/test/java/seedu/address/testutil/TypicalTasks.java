@@ -7,6 +7,9 @@ import java.util.List;
 import seedu.address.model.AddressBook;
 import seedu.address.model.task.ReadOnlyTask;
 
+/**
+ * A utility class containing a list of {@code Task} objects to be used in tests.
+ */
 public class TypicalTasks {
 
     public static final ReadOnlyTask MEETING = new TaskBuilder().withAppointment("Meeting")
@@ -28,9 +31,9 @@ public class TypicalTasks {
      */
     public static AddressBook getTypicalAddressBookTasks() {
         AddressBook ab = new AddressBook();
-        for (ReadOnlyTask task : getTypicalTasks()) {
+            for (ReadOnlyTask task : getTypicalTasks()) {
                 ab.addTask(task);
-        }
+            }
         return ab;
     }
 
