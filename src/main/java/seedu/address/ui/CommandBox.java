@@ -66,9 +66,94 @@ public class CommandBox extends UiPart<Region> {
         case CONTROL:
             commandTextField.positionCaret(commandTextField.getText().length());
             break;
+        case DELETE:
+            keyEvent.consume();
+            deleteChunk();
         default:
             // let JavaFx handle the keypress
         }
+    }
+
+    private void deleteChunk() {
+        int caretPos = commandTextField.getCaretPosition();
+        int newCaretPos;
+        boolean caretAtMostRight = false;
+
+        if (caretPos == 0) {
+            return;
+        }
+
+        if (caretPos == commandTextField.getText().length()) {   //caret at the extreme right of command box text
+            caretAtMostRight = true;
+            if (noCharBefore(caretPos)) {
+                //remove chunk of space
+                newCaretPos = caretPos;
+                for (int i = newCaretPos; i > 0; i--) {
+                    if (!noCharBefore(newCaretPos)) {
+                        break;
+                    }
+                    newCaretPos -= 1;
+                }
+            } else {
+                newCaretPos = caretPos;
+                for (int i = newCaretPos; i > 0; i--) {
+                    if (noCharBefore(newCaretPos)) {
+                        break;
+                    }
+                    newCaretPos -= 1;
+                }
+            }
+        }
+
+        if (!caretAtMostRight && !noCharBefore(caretPos) && !noCharAfter(caretPos)) { //caret between a word
+            return;
+        }
+
+        if (!caretAtMostRight && noCharBefore(caretPos) && caretPos != commandTextField.getText().length()) {
+            //remove chunk of space
+            int tempCaretPos = caretPos;
+            for (int i = tempCaretPos; i > 0; i--) {
+                if (!noCharBefore(tempCaretPos)) {
+                    break;
+                }
+                tempCaretPos -= 1;
+            }
+            newCaretPos = tempCaretPos;
+        } else {                         //remove chunk of words
+            int tempCaretPos = caretPos;
+            for (int i = tempCaretPos; i > 0; i--) {
+                if (noCharBefore(tempCaretPos)) {
+                    break;
+                }
+                tempCaretPos -= 1;
+            }
+            newCaretPos = tempCaretPos;
+        }
+        newCommandBoxText(newCaretPos, caretPos);
+        commandTextField.positionCaret(newCaretPos);
+    }
+
+    private void newCommandBoxText(int newCaretPos, int oldCaretPos) {
+        String oldCommandBoxText = commandTextField.getText().substring(0, newCaretPos);
+        String newCommandBoxText;
+        if (oldCaretPos == 0 || oldCaretPos == commandTextField.getText().length()){
+            newCommandBoxText = oldCommandBoxText;
+        } else {
+            newCommandBoxText = oldCommandBoxText + commandTextField.getText().substring(oldCaretPos);
+        }
+        commandTextField.setText(newCommandBoxText);
+    }
+
+    private boolean noCharBefore(int caretPos) {
+        Character charBeforeCaret = commandTextField.getText().charAt(caretPos -1);
+        String toString = Character.toString(charBeforeCaret);
+        return (toString.equals(" "));
+    }
+
+    private boolean noCharAfter(int caretPos) {
+        Character charAfterCaret = commandTextField.getText().charAt(caretPos);
+        String toString = Character.toString(charAfterCaret);
+        return (toString.equals(" "));
     }
 
     /**
