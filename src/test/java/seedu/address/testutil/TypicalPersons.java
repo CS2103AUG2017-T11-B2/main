@@ -40,11 +40,11 @@ public class TypicalPersons {
     public static final ReadOnlyPerson BENSON = new PersonBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
             .withEmails("johnd@example.com").withPhones("98765432").withBirthday("12/02/1985")
-            .withModules("CS1020", "CS1231").build();
+            .withModules("CS1020", "CS1010").build();
     public static final ReadOnlyPerson CARL = new PersonBuilder().withName("Carl Kurz").withPhones("95352563")
             .withEmails("heinz@example.com").withBirthday("03/12/1973")
             .withAddress("wall street")
-            .withModules("CS1020", "CS1231").build();
+            .withModules("CS1231", "CS1020").build();
 
     public static final ReadOnlyPerson DANIEL = new PersonBuilder().withName("Daniel Meier")
             .withPhones("87652533").withBirthday("21/09/1988").withEmails("cornelia@example.com")
@@ -86,7 +86,7 @@ public class TypicalPersons {
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
-    public static final String KEYWORD_MATCHING_CS1010 = "CS1010"; // A keyword that matches friends
+    public static final String KEYWORD_MATCHING_CS1020 = "CS1020"; // A keyword that matches CS1020
 
     private TypicalPersons() {} // prevents instantiation
 
