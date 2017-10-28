@@ -1,8 +1,11 @@
 package seedu.address.logic.commands;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_INTERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_MEETING;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TASK;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_TASK;
 import static seedu.address.testutil.TypicalTasks.getTypicalAddressBookTasks;
 
 import org.junit.Test;
@@ -31,6 +34,20 @@ public class EditTaskCommandTest {
         EditTaskCommand commandWithSameValues = new EditTaskCommand(INDEX_FIRST_TASK, copyDescriptor);
         assertTrue(standardCommand.equals(commandWithSameValues));
 
+        // same object -> returns true
+        assertTrue(standardCommand.equals(standardCommand));
+
+        // null -> returns false
+        assertFalse(standardCommand.equals(null));
+
+        // different types -> returns false
+        // assertFalse(standardCommand.equals(new ClearCommand()));
+
+        // different index -> returns false
+        assertFalse(standardCommand.equals(new EditTaskCommand(INDEX_SECOND_TASK, DESC_MEETING)));
+
+        // different descriptor -> returns false
+        assertFalse(standardCommand.equals(new EditTaskCommand(INDEX_FIRST_TASK, DESC_INTERVIEW)));
     }
 
     /**
