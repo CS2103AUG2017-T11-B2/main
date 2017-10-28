@@ -10,7 +10,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
  */
 public class Module {
 
-    public static final String MESSAGE_Module_CONSTRAINTS = "Module names should be alphanumeric";
+    public static final String MESSAGE_MODULE_CONSTRAINTS = "Module names should be alphanumeric";
     public static final String MODULE_VALIDATION_REGEX = "\\p{Alnum}+";
 
     public final String moduleName;
@@ -24,7 +24,7 @@ public class Module {
         requireNonNull(name);
         String trimmedName = name.trim();
         if (!isValidModuleName(trimmedName)) {
-            throw new IllegalValueException(MESSAGE_Module_CONSTRAINTS);
+            throw new IllegalValueException(MESSAGE_MODULE_CONSTRAINTS);
         }
         this.moduleName = trimmedName;
     }

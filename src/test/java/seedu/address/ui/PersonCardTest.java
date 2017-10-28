@@ -18,7 +18,7 @@ public class PersonCardTest extends GuiUnitTest {
     @Test
     public void display() {
         // no mods
-        Person personWithNoMods = new PersonBuilder().withMods(new String[0]).build();
+        Person personWithNoMods = new PersonBuilder().withModules(new String[0]).build();
         PersonCard personCard = new PersonCard(personWithNoMods, 1);
         uiPartRule.setUiPart(personCard);
         assertCardDisplay(personCard, personWithNoMods, 1);
@@ -35,7 +35,7 @@ public class PersonCardTest extends GuiUnitTest {
             personWithMods.setAddress(ALICE.getAddress());
             personWithMods.setEmails(ALICE.getEmails());
             personWithMods.setPhones(ALICE.getPhones());
-            personWithMods.setMods(ALICE.getMods());
+            personWithMods.setModules(ALICE.getModules());
         });
         assertCardDisplay(personCard, personWithMods, 2);
     }

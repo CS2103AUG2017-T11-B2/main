@@ -21,7 +21,7 @@ import seedu.address.logic.UndoRedoStack;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.module.Mod;
+import seedu.address.model.module.Module;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
@@ -29,8 +29,8 @@ import seedu.address.model.person.exceptions.PersonNotFoundException;
 public class ListModCommandTest {
     private Model model;
     private Model expectedModel;
-    private ListModCommand listModCommand;
-    private ArrayList<Mod> modList;
+    private ListModuleCommand listModCommand;
+    private ArrayList<Module> moduleList;
     private ArrayList<String> tempList;
     private String expectedMessage;
 
@@ -40,19 +40,19 @@ public class ListModCommandTest {
     public void setUp() {
         model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
         expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        modList = new ArrayList<>();
+        moduleList = new ArrayList<>();
         tempList = new ArrayList<>();
-        listModCommand = new ListModCommand();
+        listModCommand = new ListModuleCommand();
         listModCommand.setData(model, new CommandHistory(), new UndoRedoStack());
         for (ReadOnlyPerson person : model.getAddressBook().getPersonList()) {
-            for (Mod mod : person.getMods()) {
-                if (!modList.contains(mod)) {
-                    modList.add(mod);
+            for (Module mod : person.getModules()) {
+                if (!moduleList.contains(mod)) {
+                    moduleList.add(mod);
                 }
             }
         }
-        for (Mod t : modList) {
-            tempList.add(t.modName);
+        for (Module m : moduleList) {
+            tempList.add(m.moduleName);
         }
         Collections.sort(tempList);
 
