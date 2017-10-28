@@ -105,8 +105,6 @@ public class CommandBox extends UiPart<Region> {
                     newCaretPos -= 1;
                 }
             }
-        } else if (!noCharBefore(caretPos) && !noCharAfter(caretPos)) { //caret between a word
-            return;
         } else if (noCharBefore(caretPos) && caretPos != commandTextField.getText().length()) {
             //remove chunk of space
             int tempCaretPos = caretPos;
