@@ -32,9 +32,9 @@ public class UniqueModuleList implements Iterable<Module> {
      * Creates a UniqueModuleList using given Modules.
      * Enforces no nulls.
      */
-    public UniqueModuleList(Set<Module> Modules) {
-        requireAllNonNull(Modules);
-        internalList.addAll(Modules);
+    public UniqueModuleList(Set<Module> modules) {
+        requireAllNonNull(modules);
+        internalList.addAll(modules);
 
         assert CollectionUtil.elementsAreUnique(internalList);
     }
@@ -51,9 +51,9 @@ public class UniqueModuleList implements Iterable<Module> {
     /**
      * Replaces the Modules in this list with those in the argument Module list.
      */
-    public void setModules(Set<Module> Modules) {
-        requireAllNonNull(Modules);
-        internalList.setAll(Modules);
+    public void setModules(Set<Module> modules) {
+        requireAllNonNull(modules);
+        internalList.setAll(modules);
         assert CollectionUtil.elementsAreUnique(internalList);
     }
 
