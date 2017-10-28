@@ -135,6 +135,11 @@ public class CommandBox extends UiPart<Region> {
         commandTextField.positionCaret(newCaretPos);
     }
 
+    /**
+     * Replaces the command box text with reference of position of new text cursor and position of old text cursor
+     * @param newCaretPos
+     * @param oldCaretPos
+     */
     private void newCommandBoxText(int newCaretPos, int oldCaretPos) {
         String oldCommandBoxText = commandTextField.getText().substring(0, newCaretPos);
         String newCommandBoxText;
@@ -147,12 +152,15 @@ public class CommandBox extends UiPart<Region> {
         commandTextField.setText(newCommandBoxText);
     }
 
+    //Checks if there are any characters before the text cursor
     private boolean noCharBefore(int caretPos) {
         Character charBeforeCaret = commandTextField.getText().charAt(caretPos -1);
         String toString = Character.toString(charBeforeCaret);
         return (toString.equals(" "));
     }
 
+    //Checks if there are any characters before the text cursor
+    //NullPointerException would occur if this function is called when text cursor is at extreme right
     private boolean noCharAfter(int caretPos) {
         Character charAfterCaret = commandTextField.getText().charAt(caretPos);
         String toString = Character.toString(charAfterCaret);
