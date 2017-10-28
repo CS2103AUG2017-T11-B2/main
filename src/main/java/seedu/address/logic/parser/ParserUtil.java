@@ -123,7 +123,8 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code Optional<String> appointment} into an {@code Optional<Appointment>} if {@code appointment} is present.
+     * Parses a {@code Optional<String> appointment} into an {@code Optional<Appointment>} if {@code appointment}
+     * is present.
      * See header comment of this class regarding the use of {@code Optional} parameters.
      */
     public static Optional<Appointment> parseAppointment(Optional<String> appointment) throws IllegalValueException {
