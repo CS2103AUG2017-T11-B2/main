@@ -1,24 +1,32 @@
 package systemtests;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.commands.CommandTestUtil.APPOINTMENT_DESC_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.APPOINTMENT_DESC_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.STARTTIME_DESC_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.STARTTIME_DESC_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_DATE_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_STARTTIME_DESC;
+import static seedu.address.testutil.TypicalTasks.MOVIE;
+
 import org.junit.Test;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.*;
 import seedu.address.model.Model;
-import seedu.address.model.person.*;
-import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.task.Date;
 import seedu.address.model.task.ReadOnlyTask;
 import seedu.address.model.task.StartTime;
 import seedu.address.testutil.TaskBuilder;
 import seedu.address.testutil.TaskUtil;
-
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.*;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_MOD_DESC;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD;
-import static seedu.address.testutil.TypicalPersons.*;
-import static seedu.address.testutil.TypicalTasks.MEETING;
-import static seedu.address.testutil.TypicalTasks.MOVIE;
 
 public class AddTaskCommandSystemTest extends AddressBookSystemTest {
 
@@ -106,53 +114,22 @@ public class AddTaskCommandSystemTest extends AddressBookSystemTest {
      * instead.
      * @see AddTaskCommandSystemTest#assertTaskCommandSuccess(ReadOnlyTask)
      */
-    private void assertCommandSuccess(String command, ReadOnlyPerson toAdd) {
-        Model expectedModel = getModel();
-        try {
-            expectedModel.addPerson(toAdd);
-        } catch (DuplicatePersonException dpe) {
-            throw new IllegalArgumentException("toAdd already exists in the model.");
-        }
-        String expectedResultMessage = String.format(AddCommand.MESSAGE_SUCCESS, toAdd);
-
-        assertCommandSuccess(command, expectedModel, expectedResultMessage);
-    }
-
-    /**
-     * Performs the same verification as {@code assertCommandSuccess(String, ReadOnlyPerson)} except that the result
-     * display box displays {@code expectedResultMessage} and the model related components equal to
-     * {@code expectedModel}.
-     * @see AddCommandSystemTest#assertCommandSuccess(String, ReadOnlyPerson)
-     */
-    private void assertTaskCommandSuccess(String command, Model expectedModel, String expectedResultMessage) {
-        executeCommand(command);
-        assertApplicationDisplaysExpected("", expectedResultMessage, expectedModel);
-        assertSelectedCardUnchanged();
-        assertCommandBoxShowsDefaultStyle();
-        assertStatusBarUnchangedExceptSyncStatus();
-    }
-
-    /**
-     * Performs the same verification as {@code assertTaskCommandSuccess(ReadOnlyTask)}. Executes {@code command}
-     * instead.
-     * @see AddTaskCommandSystemTest#assertTaskCommandSuccess(ReadOnlyTask)
-     */
     private void assertTaskCommandSuccess(String command, ReadOnlyTask toAdd) {
         Model expectedModel = getModel();
         expectedModel.addTask(toAdd);
 
         String expectedResultMessage = String.format(AddTaskCommand.MESSAGE_SUCCESS, toAdd);
 
-        assertCommandSuccess(command, expectedModel, expectedResultMessage);
+        assertTaskCommandSuccess(command, expectedModel, expectedResultMessage);
     }
 
     /**
      * Performs the same verification as {@code assertTaskCommandSuccess(String, ReadOnlyTask)} except that the result
      * display box displays {@code expectedResultMessage} and the model related components equal to
      * {@code expectedModel}.
-     * @see AddCommandSystemTest#assertCommandSuccess(String, ReadOnlyPerson)
+     * @see AddTaskCommandSystemTest#assertTaskCommandSuccess(String, ReadOnlyTask)
      */
-    private void assertCommandSuccess(String command, Model expectedModel, String expectedResultMessage) {
+    private void assertTaskCommandSuccess(String command, Model expectedModel, String expectedResultMessage) {
         executeCommand(command);
         assertApplicationDisplaysExpected("", expectedResultMessage, expectedModel);
         assertSelectedCardUnchanged();
