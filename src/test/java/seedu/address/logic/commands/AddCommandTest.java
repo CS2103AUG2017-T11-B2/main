@@ -169,11 +169,6 @@ public class AddCommandTest {
         }
 
         @Override
-        public void sortPersonListByName() {
-            fail("This method should not be called.");
-        }
-
-        @Override
         public void deleteModule(Module module) throws DuplicatePersonException, PersonNotFoundException {
             fail("This method should not be called.");
         }
