@@ -1,15 +1,15 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_MOVIE;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_EVENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_BADMINTON;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_BADMINTON;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_BADMINTON;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_EVENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_EVENT_EDIT;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_BADMINTON;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_MOVIE;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.task.ReadOnlyTask;
