@@ -79,7 +79,7 @@ public class CommandBox extends UiPart<Region> {
             break;
         case INSERT:
             commandTextField.setText("add " + PREFIX_NAME + " " + PREFIX_PHONE + " " + PREFIX_BIRTHDAY + " "
-            + PREFIX_EMAIL + " " + PREFIX_ADDRESS + " " + PREFIX_MOD);
+                    + PREFIX_EMAIL + " " + PREFIX_ADDRESS + " " + PREFIX_MOD);
             commandTextField.positionCaret(6);
             break;
         default:
