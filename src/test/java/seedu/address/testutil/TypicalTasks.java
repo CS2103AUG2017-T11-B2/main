@@ -11,11 +11,12 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_EVENT
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_EVENT_EDIT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_MOVIE;
 
-import seedu.address.model.AddressBook;
-import seedu.address.model.task.ReadOnlyTask;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import seedu.address.model.AddressBook;
+import seedu.address.model.task.ReadOnlyTask;
 
 /**
  * A utility class containing a list of {@code Task} objects to be used in tests.

@@ -5,8 +5,8 @@ import static seedu.address.logic.commands.CommandTestUtil.APPOINTMENT_DESC_EVEN
 import static seedu.address.logic.commands.CommandTestUtil.APPOINTMENT_DESC_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_EVENT;
 import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_MOVIE;
-import static seedu.address.logic.commands.CommandTestUtil.STARTTIME_DESC_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.STARTTIME_DESC_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.STARTTIME_DESC_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_DATE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_STARTTIME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_EVENT;
@@ -99,8 +99,8 @@ public class AddTaskCommandSystemTest extends AddressBookSystemTest {
 
     /**
      * Executes the {@code AddTaskCommand} that adds {@code toAdd} to the model and verifies that the command box
-     * displays an empty string, the result display box displays the success message of executing {@code AddCommand} with the
-     * details of {@code toAdd}, and the model related components equal to the current model added with {@code toAdd}.
+     * displays an empty string, the result display box displays the success message of executing {@code AddCommand}
+     * with the details of {@code toAdd}, and the model related components equal to the current model added with {@code toAdd}.
      * These verifications are done by
      * {@code AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
      * Also verifies that the command box has the default style class, the status bar's sync status changes,
