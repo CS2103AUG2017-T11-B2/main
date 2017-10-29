@@ -4,15 +4,11 @@ import org.junit.Test;
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.*;
 import seedu.address.model.Model;
-import seedu.address.model.mod.Mod;
 import seedu.address.model.person.*;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
-import seedu.address.model.task.Appointment;
 import seedu.address.model.task.Date;
 import seedu.address.model.task.ReadOnlyTask;
 import seedu.address.model.task.StartTime;
-import seedu.address.testutil.PersonBuilder;
-import seedu.address.testutil.PersonUtil;
 import seedu.address.testutil.TaskBuilder;
 import seedu.address.testutil.TaskUtil;
 
