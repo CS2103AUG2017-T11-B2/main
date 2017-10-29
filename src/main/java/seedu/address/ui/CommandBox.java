@@ -1,5 +1,12 @@
 package seedu.address.ui;
 
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+
 import java.util.logging.Logger;
 
 import org.controlsfx.control.textfield.TextFields;
@@ -69,6 +76,12 @@ public class CommandBox extends UiPart<Region> {
         case DELETE:
             keyEvent.consume();
             deleteChunk();
+            break;
+        case INSERT:
+            commandTextField.setText("add " + PREFIX_NAME + " " + PREFIX_PHONE + " " + PREFIX_BIRTHDAY + " "
+            + PREFIX_EMAIL + " " + PREFIX_ADDRESS + " " + PREFIX_MOD);
+            commandTextField.positionCaret(6);
+            break;
         default:
             // let JavaFx handle the keypress
         }
@@ -99,7 +112,6 @@ public class CommandBox extends UiPart<Region> {
                         break;
                     }
                     newCaretPos -= 1;
-                    System.out.println(newCaretPos);
                 }
             } else {
                 //remove chunk of words
@@ -150,7 +162,6 @@ public class CommandBox extends UiPart<Region> {
         String newCommandBoxText;
         if (oldCaretPos == 0 || oldCaretPos == commandTextField.getText().length()){
             newCommandBoxText = oldCommandBoxText;
-            System.out.println("im here");
         } else {
             newCommandBoxText = oldCommandBoxText + commandTextField.getText().substring(oldCaretPos);
         }
