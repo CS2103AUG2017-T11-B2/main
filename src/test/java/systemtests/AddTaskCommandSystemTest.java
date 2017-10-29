@@ -20,7 +20,9 @@ import static seedu.address.testutil.TypicalTasks.MOVIE;
 import org.junit.Test;
 
 import seedu.address.commons.core.Messages;
-import seedu.address.logic.commands.*;
+import seedu.address.logic.commands.AddTaskCommand;
+import seedu.address.logic.commands.RedoCommand;
+import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
 import seedu.address.model.task.Date;
 import seedu.address.model.task.ReadOnlyTask;
@@ -96,8 +98,8 @@ public class AddTaskCommandSystemTest extends AddressBookSystemTest {
     }
 
     /**
-     * Executes the {@code AddTaskCommand} that adds {@code toAdd} to the model and verifies that the command box displays
-     * an empty string, the result display box displays the success message of executing {@code AddCommand} with the
+     * Executes the {@code AddTaskCommand} that adds {@code toAdd} to the model and verifies that the command box
+     * displays an empty string, the result display box displays the success message of executing {@code AddCommand} with the
      * details of {@code toAdd}, and the model related components equal to the current model added with {@code toAdd}.
      * These verifications are done by
      * {@code AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>

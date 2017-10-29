@@ -119,9 +119,9 @@ public class CommandTestUtil {
     public static final String STARTTIME_DESC_EVENT = " " + PREFIX_STARTTIME + VALID_STARTTIME_EVENT;
     public static final String STARTTIME_DESC_BADMINTON = " " + PREFIX_STARTTIME + VALID_STARTTIME_BADMINTON;
 
-    public static final String INVALID_APPOINTMENT_DESC = " " + PREFIX_APPOINTMENT + "Meetings&"; // '&' not allowed in names
-    public static final String INVALID_DATE_DESC = " " + PREFIX_DATE + "01.01.2020";// '.' not allowed
-    public static final String INVALID_STARTTIME_DESC = " " + PREFIX_STARTTIME + "1300";// missing ':' symbol
+    public static final String INVALID_APPOINTMENT_DESC = " " + PREFIX_APPOINTMENT + "Meetings&"; // '&' not allowed
+    public static final String INVALID_DATE_DESC = " " + PREFIX_DATE + "01.01.2020"; // '.' not allowed
+    public static final String INVALID_STARTTIME_DESC = " " + PREFIX_STARTTIME + "1300"; // missing ':' symbol
 
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;

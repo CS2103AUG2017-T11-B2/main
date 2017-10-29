@@ -1,12 +1,15 @@
 package seedu.address.testutil;
 
-import seedu.address.logic.commands.AddTaskCommand;
-import seedu.address.model.task.ReadOnlyTask;
-
 import static seedu.address.logic.parser.CliSyntax.PREFIX_APPOINTMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STARTTIME;
 
+import seedu.address.logic.commands.AddTaskCommand;
+import seedu.address.model.task.ReadOnlyTask;
+
+/**
+ * A utility class for Task.
+ */
 public class TaskUtil {
 
     /**
