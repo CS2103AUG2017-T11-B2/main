@@ -13,12 +13,13 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
-import seedu.address.model.mod.Mod;
+import seedu.address.model.module.Module;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.task.ReadOnlyTask;
+import seedu.address.model.task.exceptions.TaskNotFoundException;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -38,7 +39,7 @@ public class ModelManager extends ComponentManager implements Model {
         super();
         requireAllNonNull(addressBook, userPrefs);
 
-        logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
+        logger.fine("Initializing ContactHub: " + addressBook + " and user prefs " + userPrefs);
 
         this.addressBook = new AddressBook(addressBook);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
@@ -72,6 +73,12 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
+    public synchronized void deleteTask(ReadOnlyTask target) throws TaskNotFoundException {
+        addressBook.removeTask(target);
+        indicateAddressBookChanged();
+    }
+
+    @Override
     public synchronized void addPerson(ReadOnlyPerson person) throws DuplicatePersonException {
         addressBook.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
@@ -92,6 +99,15 @@ public class ModelManager extends ComponentManager implements Model {
         requireAllNonNull(target, editedPerson);
 
         addressBook.updatePerson(target, editedPerson);
+        indicateAddressBookChanged();
+    }
+
+    @Override
+    public void updateTask(ReadOnlyTask target, ReadOnlyTask editedTask)
+            throws TaskNotFoundException {
+        requireAllNonNull(target, editedTask);
+
+        addressBook.updateTask(target, editedTask);
         indicateAddressBookChanged();
     }
 
@@ -118,14 +134,14 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public void deleteMod(Mod mod) throws DuplicatePersonException, PersonNotFoundException {
+    public void deleteModule(Module module) throws DuplicatePersonException, PersonNotFoundException {
         for (int i = 0; i < addressBook.getPersonList().size(); i++) {
             ReadOnlyPerson oldPerson = addressBook.getPersonList().get(i);
 
             Person newPerson = new Person(oldPerson);
-            Set<Mod> newTags = newPerson.getMods();
-            newTags.remove(mod);
-            newPerson.setTags(newTags);
+            Set<Module> newModules = newPerson.getModules();
+            newModules.remove(module);
+            newPerson.setModules(newModules);
 
             addressBook.updatePerson(oldPerson, newPerson);
         }

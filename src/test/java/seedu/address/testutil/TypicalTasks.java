@@ -2,7 +2,6 @@ package seedu.address.testutil;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.task.ReadOnlyTask;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -65,9 +64,9 @@ public class TypicalTasks {
     private TypicalTasks() {} // prevents instantiation
 
     /**
-     * Returns an {@code AddressBook} with all the typical persons.
+     * Returns an {@code AddressBook} with all the typical tasks.
      */
-    public static AddressBook getTypicalAddressBook() {
+    public static AddressBook getTypicalAddressBookTasks() {
         AddressBook ab = new AddressBook();
         for (ReadOnlyTask task : getTypicalTasks()) {
             ab.addTask(task);
