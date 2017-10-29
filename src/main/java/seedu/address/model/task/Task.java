@@ -52,10 +52,6 @@ public class Task implements ReadOnlyTask {
         return appointment.get();
     }
 
-    public void setAppointment(Appointment name) {
-        this.name.set(requireNonNull(name));
-    }
-
     @Override
     public ObjectProperty<Date> dateProperty() {
         return date;
@@ -70,10 +66,6 @@ public class Task implements ReadOnlyTask {
         return date.get();
     }
 
-    public void setDate(Date date) {
-        this.date.set(requireNonNull(date));
-    }
-
     @Override
     public ObjectProperty<StartTime> startTimeProperty() {
         return startTime;
@@ -86,10 +78,6 @@ public class Task implements ReadOnlyTask {
     @Override
     public StartTime getStartTime() {
         return startTime.get();
-    }
-
-    public void setStartTime(StartTime startTime) {
-        this.startTime.set(requireNonNull(startTime));
     }
 
     @Override
