@@ -129,14 +129,14 @@ public class CommandBox extends UiPart<Region> {
             int tempCaretPos = caretPos;
 
             for (int i = tempCaretPos; i > 0; i--) {
-                 if (!noCharBefore(tempCaretPos)) {
-                     break;
-                 }
-                 tempCaretPos -= 1;
+                if (!noCharBefore(tempCaretPos)) {
+                    break;
+                }
+                tempCaretPos -= 1;
             }
             newCaretPos = tempCaretPos;
 
-            } else {
+        } else {
             //remove chunk of words
             int tempCaretPos = caretPos;
 
@@ -160,7 +160,7 @@ public class CommandBox extends UiPart<Region> {
     private void newCommandBoxText(int newCaretPos, int oldCaretPos) {
         String oldCommandBoxText = commandTextField.getText().substring(0, newCaretPos);
         String newCommandBoxText;
-        if (oldCaretPos == 0 || oldCaretPos == commandTextField.getText().length()){
+        if (oldCaretPos == 0 || oldCaretPos == commandTextField.getText().length()) {
             newCommandBoxText = oldCommandBoxText;
         } else {
             newCommandBoxText = oldCommandBoxText + commandTextField.getText().substring(oldCaretPos);
@@ -170,7 +170,7 @@ public class CommandBox extends UiPart<Region> {
 
     //Checks if there are any characters before the text cursor
     private boolean noCharBefore(int caretPos) {
-        Character charBeforeCaret = commandTextField.getText().charAt(caretPos -1);
+        Character charBeforeCaret = commandTextField.getText().charAt(caretPos - 1);
         String toString = Character.toString(charBeforeCaret);
         return (toString.equals(" "));
     }
