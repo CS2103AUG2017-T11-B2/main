@@ -1,21 +1,20 @@
 package seedu.address.testutil;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.mod.Mod;
-import seedu.address.model.person.*;
-import seedu.address.model.task.*;
-import seedu.address.model.util.SampleDataUtil;
-
-import java.util.Set;
+import seedu.address.model.task.Appointment;
+import seedu.address.model.task.Date;
+import seedu.address.model.task.ReadOnlyTask;
+import seedu.address.model.task.StartTime;
+import seedu.address.model.task.Task;
 
 /**
- * A utility class to help with building Person objects.
+ * A utility class to help with building Task objects.
  */
 public class TaskBuilder {
 
-    public static final String DEFAULT_APPOINTMENT = "Anniversary";
+    public static final String DEFAULT_APPOINTMENT = "Meeting";
     public static final String DEFAULT_DATE = "25/11/2017";
-    public static final String DEFAULT_STARTTIME = "11:00";
+    public static final String DEFAULT_START_TIME = "12:00";
 
     private Task task;
 
@@ -23,7 +22,7 @@ public class TaskBuilder {
         try {
             Appointment defaultAppointment = new Appointment(DEFAULT_APPOINTMENT);
             Date defaultDate = new Date(DEFAULT_DATE);
-            StartTime defaultStartTime = new StartTime(DEFAULT_STARTTIME);
+            StartTime defaultStartTime = new StartTime(DEFAULT_START_TIME);
             this.task = new Task(defaultAppointment, defaultDate, defaultStartTime);
         } catch (IllegalValueException ive) {
             throw new AssertionError("Default task's values are invalid.");
@@ -40,8 +39,9 @@ public class TaskBuilder {
     /**
      * Sets the {@code Appointment} of the {@code Task} that we are building.
      */
-    public TaskBuilder withAppointment(String name) {
-        this.task.setAppointment(new Appointment(name));
+
+    public TaskBuilder withAppointment(String appointment) {
+        this.task.setAppointment(new Appointment(appointment));
         return this;
     }
 
@@ -58,7 +58,7 @@ public class TaskBuilder {
     }
 
     /**
-     * Sets the {@code StartTime} of the {@code StartTime} that we are building.
+     * Sets the {@code StartTime} of the {@code Task} that we are building.
      */
     public TaskBuilder withStartTime(String startTime) {
         try {
@@ -72,5 +72,4 @@ public class TaskBuilder {
     public Task build() {
         return this.task;
     }
-
 }

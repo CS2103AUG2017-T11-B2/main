@@ -12,14 +12,16 @@ import seedu.address.logic.commands.AddTaskCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.DeleteTaskCommand;
 import seedu.address.logic.commands.EditCommand;
+import seedu.address.logic.commands.EditTaskCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.commands.FindModCommand;
+import seedu.address.logic.commands.FindModuleCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
-import seedu.address.logic.commands.ListModCommand;
+import seedu.address.logic.commands.ListModuleCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.SortCommand;
@@ -68,6 +70,10 @@ public class AddressBookParser {
         case EditCommand.COMMAND_ALIAS:
             return new EditCommandParser().parse(arguments);
 
+        case EditTaskCommand.COMMAND_WORD:
+        case EditTaskCommand.COMMAND_ALIAS:
+            return new EditTaskCommandParser().parse(arguments);
+
         case SelectCommand.COMMAND_WORD:
         case SelectCommand.COMMAND_ALIAS:
             return new SelectCommandParser().parse(arguments);
@@ -75,6 +81,10 @@ public class AddressBookParser {
         case DeleteCommand.COMMAND_WORD:
         case DeleteCommand.COMMAND_ALIAS:
             return new DeleteCommandParser().parse(arguments);
+
+        case DeleteTaskCommand.COMMAND_WORD:
+        case DeleteTaskCommand.COMMAND_ALIAS:
+            return new DeleteTaskCommandParser().parse(arguments);
 
         case ClearCommand.COMMAND_WORD:
         case ClearCommand.COMMAND_ALIAS:
@@ -84,17 +94,17 @@ public class AddressBookParser {
         case FindCommand.COMMAND_ALIAS:
             return new FindCommandParser().parse(arguments);
 
-        case FindModCommand.COMMAND_WORD:
-        case FindModCommand.COMMAND_ALIAS:
-            return new FindTagCommandParser().parse(arguments);
+        case FindModuleCommand.COMMAND_WORD:
+        case FindModuleCommand.COMMAND_ALIAS:
+            return new FindModuleCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
         case ListCommand.COMMAND_ALIAS:
             return new ListCommand();
 
-        case ListModCommand.COMMAND_WORD:
-        case ListModCommand.COMMAND_ALIAS:
-            return new ListModCommand();
+        case ListModuleCommand.COMMAND_WORD:
+        case ListModuleCommand.COMMAND_ALIAS:
+            return new ListModuleCommand();
 
         case HistoryCommand.COMMAND_WORD:
         case HistoryCommand.COMMAND_ALIAS:
