@@ -2,13 +2,7 @@ package seedu.address.logic.commands;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHOTO;
+import static seedu.address.logic.parser.CliSyntax.*;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -50,6 +44,16 @@ public class CommandTestUtil {
             + "/secondary/CHRIS-EVANS-865133.jpg";
     public static final String VALID_LOCAL_PHOTO_URL = "file://"
             + Paths.get("src/main/resources/images/defaultPhoto.png").toAbsolutePath().toUri().getPath();
+    public static final String VALID_APPOINTMENT_MOVIE = "Movie";
+    public static final String VALID_APPOINTMENT_EVENT = "Event";
+    public static final String VALID_APPOINTMENT_BADMINTON = "Badminton";
+    public static final String VALID_DATE_MOVIE = "29/11/2017";
+    public static final String VALID_DATE_EVENT = "02/02/2018";
+    public static final String VALID_DATE_BADMINTON = "06/01/2018";
+    public static final String VALID_STARTTIME_MOVIE = "22:00";
+    public static final String VALID_STARTTIME_EVENT = "10:00";
+    public static final String VALID_STARTTIME_EVENT_EDIT = "15:00";
+    public static final String VALID_STARTTIME_BADMINTON = "20:00";
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
     public static final String NAME_DESC_CARRIE = " " + PREFIX_NAME + VALID_NAME_CARRIE;
@@ -79,6 +83,20 @@ public class CommandTestUtil {
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_MOD_DESC = " " + PREFIX_MOD + "hubby*"; // '*' not allowed in mods
     public static final String INVALID_URL_DESC = " " + PREFIX_PHOTO + "images/defaultPhoto.png"; //Not a valid URL
+
+    public static final String APPOINTMENT_DESC_MOVIE = " " + PREFIX_APPOINTMENT + VALID_APPOINTMENT_MOVIE;
+    public static final String APPOINTMENT_DESC_EVENT = " " + PREFIX_APPOINTMENT + VALID_APPOINTMENT_EVENT;
+    public static final String APPOINTMENT_DESC_BADMINTON = " " + PREFIX_APPOINTMENT + VALID_APPOINTMENT_BADMINTON;
+    public static final String DATE_DESC_MOVIE = " " + PREFIX_DATE + VALID_DATE_MOVIE;
+    public static final String DATE_DESC_EVENT = " " + PREFIX_DATE + VALID_DATE_EVENT;
+    public static final String DATE_DESC_BADMINTON = " " + PREFIX_DATE + VALID_DATE_BADMINTON;
+    public static final String STARTTIME_DESC_MOVIE = " " + PREFIX_STARTTIME + VALID_STARTTIME_MOVIE;
+    public static final String STARTTIME_DESC_EVENT = " " + PREFIX_STARTTIME + VALID_STARTTIME_EVENT;
+    public static final String STARTTIME_DESC_BADMINTON = " " + PREFIX_STARTTIME + VALID_STARTTIME_BADMINTON;
+
+    public static final String INVALID_APPOINTMENT_DESC = " " + PREFIX_APPOINTMENT + "Meetings&"; // '&' not allowed in names
+    public static final String INVALID_DATE_DESC = " " + PREFIX_DATE + "1/01/19955";
+    public static final String INVALID_STARTTIME_DESC = " " + PREFIX_STARTTIME + "13:0000";
 
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;
