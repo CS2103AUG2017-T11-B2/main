@@ -19,12 +19,13 @@ import seedu.address.logic.UndoRedoStack;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.mod.Mod;
+import seedu.address.model.module.Module;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.task.ReadOnlyTask;
 import seedu.address.model.task.Task;
+import seedu.address.model.task.exceptions.TaskNotFoundException;
 import seedu.address.testutil.TaskBuilder;
 
 
@@ -116,8 +117,18 @@ public class AddTaskCommandTest {
         }
 
         @Override
+        public void deleteTask(ReadOnlyTask target) throws TaskNotFoundException {
+            fail("This method should not be called.");
+        }
+
+        @Override
         public void updatePerson(ReadOnlyPerson target, ReadOnlyPerson editedPerson)
                 throws DuplicatePersonException {
+            fail("This method should not be called.");
+        }
+
+        @Override
+        public void updateTask(ReadOnlyTask target, ReadOnlyTask editedTask) throws TaskNotFoundException {
             fail("This method should not be called.");
         }
 
@@ -143,7 +154,7 @@ public class AddTaskCommandTest {
         }
 
         @Override
-        public void deleteMod(Mod mod) throws DuplicatePersonException, PersonNotFoundException {
+        public void deleteModule(Module module) throws DuplicatePersonException, PersonNotFoundException {
             fail("This method should not be called.");
         }
 
