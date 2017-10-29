@@ -74,6 +74,13 @@ public class CommandBox extends UiPart<Region> {
         }
     }
 
+    /**
+     * Updates the text field by the position of the caret
+     * 1. If the caret is in the extreme left position, break.
+     * 2. If the caret is at the extreme right position, it will delete a chunk or white spaces or words accordingly
+     * 3. If the chunk on the left of the caret are white spaces, it will delete
+     * 4. If the chunk on the left of the caret are words, it will delete
+     */
     private void deleteChunk() {
         int caretPos = commandTextField.getCaretPosition();
         int newCaretPos;
