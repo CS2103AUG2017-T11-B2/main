@@ -3,7 +3,7 @@ package seedu.address.ui;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 
@@ -79,7 +79,7 @@ public class CommandBox extends UiPart<Region> {
             break;
         case INSERT:
             commandTextField.setText("add " + PREFIX_NAME + " " + PREFIX_PHONE + " " + PREFIX_BIRTHDAY + " "
-                    + PREFIX_EMAIL + " " + PREFIX_ADDRESS + " " + PREFIX_MOD);
+                    + PREFIX_EMAIL + " " + PREFIX_ADDRESS + " " + PREFIX_MODULE);
             commandTextField.positionCaret(6);
             break;
         default:

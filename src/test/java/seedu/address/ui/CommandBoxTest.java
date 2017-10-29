@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 
@@ -224,7 +224,7 @@ public class CommandBoxTest extends GuiUnitTest {
 
         //clear command box
         guiRobot.push(KeyCode.ESCAPE);
-        
+
         //test for text cursor in between chunk of spaces
         guiRobot.write("    ");
         textField.positionCaret(2);
@@ -238,7 +238,7 @@ public class CommandBoxTest extends GuiUnitTest {
     public void handleKeyPress_insert() {
         TextField textField = commandBoxForTest.getCommandTextField();
         String correctTextField = "add " + PREFIX_NAME + " " + PREFIX_PHONE + " " + PREFIX_BIRTHDAY + " "
-                + PREFIX_EMAIL + " " + PREFIX_ADDRESS + " " + PREFIX_MOD;
+                + PREFIX_EMAIL + " " + PREFIX_ADDRESS + " " + PREFIX_MODULE;
 
         //empty command box
         guiRobot.push(KeyCode.INSERT);
