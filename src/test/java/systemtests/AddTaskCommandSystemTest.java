@@ -13,8 +13,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_EVE
 import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_EVENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_EVENT;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_STARTTIME_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_START_TIME_EVENT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_START_TIME_MOVIE;
 import static seedu.address.testutil.TypicalTasks.MOVIE;
 
 import org.junit.Test;
@@ -56,19 +56,19 @@ public class AddTaskCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: add a task with all fields same as another task in the address book except appointment -> added */
         toAdd = new TaskBuilder().withAppointment(VALID_APPOINTMENT_EVENT).withDate(VALID_DATE_MOVIE)
-                .withStartTime(VALID_STARTTIME_MOVIE).build();
+                .withStartTime(VALID_START_TIME_MOVIE).build();
         command = AddTaskCommand.COMMAND_WORD + APPOINTMENT_DESC_EVENT + DATE_DESC_MOVIE + STARTTIME_DESC_MOVIE;
         assertTaskCommandSuccess(command, toAdd);
 
         /* Case: add a task with all fields same as another task in the address book except date -> added */
         toAdd = new TaskBuilder().withAppointment(VALID_APPOINTMENT_MOVIE).withDate(VALID_DATE_EVENT)
-                .withStartTime(VALID_STARTTIME_MOVIE).build();
+                .withStartTime(VALID_START_TIME_MOVIE).build();
         command = AddTaskCommand.COMMAND_WORD + APPOINTMENT_DESC_MOVIE + DATE_DESC_EVENT + STARTTIME_DESC_MOVIE;
         assertTaskCommandSuccess(command, toAdd);
 
         /* Case: add a person with all fields same as another person in the address book except birthday -> added */
         toAdd = new TaskBuilder().withAppointment(VALID_APPOINTMENT_MOVIE).withDate(VALID_DATE_MOVIE)
-                .withStartTime(VALID_STARTTIME_EVENT).build();
+                .withStartTime(VALID_START_TIME_EVENT).build();
         command = AddTaskCommand.COMMAND_WORD + APPOINTMENT_DESC_MOVIE + DATE_DESC_MOVIE + STARTTIME_DESC_EVENT;
         assertTaskCommandSuccess(command, toAdd);
 
