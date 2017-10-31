@@ -35,7 +35,7 @@ public class TypicalTasks {
     public static final ReadOnlyTask WORK = new TaskBuilder().withAppointment("Work")
             .withDate("01/01/2018").withStartTime("08:00").build();
 
-    public static final ReadOnlyTask HOMEWORK = new TaskBuilder().withAppointment("Meeting")
+    public static final ReadOnlyTask HOMEWORK = new TaskBuilder().withAppointment("Homework")
             .withDate("12/01/2018").withStartTime("23:59").build();
 
     public static final ReadOnlyTask EXAM = new TaskBuilder().withAppointment("Exam")
