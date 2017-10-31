@@ -55,8 +55,10 @@ public class AddressBookParser {
         final String arguments = matcher.group("arguments");
         switch (commandWord.toLowerCase()) {
 
+        //@@author viviantan95
         case AddPhotoCommand.COMMAND_WORD:
             return new AddPhotoCommandParser().parse(arguments);
+        //@@author
 
         case AddCommand.COMMAND_WORD:
         case AddCommand.COMMAND_ALIAS:

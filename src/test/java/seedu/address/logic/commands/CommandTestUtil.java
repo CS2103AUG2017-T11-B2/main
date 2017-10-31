@@ -40,9 +40,11 @@ public class CommandTestUtil {
     public static final String VALID_PHONE_AMY = "11111111";
     public static final String VALID_PHONE_BOB = "22222222";
     public static final String VALID_PHONE_CARRIE = "33333333";
+    //@@author viviantan95
     public static final String VALID_BIRTHDAY_AMY = "11/11/1991";
     public static final String VALID_BIRTHDAY_BOB = "22/22/1992";
     public static final String VALID_BIRTHDAY_CARRIE = "33/33/1993";
+    //@@author
     public static final String VALID_EMAIL_AMY = "amy@example.com";
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final String VALID_EMAIL_CARRIE = "carrie@example.com";
@@ -52,10 +54,12 @@ public class CommandTestUtil {
     public static final String VALID_MOD_CS2103 = "CS2103";
     public static final String VALID_MOD_CS2101 = "CS2101";
     public static final String VALID_MOD_GER1000 = "GER1000";
+    //@@author viviantan95
     public static final String VALID_WEB_PHOTO_URL = "https://cdn.images.express.co.uk/img/dynamic/36/590x"
             + "/secondary/CHRIS-EVANS-865133.jpg";
     public static final String VALID_LOCAL_PHOTO_URL = "file://"
             + Paths.get("src/main/resources/images/defaultPhoto.png").toAbsolutePath().toUri().getPath();
+    //@@author
     public static final String VALID_APPOINTMENT_MEETING = "Meeting";
     public static final String VALID_APPOINTMENT_INTERVIEW = "Interview";
     public static final String VALID_DATE_MEETING = "25/11/2017";
@@ -91,12 +95,16 @@ public class CommandTestUtil {
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
+    //@@author viviantan95
     public static final String INVALID_BIRTHDAY_DESC = " " + PREFIX_BIRTHDAY + "11/01/19955";
     // more than 8 numbers
+    //@@author
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_MOD_DESC = " " + PREFIX_MODULE + "hubby*"; // '*' not allowed in modules
+    //@@author viviantan95
     public static final String INVALID_URL_DESC = " " + PREFIX_PHOTO + "images/defaultPhoto.png"; //Not a valid URL
+    //@@author
     public static final String INVALID_DATE_DESC = " " + PREFIX_DATE + "25.12.2012"; // '.' not allowed
     public static final String INVALID_START_TIME_DESC = " " + PREFIX_STARTTIME + "1000"; // missing ':' symbol
 
