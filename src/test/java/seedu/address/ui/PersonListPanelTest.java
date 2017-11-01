@@ -14,7 +14,6 @@ import guitests.guihandles.PersonCardHandle;
 import guitests.guihandles.PersonListPanelHandle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.commons.events.ui.JumpToListRequestEvent;
 import seedu.address.commons.events.ui.JumpToPersonListRequestEvent;
 import seedu.address.model.person.ReadOnlyPerson;
 
@@ -22,7 +21,8 @@ public class PersonListPanelTest extends GuiUnitTest {
     private static final ObservableList<ReadOnlyPerson> TYPICAL_PERSONS =
             FXCollections.observableList(getTypicalPersons());
 
-    private static final JumpToPersonListRequestEvent JUMP_TO_SECOND_EVENT = new JumpToPersonListRequestEvent(INDEX_SECOND_PERSON);
+    private static final JumpToPersonListRequestEvent JUMP_TO_SECOND_EVENT =
+            new JumpToPersonListRequestEvent(INDEX_SECOND_PERSON);
 
     private PersonListPanelHandle personListPanelHandle;
 
