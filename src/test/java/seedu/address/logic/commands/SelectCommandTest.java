@@ -110,8 +110,8 @@ public class SelectCommandTest {
             throw new IllegalArgumentException("Execution of command should not fail.", ce);
         }
 
-        JumpToPersonListRequestEvent lastEvent = (JumpToPersonListRequestEvent) eventsCollectorRule.
-                eventsCollector.getMostRecent();
+        JumpToPersonListRequestEvent lastEvent = (JumpToPersonListRequestEvent) eventsCollectorRule
+                .eventsCollector.getMostRecent();
         assertEquals(index, Index.fromZeroBased(lastEvent.targetIndex));
     }
 
