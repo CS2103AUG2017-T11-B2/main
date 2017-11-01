@@ -9,7 +9,6 @@ import java.util.Set;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.ObservableList;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.UniqueModuleList;
 

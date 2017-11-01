@@ -44,7 +44,9 @@ public class Name {
         return test.matches(NAME_VALIDATION_REGEX);
     }
 
-    public String getBrowserName() { return browserName; }
+    public String getBrowserName() {
+        return browserName;
+    }
 
     @Override
     public String toString() {
