@@ -6,7 +6,7 @@ import seedu.address.commons.events.BaseEvent;
 /**
  * Indicates a request to jump to the list of tasks
  */
-public class JumpToTaskListRequestEvent extends BaseEvent{
+public class JumpToTaskListRequestEvent extends BaseEvent {
 
     public final int targetIndex;
 
