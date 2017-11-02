@@ -49,7 +49,7 @@ public interface ReadOnlyPerson {
                 && other.getAddress().equals(this.getAddress()))
                 //@@author viviantan95
                 && other.getPhoto().equals(this.getPhoto());
-                //@@author
+        //@@author
     }
 
     /**
