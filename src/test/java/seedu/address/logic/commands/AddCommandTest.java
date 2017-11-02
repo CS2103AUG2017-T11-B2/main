@@ -168,7 +168,7 @@ public class AddCommandTest {
             fail("This method should not be called.");
         }
 
-        //@@author Julian Shoung
+        //@@author jshoung
         @Override
         public void deleteModule(Module module) throws DuplicatePersonException, PersonNotFoundException {
             fail("This method should not be called.");

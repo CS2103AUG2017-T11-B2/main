@@ -44,7 +44,7 @@ public class Name {
         return test.matches(NAME_VALIDATION_REGEX);
     }
 
-    //@@author Julian Shoung
+    //@@author jshoung
     public String getBrowserName() {
         return browserName;
     }
