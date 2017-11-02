@@ -53,37 +53,15 @@ public class BrowserPanel extends UiPart<Region> {
         loadPage(GOOGLE_SEARCH_URL_PREFIX + person.getName().fullName.replaceAll(" ", "+")
                 + GOOGLE_SEARCH_URL_SUFFIX);
     }*/
-
+    //@@author tanchc
     /**
      * Loads the located address page of the user's address.
      */
     private void loadAddressPage(ReadOnlyPerson person) throws IOException {
-        /*ClassLoader classLoader = getClass().getClassLoader();
-        File locatedAddressFile = new File(classLoader.getResource("view/LocatedAddress.html").getFile());
-        File htmlTemplateFile = new File(classLoader.getResource("view/Template.html").getFile());
-        resetPage(htmlTemplateFile, locatedAddressFile);
-        String htmlString = FileUtils.readFileToString(locatedAddressFile);
-        System.out.println(htmlString);
-        String title = "New Page";
-        int stopIndex = person.getAddress().getGMapsAddress().indexOf(',');
-        String address = person.getAddress().getGMapsAddress().substring(0, stopIndex);
-        System.out.println(address);
-        System.out.println(htmlString);
-        htmlString = htmlString.replace("$body", address.replace(" ", "+"));
-        System.out.println(htmlString);
-        FileUtils.writeStringToFile(locatedAddressFile, htmlString);*/
-
         URL addressPage = MainApp.class.getResource(FXML_FILE_FOLDER + ADDRESS_PAGE);
         loadPage(addressPage.toExternalForm());
     }
-
-    /**
-     * resets the address page.
-     */
-    /*private void resetPage(File resetFile, File addressFile) throws IOException {
-        String reset = FileUtils.readFileToString(resetFile);
-        FileUtils.writeStringToFile(addressFile, reset);
-    }*/
+    //@@author
 
     private void loadPage(String url) {
         Platform.runLater(() -> browser.getEngine().load(url));
@@ -103,13 +81,14 @@ public class BrowserPanel extends UiPart<Region> {
     public void freeResources() {
         browser = null;
     }
-
+    //@@author tanchc
     @Subscribe
     private void handlePersonPanelSelectionChangedEvent(PersonPanelSelectionChangedEvent event) throws IOException {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         ReadOnlyPerson p = event.getNewSelection().person;
         int stopIndex = p.getAddress().getGMapsAddress().indexOf(',');
         String mapAddress = p.getAddress().getGMapsAddress().substring(0, stopIndex);
+        //@@author
         String address = p.getAddress().getBrowserAddress();
         String birthday = p.getBirthday().getBrowserValue();
         String name = p.getName().getBrowserName();
@@ -117,11 +96,12 @@ public class BrowserPanel extends UiPart<Region> {
         String emails = p.getBrowserEmails();
         String phones = p.getBrowserPhones();
         String modules = p.getBrowserModules();
-
+        //@@author tanchc
         browser.getEngine().getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
             if (newState == Worker.State.SUCCEEDED) {
                 WebEngine panel = browser.getEngine();
                 panel.executeScript("document.goToLocation(\"" + mapAddress + "\")");
+                //@@author
                 panel.executeScript("document.setBirthday(\"" + birthday + "\")");
                 panel.executeScript("document.setName(\"" + name + "\")");
                 panel.executeScript("document.setAddress(\"" + address + "\")");

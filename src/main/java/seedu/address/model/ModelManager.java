@@ -43,7 +43,9 @@ public class ModelManager extends ComponentManager implements Model {
 
         this.addressBook = new AddressBook(addressBook);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+        //@@author tanchc
         filteredTasks = new FilteredList<>(this.addressBook.getTaskList());
+        //@@author
     }
 
     public ModelManager() {
@@ -77,14 +79,14 @@ public class ModelManager extends ComponentManager implements Model {
         addressBook.removeTask(target);
         indicateAddressBookChanged();
     }
-
+    //@@author tanchc
     @Override
     public synchronized void addPerson(ReadOnlyPerson person) throws DuplicatePersonException {
         addressBook.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         indicateAddressBookChanged();
     }
-
+    //@@author
     @Override
     public synchronized void addTask(ReadOnlyTask task) {
         addressBook.addTask(task);
@@ -146,7 +148,13 @@ public class ModelManager extends ComponentManager implements Model {
             addressBook.updatePerson(oldPerson, newPerson);
         }
     }
+    //@@author tanchc
+    //=========== Filtered Task List Accessors =============================================================
 
+    /**
+     * Returns an unmodifiable view of the list of {@code ReadOnlyTask} backed by the internal list of
+     * {@code addressBook}
+     */
     @Override
     public ObservableList<ReadOnlyTask> getFilteredTaskList() {
         return FXCollections.unmodifiableObservableList(filteredTasks);
@@ -157,7 +165,7 @@ public class ModelManager extends ComponentManager implements Model {
         requireNonNull(predicate);
         filteredTasks.setPredicate(predicate);
     }
-
+    //@@author
     @Override
     public boolean equals(Object obj) {
         // short circuit if same object

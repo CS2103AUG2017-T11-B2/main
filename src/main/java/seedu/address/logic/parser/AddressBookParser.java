@@ -62,11 +62,11 @@ public class AddressBookParser {
         case AddCommand.COMMAND_WORD:
         case AddCommand.COMMAND_ALIAS:
             return new AddCommandParser().parse(arguments);
-
+        //@@author tanchc
         case AddTaskCommand.COMMAND_WORD:
         case AddTaskCommand.COMMAND_ALIAS:
             return new AddTaskCommandParser().parse(arguments);
-
+        //@@author
         case EditCommand.COMMAND_WORD:
         case EditCommand.COMMAND_ALIAS:
             return new EditCommandParser().parse(arguments);
@@ -94,11 +94,11 @@ public class AddressBookParser {
         case FindCommand.COMMAND_WORD:
         case FindCommand.COMMAND_ALIAS:
             return new FindCommandParser().parse(arguments);
-
+        //@@author tanchc
         case FindModuleCommand.COMMAND_WORD:
         case FindModuleCommand.COMMAND_ALIAS:
             return new FindModuleCommandParser().parse(arguments);
-
+        //@@author
         case ListCommand.COMMAND_WORD:
         case ListCommand.COMMAND_ALIAS:
             return new ListCommand();

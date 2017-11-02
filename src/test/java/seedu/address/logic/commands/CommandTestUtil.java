@@ -57,6 +57,7 @@ public class CommandTestUtil {
             + "/secondary/CHRIS-EVANS-865133.jpg";
     public static final String VALID_LOCAL_PHOTO_URL = "file://"
             + Paths.get("src/main/resources/images/defaultPhoto.png").toAbsolutePath().toUri().getPath();
+    //@@author tanchc
     public static final String VALID_APPOINTMENT_MOVIE = "Movie";
     public static final String VALID_APPOINTMENT_EVENT = "Event";
     public static final String VALID_APPOINTMENT_BADMINTON = "Badminton";
@@ -67,6 +68,7 @@ public class CommandTestUtil {
     public static final String VALID_START_TIME_EVENT = "10:00";
     public static final String VALID_START_TIME_EVENT_EDIT = "15:00";
     public static final String VALID_START_TIME_BADMINTON = "20:00";
+    //@@author
     public static final String VALID_APPOINTMENT_MEETING = "Meeting";
     public static final String VALID_APPOINTMENT_INTERVIEW = "Interview";
     public static final String VALID_DATE_MEETING = "25/11/2017";
@@ -108,7 +110,7 @@ public class CommandTestUtil {
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_MOD_DESC = " " + PREFIX_MODULE + "hubby*"; // '*' not allowed in modules
     public static final String INVALID_URL_DESC = " " + PREFIX_PHOTO + "images/defaultPhoto.png"; //Not a valid URL
-
+    //@@author tanchc
     public static final String APPOINTMENT_DESC_MOVIE = " " + PREFIX_APPOINTMENT + VALID_APPOINTMENT_MOVIE;
     public static final String APPOINTMENT_DESC_EVENT = " " + PREFIX_APPOINTMENT + VALID_APPOINTMENT_EVENT;
     public static final String APPOINTMENT_DESC_BADMINTON = " " + PREFIX_APPOINTMENT + VALID_APPOINTMENT_BADMINTON;
@@ -122,7 +124,7 @@ public class CommandTestUtil {
     public static final String INVALID_APPOINTMENT_DESC = " " + PREFIX_APPOINTMENT + "Meetings&"; // '&' not allowed
     public static final String INVALID_DATE_DESC = " " + PREFIX_DATE + "01.01.2020"; // '.' not allowed
     public static final String INVALID_START_TIME_DESC = " " + PREFIX_STARTTIME + "1300"; // missing ':' symbol
-
+    //@@author
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;
     public static final EditCommand.EditPersonDescriptor DESC_CARRIE;
