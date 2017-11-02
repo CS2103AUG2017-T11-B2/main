@@ -57,6 +57,7 @@ public class AddressBookParser {
 
         //@@author viviantan95
         case AddPhotoCommand.COMMAND_WORD:
+        case AddPhotoCommand.COMMAND_ALIAS:
             return new AddPhotoCommandParser().parse(arguments);
         //@@author
 
