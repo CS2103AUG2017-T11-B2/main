@@ -62,7 +62,7 @@ public class AddressBookParser {
         case AddCommand.COMMAND_WORD:
         // @@author ahmadalkaff
         case AddCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new AddCommandParser().parse(arguments);
 
         case AddTaskCommand.COMMAND_WORD:
@@ -83,31 +83,31 @@ public class AddressBookParser {
         case SelectCommand.COMMAND_WORD:
         // @@author ahmadalkaff
         case SelectCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new SelectCommandParser().parse(arguments);
 
         case DeleteCommand.COMMAND_WORD:
         // @@author ahmadalkaff
         case DeleteCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new DeleteCommandParser().parse(arguments);
 
         // @@author ahmadalkaff
         case DeleteTaskCommand.COMMAND_WORD:
         case DeleteTaskCommand.COMMAND_ALIAS:
             return new DeleteTaskCommandParser().parse(arguments);
-        // @@author
+            // @@author
 
         case ClearCommand.COMMAND_WORD:
         // @@author ahmadalkaff
         case ClearCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new ClearCommand();
 
         case FindCommand.COMMAND_WORD:
         // @@author ahmadalkaff
         case FindCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new FindCommandParser().parse(arguments);
 
         case FindModuleCommand.COMMAND_WORD:
@@ -117,31 +117,31 @@ public class AddressBookParser {
         case ListCommand.COMMAND_WORD:
         // @@author ahmadalkaff
         case ListCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new ListCommand();
 
         // @@author ahmadalkaff
         case ListModuleCommand.COMMAND_WORD:
         case ListModuleCommand.COMMAND_ALIAS:
             return new ListModuleCommand();
-        // @@author
+            // @@author
 
         case HistoryCommand.COMMAND_WORD:
         // @@author ahmadalkaff
         case HistoryCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new HistoryCommand();
 
         // @@author ahmadalkaff
         case SortCommand.COMMAND_WORD:
         case SortCommand.COMMAND_ALIAS:
             return new SortCommand();
-        // @@author
+            // @@author
 
         case ExitCommand.COMMAND_WORD:
         // @@author ahmadalkaff
         case ExitCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new ExitCommand();
 
         case HelpCommand.COMMAND_WORD:
@@ -150,13 +150,13 @@ public class AddressBookParser {
         case UndoCommand.COMMAND_WORD:
         // @@author ahmadalkaff
         case UndoCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new UndoCommand();
 
         case RedoCommand.COMMAND_WORD:
         // @@author ahmadalkaff
         case RedoCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new RedoCommand();
 
         default:
