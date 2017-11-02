@@ -53,15 +53,19 @@ public class XmlAdaptedPerson {
      */
     public XmlAdaptedPerson(ReadOnlyPerson source) {
         name = source.getName().fullName;
+        // @@author ahmadalkaff
         phones = new ArrayList<>();
         for (Phone phone : source.getPhones()) {
             phones.add(new XmlAdaptedPhone(phone));
         }
+        // @@author
         birthday = source.getBirthday().value;
+        // @@author ahmadalkaff
         emails = new ArrayList<>();
         for (Email email : source.getEmails()) {
             emails.add(new XmlAdaptedEmail(email));
         }
+        // @@author
         address = source.getAddress().value;
         photo = source.getPhoto().value;
         modules = new ArrayList<>();
@@ -76,6 +80,7 @@ public class XmlAdaptedPerson {
      * @throws IllegalValueException if there were any data constraints violated in the adapted person
      */
     public Person toModelType() throws IllegalValueException {
+        // @@author ahmadalkaff
         final List<Phone> personPhones = new ArrayList<>();
         for (XmlAdaptedPhone phone : phones) {
             personPhones.add(phone.toModelType());
@@ -85,6 +90,7 @@ public class XmlAdaptedPerson {
         for (XmlAdaptedEmail email : emails) {
             personEmails.add(email.toModelType());
         }
+        // @@author
 
         final List<Module> personModules = new ArrayList<>();
         for (XmlAdaptedModule mod : modules) {

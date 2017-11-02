@@ -73,6 +73,7 @@ public class Person implements ReadOnlyPerson {
         return name.get();
     }
 
+    // @@author ahmadalkaff
     /**
      * Returns an immutable phone set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
@@ -81,6 +82,7 @@ public class Person implements ReadOnlyPerson {
     public Set<Phone> getPhones() {
         return Collections.unmodifiableSet(phones.get().toSet());
     }
+    // @@author
 
     public ObjectProperty<PhoneList> phoneProperty() {
         return phones;
@@ -106,12 +108,14 @@ public class Person implements ReadOnlyPerson {
         return allPhones;
     }
 
+    // @@author ahmadalkaff
     /**
      * Replaces this person's phones with the phones in the argument phone set.
      */
     public void setPhones(Set<Phone> replacement) {
         phones.set(new PhoneList(replacement));
     }
+    // @@author
 
     public void setBirthday(Birthday birthday) {
         this.birthday.set(requireNonNull(birthday));
@@ -127,6 +131,7 @@ public class Person implements ReadOnlyPerson {
         return birthday.get();
     }
 
+    // @@author ahmadalkaff
     /**
      * Returns an immutable email set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
@@ -135,6 +140,7 @@ public class Person implements ReadOnlyPerson {
     public Set<Email> getEmails() {
         return Collections.unmodifiableSet(emails.get().toSet());
     }
+    // @@author
 
     /**
      * Returns a String consisting of all the person's emails separated by commas, for display in the browser.
@@ -160,12 +166,14 @@ public class Person implements ReadOnlyPerson {
         return emails;
     }
 
+    // @@author ahmadalkaff
     /**
      * Replaces this person's emails with the emails in the argument email set.
      */
     public void setEmails(Set<Email> replacement) {
         emails.set(new EmailList(replacement));
     }
+    // @@author
 
     public void setAddress(Address address) {
         this.address.set(requireNonNull(address));

@@ -105,9 +105,13 @@ public class EditCommand extends UndoableCommand {
         assert personToEdit != null;
 
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
+        // @@author ahmadalkaff
         Set<Phone> updatedPhones = editPersonDescriptor.getPhones().orElse(personToEdit.getPhones());
+        // @@author
         Birthday updatedBirthday = editPersonDescriptor.getBirthday().orElse(personToEdit.getBirthday());
+        // @@author ahmadalkaff
         Set<Email> updatedEmails = editPersonDescriptor.getEmails().orElse(personToEdit.getEmails());
+        // @@author
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Photo updatedPhoto = personToEdit.getPhoto();
         Set<Module> updatedModules = editPersonDescriptor.getModules().orElse(personToEdit.getModules());
@@ -174,6 +178,7 @@ public class EditCommand extends UndoableCommand {
             return Optional.ofNullable(name);
         }
 
+        // @@author ahmadalkaff
         public void setPhones(Set<Phone> phones) {
             this.phones = phones;
         }
@@ -181,6 +186,7 @@ public class EditCommand extends UndoableCommand {
         public Optional<Set<Phone>> getPhones() {
             return Optional.ofNullable(phones);
         }
+        // @@author
 
         public void setBirthday(Birthday birthday) {
             this.birthday = birthday;
@@ -190,6 +196,7 @@ public class EditCommand extends UndoableCommand {
             return Optional.ofNullable(birthday);
         }
 
+        // @@author ahmadalkaff
         public void setEmails(Set<Email> emails) {
             this.emails = emails;
         }
@@ -197,6 +204,7 @@ public class EditCommand extends UndoableCommand {
         public Optional<Set<Email>> getEmails() {
             return Optional.ofNullable(emails);
         }
+        // @@author
 
         public void setAddress(Address address) {
             this.address = address;

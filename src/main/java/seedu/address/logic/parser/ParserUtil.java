@@ -57,6 +57,7 @@ public class ParserUtil {
         return name.isPresent() ? Optional.of(new Name(name.get())) : Optional.empty();
     }
 
+    // @@author ahmadalkaff
     /**
      * Parses a {@code Optional<String> phone} into an {@code Optional<Phone>} if {@code phone} is present.
      * See header comment of this class regarding the use of {@code Optional} parameters.
@@ -69,6 +70,7 @@ public class ParserUtil {
         }
         return phoneSet;
     }
+    // @@author
 
     /**
      * Parses a {@code Optional<String> Address} into an {@code Optional<Address>} if {@code Address} is present.
@@ -88,6 +90,7 @@ public class ParserUtil {
         return birthday.isPresent() ? Optional.of(new Birthday(birthday.get())) : Optional.empty();
     }
 
+    // @@author ahmadalkaff
     /**
      * Parses a {@code Optional<String> email} into an {@code Optional<Email>} if {@code email} is present.
      * See header comment of this class regarding the use of {@code Optional} parameters.
@@ -100,6 +103,7 @@ public class ParserUtil {
         }
         return emailSet;
     }
+    // @@author
 
     /**
      * Parses {@code Collection<String> modules} into a {@code Set<Module>}.

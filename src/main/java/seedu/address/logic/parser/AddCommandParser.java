@@ -46,9 +46,13 @@ public class AddCommandParser implements Parser<AddCommand> {
 
         try {
             Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME)).get();
+            // @@author ahmadalkaff
             Set<Phone> phoneList = ParserUtil.parsePhones(argMultimap.getAllValues(PREFIX_PHONE));
+            // @@author
             Birthday birthday = ParserUtil.parseBirthday(argMultimap.getValue(PREFIX_BIRTHDAY)).get();
+            // @@author ahmadalkaff
             Set<Email> emailList = ParserUtil.parseEmails(argMultimap.getAllValues(PREFIX_EMAIL));
+            // @@author
             Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS)).get();
             Photo photo = new Photo();
             Set<Module> moduleList = ParserUtil.parseModules(argMultimap.getAllValues(PREFIX_MODULE));

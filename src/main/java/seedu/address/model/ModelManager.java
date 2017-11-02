@@ -128,10 +128,12 @@ public class ModelManager extends ComponentManager implements Model {
         filteredPersons.setPredicate(predicate);
     }
 
+    // @@author ahmadalkaff
     @Override
     public void sortPersonListByName() {
         addressBook.sortPersonListByName();
     }
+    // @@author
 
     @Override
     public void deleteModule(Module module) throws DuplicatePersonException, PersonNotFoundException {

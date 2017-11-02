@@ -85,16 +85,20 @@ public class PersonCard extends UiPart<Region> {
      */
     private void bindListeners(ReadOnlyPerson person) {
         name.textProperty().bind(Bindings.convert(person.nameProperty()));
+        // @@author ahmadalkaff
         person.phoneProperty().addListener((observable, oldValue, newValue) -> {
             phones.getChildren().clear();
             initPhones(person);
         });
+        // @@author
         birthday.textProperty().bind(Bindings.convert(person.birthdayProperty()));
         address.textProperty().bind(Bindings.convert(person.addressProperty()));
+        // @@author ahmadalkaff
         person.emailProperty().addListener((observable, oldValue, newValue) -> {
             emails.getChildren().clear();
             initEmails(person);
         });
+        // @@author
         person.photoProperty().addListener((observable, oldValue, newValue) -> {
             imageView.setImage(new Image(person.getPhoto().toString(), 120, 120,
                     true, false));
@@ -105,6 +109,7 @@ public class PersonCard extends UiPart<Region> {
         });
     }
 
+    // @@author ahmadalkaff
     /**
      * Initialise the phones for each person
      */
@@ -126,6 +131,7 @@ public class PersonCard extends UiPart<Region> {
             emails.setHgap(GAP);
         });
     }
+    // @@author
 
     /**
      * Initialise the modules for each person
