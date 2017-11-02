@@ -24,9 +24,9 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-    /**
-    * The UI component that is responsible for receiving user command inputs.
-    */
+/**
+ * The UI component that is responsible for receiving user command inputs.
+ **/
 public class CommandBox extends UiPart<Region> {
 
     public static final String ERROR_STYLE_CLASS = "error";
