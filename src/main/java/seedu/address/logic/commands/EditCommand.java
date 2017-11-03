@@ -44,7 +44,9 @@ public class EditCommand extends UndoableCommand {
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
+            //@@author viviantan95
             + "[" + PREFIX_BIRTHDAY + "BIRTHDAY] "
+            //@@author
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_MODULE + "MODULE]...\n"
@@ -107,9 +109,9 @@ public class EditCommand extends UndoableCommand {
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
         // @@author ahmadalkaff
         Set<Phone> updatedPhones = editPersonDescriptor.getPhones().orElse(personToEdit.getPhones());
-        // @@author
+        // @@author viviantan95
         Birthday updatedBirthday = editPersonDescriptor.getBirthday().orElse(personToEdit.getBirthday());
-        // @@author ahmadalkaff
+        //@@author ahmadalkaff
         Set<Email> updatedEmails = editPersonDescriptor.getEmails().orElse(personToEdit.getEmails());
         // @@author
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
@@ -156,7 +158,9 @@ public class EditCommand extends UndoableCommand {
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             this.name = toCopy.name;
             this.phones = toCopy.phones;
+            //@@author viviantan95
             this.birthday = toCopy.birthday;
+            //@@author
             this.emails = toCopy.emails;
             this.address = toCopy.address;
             this.modules = toCopy.modules;
@@ -188,6 +192,7 @@ public class EditCommand extends UndoableCommand {
         }
         // @@author
 
+        //@@author viviantan95
         public void setBirthday(Birthday birthday) {
             this.birthday = birthday;
         }
@@ -195,6 +200,7 @@ public class EditCommand extends UndoableCommand {
         public Optional<Birthday> getBirthday() {
             return Optional.ofNullable(birthday);
         }
+        //@@author
 
         // @@author ahmadalkaff
         public void setEmails(Set<Email> emails) {
@@ -239,7 +245,9 @@ public class EditCommand extends UndoableCommand {
 
             return getName().equals(e.getName())
                     && getPhones().equals(e.getPhones())
+                    //@@author viviantan95
                     && getBirthday().equals(e.getBirthday())
+                    //@@author
                     && getEmails().equals(e.getEmails())
                     && getAddress().equals(e.getAddress())
                     && getModules().equals(e.getModules());

@@ -21,7 +21,9 @@ public class PersonBuilder {
 
     public static final String DEFAULT_NAME = "Alice Pauline";
     public static final String DEFAULT_PHONES = "85355255";
+    //@@author viviantan95
     public static final String DEFAULT_BIRTHDAY = "25/09/1990";
+    //@@author
     public static final String DEFAULT_EMAILS = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_MODS = "CS1010";
@@ -33,13 +35,15 @@ public class PersonBuilder {
             Name defaultName = new Name(DEFAULT_NAME);
             // @@author ahmadalkaff
             Set<Phone> defaultPhones = SampleDataUtil.getPhoneSet(DEFAULT_PHONES);
-            // @@author
+            //@@author viviantan95
             Birthday defaultBirthday = new Birthday(DEFAULT_BIRTHDAY);
-            // @@author ahmadalkaff
+            //@@author ahmadalkaff
             Set<Email> defaultEmails = SampleDataUtil.getEmailSet(DEFAULT_EMAILS);
             // @@author
             Address defaultAddress = new Address(DEFAULT_ADDRESS);
+            //@@author viviantan95
             Photo defaultPhoto = new Photo();
+            //@@author
             Set<Module> defaultModules = SampleDataUtil.getModuleSet(DEFAULT_MODS);
             this.person = new Person(defaultName, defaultPhones, defaultBirthday, defaultEmails,
                     defaultAddress, defaultPhoto, defaultModules);
@@ -103,6 +107,7 @@ public class PersonBuilder {
         return this;
     }
 
+    //@@author viviantan95
     /**
      * Sets the {@code Birthday} of the {@code Birthday} that we are building.
      */
@@ -114,6 +119,7 @@ public class PersonBuilder {
         }
         return this;
     }
+    //@@author
 
     /**
      * Sets the {@code Email} of the {@code Person} that we are building.

@@ -32,9 +32,10 @@ public class PersonUtil {
         person.getPhones().stream().forEach(
             s -> sb.append(PREFIX_PHONE + s.value + " ")
         );
-        // @@author
+
+        //@@author viviantan95
         sb.append(PREFIX_BIRTHDAY + person.getBirthday().value + " ");
-        // @@author ahmadalkaff
+        //@@author ahmadalkaff
         person.getEmails().stream().forEach(
             s -> sb.append(PREFIX_EMAIL + s.value + " ")
         );

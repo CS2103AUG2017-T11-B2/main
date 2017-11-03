@@ -27,14 +27,18 @@ public class XmlAdaptedPerson {
     private String name;
     @XmlElement(required = true)
     private List<XmlAdaptedPhone> phones = new ArrayList<>();
+    //@@author viviantan95
     @XmlElement(required = true)
     private String birthday;
+    //@@author
     @XmlElement(required = true)
     private List<XmlAdaptedEmail> emails = new ArrayList<>();
     @XmlElement(required = true)
     private String address;
+    //@@author viviantan95
     @XmlElement(required = true)
     private String photo;
+    //@@author
 
     @XmlElement
     private List<XmlAdaptedModule> modules = new ArrayList<>();
@@ -58,16 +62,18 @@ public class XmlAdaptedPerson {
         for (Phone phone : source.getPhones()) {
             phones.add(new XmlAdaptedPhone(phone));
         }
-        // @@author
+        //@@author viviantan95
         birthday = source.getBirthday().value;
-        // @@author ahmadalkaff
+        //@@author ahmadalkaff
         emails = new ArrayList<>();
         for (Email email : source.getEmails()) {
             emails.add(new XmlAdaptedEmail(email));
         }
         // @@author
         address = source.getAddress().value;
+        //@@author viviantan95
         photo = source.getPhoto().value;
+        //@@author
         modules = new ArrayList<>();
         for (Module mod : source.getModules()) {
             modules.add(new XmlAdaptedModule(mod));
@@ -99,10 +105,14 @@ public class XmlAdaptedPerson {
 
         final Name name = new Name(this.name);
         final Set<Phone> phones = new HashSet<>(personPhones);
+        //@@author viviantan95
         final Birthday birthday = new Birthday(this.birthday);
+        //@@author
         final Set<Email> emails = new HashSet<>(personEmails);
         final Address address = new Address(this.address);
+        //@@author viviantan95
         final Photo photo = new Photo(this.photo);
+        //@@author
         final Set<Module> modules = new HashSet<>(personModules);
         return new Person(name, phones, birthday, emails, address, photo, modules);
     }
