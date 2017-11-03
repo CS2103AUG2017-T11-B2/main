@@ -9,8 +9,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 
 import java.util.logging.Logger;
 
-import org.controlsfx.control.textfield.TextFields;
-
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -39,14 +37,14 @@ public class CommandBox extends UiPart<Region> {
     @FXML
     private TextField commandTextField;
 
-    private String[] suggestions = {"add", "sort", "delete", "list", "find", "findmodule"};
+    //private String[] suggestions = {"add", "sort", "delete", "list", "find", "findmodule"};
 
     public CommandBox(Logic logic) {
         super(FXML);
         this.logic = logic;
         // calls #setStyleToDefault() whenever there is a change to the text of the command box.
         commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
-        TextFields.bindAutoCompletion(commandTextField, suggestions);
+        //TextFields.bindAutoCompletion(commandTextField, suggestions);
         historySnapshot = logic.getHistorySnapshot();
     }
 

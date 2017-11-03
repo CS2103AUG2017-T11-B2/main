@@ -59,11 +59,11 @@ public class Address {
     public int hashCode() {
         return value.hashCode();
     }
-
+    //@@author tanchc
     public String getGMapsAddress() {
         return gMapsAddress;
     }
-
+    //@@author
     public String getBrowserAddress() {
         return value;
     }
