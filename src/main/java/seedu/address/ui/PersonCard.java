@@ -21,9 +21,9 @@ public class PersonCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
     private static final double GAP = 8;
-
+    //@@author tanchc
     private static String[] colors = { "red", "blue", "orange", "brown", "green", "black", "grey", "yellow", "pink" };
-
+    //@@author
     private static HashMap<String, String> moduleColors = new HashMap<String, String>();
     private static Random random = new Random();
     /**
@@ -65,7 +65,7 @@ public class PersonCard extends UiPart<Region> {
         initPhoto(person);
         bindListeners(person);
     }
-
+    //@@author tanchc
     private static int getRandom() {
         int randNum = random.nextInt(colors.length);
         return randNum;
@@ -78,7 +78,7 @@ public class PersonCard extends UiPart<Region> {
 
         return moduleColors.get(moduleValue);
     }
-
+    //@@author
     /**
      * Binds the individual UI elements to observe their respective {@code Person} properties
      * so that they will be notified of any changes.
@@ -133,12 +133,13 @@ public class PersonCard extends UiPart<Region> {
     private void initModules(ReadOnlyPerson person) {
         person.getModules().forEach(module -> {
             Label moduleLabel = new Label(module.moduleName);
+            //@@author tanchc
             int randNum = getRandom();
             moduleLabel.setStyle("-fx-background-color: " + getColorForModule(module.moduleName, randNum));
             if (randNum > 6) {
                 moduleLabel.setStyle("-fx-text-fill: black");
             }
-
+            //@@author
             modules.getChildren().add(moduleLabel);
             modules.setHgap(GAP);
         });

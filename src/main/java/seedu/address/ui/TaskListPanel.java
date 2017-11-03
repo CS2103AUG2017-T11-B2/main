@@ -1,3 +1,4 @@
+//@@author tanchc
 package seedu.address.ui;
 
 import java.util.logging.Logger;
@@ -13,7 +14,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.commons.events.ui.JumpToListRequestEvent;
+import seedu.address.commons.events.ui.JumpToTaskListRequestEvent;
 import seedu.address.commons.events.ui.TaskPanelSelectionChangedEvent;
 import seedu.address.model.task.ReadOnlyTask;
 
@@ -45,7 +46,7 @@ public class TaskListPanel extends UiPart<Region> {
         taskListView.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> {
                     if (newValue != null) {
-                        logger.fine("Selection in person list panel changed to : '" + newValue + "'");
+                        logger.fine("Selection in task list panel changed to : '" + newValue + "'");
                         raise(new TaskPanelSelectionChangedEvent(newValue));
                     }
                 });
@@ -62,7 +63,7 @@ public class TaskListPanel extends UiPart<Region> {
     }
 
     @Subscribe
-    private void handleJumpToListRequestEvent(JumpToListRequestEvent event) {
+    private void handleJumpToListRequestEvent(JumpToTaskListRequestEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         scrollTo(event.targetIndex);
     }

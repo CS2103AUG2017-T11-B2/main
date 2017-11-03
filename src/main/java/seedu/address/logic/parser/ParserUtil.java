@@ -121,7 +121,7 @@ public class ParserUtil {
         requireNonNull(photo);
         return photo.isPresent() ? Optional.of(new Photo(photo.get())) : Optional.empty();
     }
-
+    //@@author tanchc
     /**
      * Parses a {@code Optional<String> appointment} into an {@code Optional<Appointment>} if {@code appointment}
      * is present.
@@ -149,4 +149,5 @@ public class ParserUtil {
         requireNonNull(startTime);
         return startTime.isPresent() ? Optional.of(new StartTime(startTime.get())) : Optional.empty();
     }
+    //@@author
 }
