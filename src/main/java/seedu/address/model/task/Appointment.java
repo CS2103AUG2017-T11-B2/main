@@ -10,7 +10,7 @@ import seedu.address.model.person.Name;
 public class Appointment {
 
     public static final String MESSAGE_APPOINTMENT_CONSTRAINTS =
-            "Person names should only contain alphanumeric characters and spaces, and it should not be blank";
+            "Appointment name should only contain alphanumeric characters and spaces, and it should not be blank";
 
     /*
      * The first character of the address must not be a whitespace,

@@ -9,7 +9,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
  */
 public class Date {
     public static final String MESSAGE_DATE_CONSTRAINTS =
-            "Birthday must be in the format of DD/MM/YYYY";
+            "Date must be in the format of DD/MM/YYYY";
 
     public static final String DATE_VALIDATION_REGEX =
             "\\d{2}/\\d{2}/\\d{4}";
