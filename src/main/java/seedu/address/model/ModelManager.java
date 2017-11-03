@@ -135,6 +135,7 @@ public class ModelManager extends ComponentManager implements Model {
     }
     // @@author
 
+    //@@author jshoung
     @Override
     public void deleteModule(Module module) throws DuplicatePersonException, PersonNotFoundException {
         for (int i = 0; i < addressBook.getPersonList().size(); i++) {

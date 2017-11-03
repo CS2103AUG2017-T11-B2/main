@@ -170,6 +170,7 @@ public class AddCommandTest {
         }
         // @@author
 
+        //@@author jshoung
         @Override
         public void deleteModule(Module module) throws DuplicatePersonException, PersonNotFoundException {
             fail("This method should not be called.");
