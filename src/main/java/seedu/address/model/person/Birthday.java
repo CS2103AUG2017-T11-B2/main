@@ -40,6 +40,7 @@ public class Birthday {
         return test.matches(BIRTHDAY_VALIDATION_REGEX);
     }
 
+    //@@author jshoung
     public String getBrowserValue() {
         return browserValue;
     }

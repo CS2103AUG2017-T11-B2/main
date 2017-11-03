@@ -92,6 +92,7 @@ public class Person implements ReadOnlyPerson {
         return phones;
     }
 
+    //@@author jshoung
     /**
      * Returns a String consisting of all the person's phone numbers separated by commas, for display in the browser.
      */
@@ -144,6 +145,7 @@ public class Person implements ReadOnlyPerson {
         return Collections.unmodifiableSet(emails.get().toSet());
     }
 
+    //@@author jshoung
     /**
      * Returns a String consisting of all the person's emails separated by commas, for display in the browser.
      */
@@ -214,6 +216,7 @@ public class Person implements ReadOnlyPerson {
         return Collections.unmodifiableSet(modules.get().toSet());
     }
 
+    //@@author jshoung
     /**
      * Returns a String consisting of all the person's modules separated by commas, for display in the browser.
      */

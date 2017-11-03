@@ -222,6 +222,7 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.exceptions.IllegalValueException;
 
 ```
+
 ###### \java\seedu\address\model\person\Birthday.java
 ``` java
 /**
@@ -238,6 +239,8 @@ public class Birthday {
             "\\d{2}/\\d{2}/\\d{4}";
 
     public final String value;
+    private String browserValue;
+
 
     //Validates given Birthday.
     public Birthday(String birthday) throws IllegalValueException {
@@ -247,6 +250,7 @@ public class Birthday {
             throw new IllegalValueException(MESSAGE_BIRTHDAY_CONSTRAINTS);
         }
         this.value = trimmedBirthday;
+        this.browserValue = trimmedBirthday;
     }
 
     /**
