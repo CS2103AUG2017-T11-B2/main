@@ -150,7 +150,7 @@ public class AddressBookParser {
         case HelpCommand.COMMAND_WORD:
         // @@author jshoung
         case HelpCommand.COMMAND_ALIAS:
-        // @@author
+            // @@author
             return new HelpCommand();
 
         case UndoCommand.COMMAND_WORD:
@@ -169,7 +169,7 @@ public class AddressBookParser {
         case BusCommand.COMMAND_WORD:
         case BusCommand.COMMAND_ALIAS:
             return new BusCommand();
-        // @@author
+            // @@author
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
