@@ -150,7 +150,7 @@ public class AddressBookParser {
         case HelpCommand.COMMAND_WORD:
         // @@author jshoung
         case HelpCommand.COMMAND_ALIAS:
-			// @@author
+            // @@author
             return new HelpCommand();
 
         case UndoCommand.COMMAND_WORD:
