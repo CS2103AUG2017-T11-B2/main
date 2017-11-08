@@ -111,20 +111,21 @@ public class EditTaskCommandParserTest {
 
     @Test
     public void parse_oneFieldSpecified_success() {
-        // appointment
+        // appointment - this fails
         Index targetIndex = INDEX_THIRD_TASK;
         String userInput = targetIndex.getOneBased() + APPOINTMENT_DESC_MEETING;
-        EditTaskDescriptor descriptor = new EditTaskDescriptorBuilder().withAppointment(VALID_APPOINTMENT_MEETING).build();
+        EditTaskDescriptor descriptor = new EditTaskDescriptorBuilder()
+                .withAppointment(VALID_APPOINTMENT_MEETING).build();
         EditTaskCommand expectedCommand = new EditTaskCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
-        // date
+        // date - this pass
         userInput = targetIndex.getOneBased() + DATE_DESC_MEETING;
         descriptor = new EditTaskDescriptorBuilder().withDate(VALID_DATE_MEETING).build();
         expectedCommand = new EditTaskCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
-        // start time
+        // start time - this pass
         userInput = targetIndex.getOneBased() + START_TIME_DESC_MEETING;
         descriptor = new EditTaskDescriptorBuilder().withStartTime(VALID_START_TIME_MEETING).build();
         expectedCommand = new EditTaskCommand(targetIndex, descriptor);
@@ -137,11 +138,16 @@ public class EditTaskCommandParserTest {
         // no other valid values specified
         Index targetIndex = INDEX_FIRST_TASK;
         String userInput = targetIndex.getOneBased() + INVALID_DATE_DESC + DATE_DESC_MEETING;
-        assertParseFailure(parser, userInput, Date.MESSAGE_DATE_CONSTRAINTS);
+        EditTaskDescriptor descriptor = new EditTaskDescriptorBuilder().withDate(VALID_DATE_MEETING).build();
+        EditTaskCommand expectedCommand = new EditTaskCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
 
         // other valid values specified
         userInput = targetIndex.getOneBased() + INVALID_DATE_DESC + DATE_DESC_MEETING + START_TIME_DESC_MEETING;
-        assertParseFailure(parser, userInput, Date.MESSAGE_DATE_CONSTRAINTS);
+        descriptor = new EditTaskDescriptorBuilder().withDate(VALID_DATE_MEETING)
+            .withStartTime(VALID_START_TIME_MEETING).build();
+        expectedCommand = new EditTaskCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
     }
 
 }

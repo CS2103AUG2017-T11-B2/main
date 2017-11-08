@@ -11,8 +11,8 @@ import static seedu.address.logic.commands.CommandTestUtil.START_TIME_DESC_MEETI
 import static seedu.address.logic.commands.CommandTestUtil.VALID_APPOINTMENT_MEETING;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MEETING;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_START_TIME_MEETING;
-import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import org.junit.Test;
 
