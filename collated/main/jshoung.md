@@ -631,6 +631,7 @@ public class MapWindow extends UiPart<Region> {
    </content>
 </ScrollPane>
 ```
+
 ###### /resources/view/DarkThemeCommands.css
 ``` css
 .background {
@@ -1013,6 +1014,7 @@ li {
     -fx-font-size: 11;
 }
 ```
+
 ###### /resources/view/MapWindow.fxml
 ``` fxml
 
@@ -1028,8 +1030,15 @@ li {
    </ImageView>
 </ScrollPane>
 ```
+
 ###### /resources/view/PersonListPanel.fxml
 ``` fxml
   <ListView fx:id="personListView" style="-fx-background-color: #383838;" VBox.vgrow="ALWAYS" />
+</VBox>
+```
+
+###### /resources/view/TaskListPanel.fxml
+``` fxml
+  <ListView fx:id="taskListView" style="-fx-background-color: #383838;" VBox.vgrow="ALWAYS" />
 </VBox>
 ```
