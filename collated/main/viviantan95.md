@@ -224,7 +224,11 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.exceptions.IllegalValueException;
 
 ```
+<<<<<<< HEAD
 ###### /java/seedu/address/model/person/Birthday.java
+=======
+###### \java\seedu\address\model\person\Birthday.java
+>>>>>>> a64da38ede5c20b3c82b060ac2f01163bc20f361
 ``` java
 /**
  * Represents a Person's Birthday in the address book.
@@ -260,6 +264,31 @@ public class Birthday {
         return test.matches(BIRTHDAY_VALIDATION_REGEX);
     }
 
+<<<<<<< HEAD
+=======
+```
+###### \java\seedu\address\model\person\Birthday.java
+``` java
+
+    @Override
+    public String toString() {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this //short circuit if same object
+                || (other instanceof Birthday
+                && this.value.equals(((Birthday) other).value));
+    }
+
+    @Override
+    public int hashCode() {
+        return value.hashCode();
+    }
+
+}
+>>>>>>> a64da38ede5c20b3c82b060ac2f01163bc20f361
 ```
 ###### /java/seedu/address/model/person/Person.java
 ``` java
@@ -359,6 +388,52 @@ public class Photo {
         this.value = photo;
     }
 
+<<<<<<< HEAD
+=======
+```
+###### \java\seedu\address\model\person\Photo.java
+``` java
+    /**
+     * Returns true if a given string is a valid url.
+     */
+    public static boolean isValidPhoto(String test) {
+        if (test.equals("images/defaultPhoto.png")) {
+            return true;
+        }
+
+        if (test.matches(PHOTO_VALIDATION_REGEX)) {
+            try {
+                Image image = ImageIO.read(new URL(test));
+                if (image == null) {
+                    return false;
+                }
+            } catch (IOException e) {
+                return false;
+            }
+            return true;
+
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof Photo // instanceof handles nulls
+                && this.value.equals(((Photo) other).value)); // state check
+    }
+
+    @Override
+    public int hashCode() {
+        return value.hashCode();
+    }
+}
+>>>>>>> a64da38ede5c20b3c82b060ac2f01163bc20f361
 ```
 ###### /java/seedu/address/model/person/ReadOnlyPerson.java
 ``` java
