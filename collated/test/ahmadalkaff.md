@@ -544,6 +544,7 @@ public class SortCommandTest {
         person.getPhones().stream().forEach(
             s -> sb.append(PREFIX_PHONE + s.value + " ")
         );
+
 ```
 ###### /java/seedu/address/testutil/PersonUtil.java
 ``` java
