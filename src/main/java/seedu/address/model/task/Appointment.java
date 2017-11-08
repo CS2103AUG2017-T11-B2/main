@@ -3,7 +3,6 @@ package seedu.address.model.task;
 import static java.util.Objects.requireNonNull;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Name;
 
 /**
  * Represents a Task's appointment in the address book.
