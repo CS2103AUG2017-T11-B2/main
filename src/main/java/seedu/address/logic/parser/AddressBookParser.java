@@ -185,7 +185,6 @@ public class AddressBookParser {
             return new GetModuleCommandParser().parse(arguments);
             // @@author
 
-
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }

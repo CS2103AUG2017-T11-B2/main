@@ -229,7 +229,6 @@ public class MainWindow extends UiPart<Region> {
     public void handleModule(String module) {
         browserPanel.loadPage("https://nusmods.com/modules/" + module);
     }
-
     //@@author
 
     void show() {
@@ -276,5 +275,6 @@ public class MainWindow extends UiPart<Region> {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         handleModule(event.module);
     }
+
     //@@author
 }

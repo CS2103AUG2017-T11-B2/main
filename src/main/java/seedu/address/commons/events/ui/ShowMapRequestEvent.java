@@ -5,6 +5,7 @@ import seedu.address.commons.events.BaseEvent;
 
 /**
  * An event requesting to view the map page.
+
  */
 public class ShowMapRequestEvent extends BaseEvent {
 
