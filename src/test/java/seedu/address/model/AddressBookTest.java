@@ -57,7 +57,8 @@ public class AddressBookTest {
         List<Person> newPersons = Arrays.asList(new Person(ALICE), new Person(ALICE));
         List<Module> newModules = new ArrayList<>(ALICE.getModules());
         List<Task> newTasks = Arrays.asList(new Task(MEETING), new Task(EVENT));
-        AddressBookStub newData = new AddressBookStub(newPersons, newModules, newTasks);
+//      AddressBookStub newData = new AddressBookStub(newPersons, newModules, newTasks);
+        AddressBookStub newData = new AddressBookStub(newPersons, newModules);
 
         thrown.expect(AssertionError.class);
         addressBook.resetData(newData);
