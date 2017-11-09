@@ -57,8 +57,7 @@ public class AddressBookTest {
         List<Person> newPersons = Arrays.asList(new Person(ALICE), new Person(ALICE));
         List<Module> newModules = new ArrayList<>(ALICE.getModules());
         List<Task> newTasks = Arrays.asList(new Task(MEETING), new Task(EVENT));
-//      AddressBookStub newData = new AddressBookStub(newPersons, newModules, newTasks);
-        AddressBookStub newData = new AddressBookStub(newPersons, newModules);
+        AddressBookStub newData = new AddressBookStub(newPersons, newModules, newTasks);
 
         thrown.expect(AssertionError.class);
         addressBook.resetData(newData);
@@ -93,7 +92,8 @@ public class AddressBookTest {
         // @@author tanchc
         private final ObservableList<ReadOnlyTask> tasks = FXCollections.observableArrayList();
         // @@author
-        AddressBookStub(Collection<? extends ReadOnlyPerson> persons, Collection<? extends Module> modules) {
+        AddressBookStub(Collection<? extends ReadOnlyPerson> persons, Collection<? extends Module> modules,
+                        Collection<? extends ReadOnlyTask> tasks) {
             this.persons.setAll(persons);
             this.modules.setAll(modules);
             this.tasks.setAll(tasks);
