@@ -133,14 +133,14 @@ public class AddPhotoCommandTest {
 ```
 ###### \java\seedu\address\logic\commands\CommandTestUtil.java
 ``` java
-    public static final String INVALID_URL_DESC = " " + PREFIX_PHOTO + "images/defaultPhoto1.png"; //Not a valid URL
+    public static final String INVALID_URL_DESC = " " + PREFIX_PHOTO + "images/defaultPhoto.png"; //Not a valid URL
 ```
 ###### \java\seedu\address\logic\parser\AddCommandParserTest.java
 ``` java
         // multiple birthdays - last birthday accepted
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_AMY + PHONE_DESC_BOB
                 + BIRTHDAY_DESC_AMY + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
-                        + MOD_DESC_CS2101, new AddCommand(expectedPerson));
+                        + MODULE_DESC_CS2101, new AddCommand(expectedPerson));
 ```
 ###### \java\seedu\address\logic\parser\AddCommandParserTest.java
 ``` java
@@ -152,10 +152,10 @@ public class AddPhotoCommandTest {
 ``` java
         // invalid birthday
         assertParseFailure(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_BOB + BIRTHDAY_DESC_BOB
-                        + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + INVALID_BIRTHDAY_DESC + MOD_DESC_GER1000
-                        + MOD_DESC_CS2101, Birthday.MESSAGE_BIRTHDAY_CONSTRAINTS);
+                        + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + INVALID_BIRTHDAY_DESC + MODULE_DESC_GER1000
+                        + MODULE_DESC_CS2101, Birthday.MESSAGE_BIRTHDAY_CONSTRAINTS);
 ```
-###### \java\seedu\address\logic\parser\AddPhotoCommandParserTest.java
+###### /java/seedu/address/logic/parser/AddPhotoCommandParserTest.java
 ``` java
 package seedu.address.logic.parser;
 
@@ -207,7 +207,7 @@ public class AddPhotoCommandParserTest {
 
 }
 ```
-###### \java\seedu\address\model\person\PhotoTest.java
+###### /java/seedu/address/model/person/PhotoTest.java
 ``` java
 package seedu.address.model.person;
 
@@ -467,9 +467,9 @@ public class PhotoTest {
         /* Case: add a person with all fields same as another person in the address book except birthday -> added */
         toAdd = new PersonBuilder().withName(VALID_NAME_AMY).withPhones(VALID_PHONE_AMY)
                 .withBirthday(VALID_BIRTHDAY_BOB).withEmails(VALID_EMAIL_AMY)
-                .withAddress(VALID_ADDRESS_AMY).withModules(VALID_MOD_CS2101).build();
+                .withAddress(VALID_ADDRESS_AMY).withModules(VALID_MODULE_CS2101).build();
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + BIRTHDAY_DESC_BOB + EMAIL_DESC_AMY
-                + ADDRESS_DESC_AMY + MOD_DESC_CS2101;
+                + ADDRESS_DESC_AMY + MODULE_DESC_CS2101;
         assertCommandSuccess(command, toAdd);
 ```
 ###### \java\systemtests\AddCommandSystemTest.java
