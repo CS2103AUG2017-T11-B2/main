@@ -71,8 +71,8 @@ public class EditTaskCommandParserTest {
     public void parse_invalidValue_failure() {
         assertParseFailure(parser, "1" + INVALID_APPOINTMENT_DESC,
                 Appointment.MESSAGE_APPOINTMENT_CONSTRAINTS); // invalid appointment
-        assertParseFailure(parser, "1" + INVALID_DATE_DESC
-                , Date.MESSAGE_DATE_CONSTRAINTS); // invalid date
+        assertParseFailure(parser, "1" + INVALID_DATE_DESC,
+                Date.MESSAGE_DATE_CONSTRAINTS); // invalid date
         assertParseFailure(parser, "1" + INVALID_START_TIME_DESC,
                 StartTime.MESSAGE_TIME_CONSTRAINTS); // invalid start time
 
@@ -151,4 +151,3 @@ public class EditTaskCommandParserTest {
     }
 
 }
-

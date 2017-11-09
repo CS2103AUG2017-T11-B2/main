@@ -197,7 +197,7 @@ public class EditCommandParserTest {
     }
 
     @Test
-    public void parse_resetMods_success() {
+    public void parse_resetModules_success() {
         Index targetIndex = INDEX_THIRD_PERSON;
         String userInput = targetIndex.getOneBased() + MODULE_EMPTY;
 

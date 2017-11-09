@@ -261,7 +261,7 @@ public class Birthday {
     }
 
 ```
-###### \java\seedu\address\model\person\Birthday.java
+###### /java/seedu/address/model/person/Birthday.java
 ``` java
 
     @Override
@@ -382,7 +382,7 @@ public class Photo {
     }
 
 ```
-###### \java\seedu\address\model\person\Photo.java
+###### /java/seedu/address/model/person/Photo.java
 ``` java
     /**
      * Returns true if a given string is a valid url.
@@ -484,7 +484,8 @@ public class Photo {
         case ESCAPE:
             commandTextField.setText("");
             break;
-        case CONTROL:
+        case ALT:
+            keyEvent.consume();
             commandTextField.positionCaret(commandTextField.getText().length());
             break;
         case DELETE:

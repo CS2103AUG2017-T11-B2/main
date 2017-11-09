@@ -720,7 +720,6 @@ import seedu.address.model.task.StartTime;
 import seedu.address.model.task.Task;
 import seedu.address.testutil.TaskBuilder;
 
-
 public class AddTaskCommandParserTest {
     private AddTaskCommandParser parser = new AddTaskCommandParser();
 
@@ -745,7 +744,7 @@ public class AddTaskCommandParserTest {
         assertParseFailure(parser, AddTaskCommand.COMMAND_WORD + APPOINTMENT_DESC_MEETING + VALID_DATE_MEETING
                 + START_TIME_DESC_MEETING, expectedMessage);
 
-        // missing email prefix
+        // missing start time prefix
         assertParseFailure(parser, AddTaskCommand.COMMAND_WORD + APPOINTMENT_DESC_MEETING + DATE_DESC_MEETING
                 + VALID_START_TIME_MEETING, expectedMessage);
 
@@ -768,11 +767,15 @@ public class AddTaskCommandParserTest {
         assertParseFailure(parser, AddTaskCommand.COMMAND_WORD + APPOINTMENT_DESC_MEETING + DATE_DESC_MEETING
                 + INVALID_START_TIME_DESC, StartTime.MESSAGE_TIME_CONSTRAINTS);
 
-        // two invalid values, only first invalid value reported
+        // two invalid values, only invalid start time reported
         assertParseFailure(parser, AddTaskCommand.COMMAND_WORD + APPOINTMENT_DESC_MEETING + INVALID_DATE_DESC
                 + DATE_DESC_MEETING + INVALID_START_TIME_DESC, StartTime.MESSAGE_TIME_CONSTRAINTS);
-    }
 
+        // three invalid values, only invalid start time reported
+        assertParseFailure(parser, AddTaskCommand.COMMAND_WORD + INVALID_APPOINTMENT_DESC
+                + APPOINTMENT_DESC_MEETING + INVALID_DATE_DESC + DATE_DESC_MEETING
+                + INVALID_START_TIME_DESC, StartTime.MESSAGE_TIME_CONSTRAINTS);
+    }
 }
 ```
 ###### \java\seedu\address\logic\parser\DeleteTaskCommandParserTest.java
@@ -884,8 +887,8 @@ public class EditTaskCommandParserTest {
     public void parse_invalidValue_failure() {
         assertParseFailure(parser, "1" + INVALID_APPOINTMENT_DESC,
                 Appointment.MESSAGE_APPOINTMENT_CONSTRAINTS); // invalid appointment
-        assertParseFailure(parser, "1" + INVALID_DATE_DESC
-                , Date.MESSAGE_DATE_CONSTRAINTS); // invalid date
+        assertParseFailure(parser, "1" + INVALID_DATE_DESC,
+                Date.MESSAGE_DATE_CONSTRAINTS); // invalid date
         assertParseFailure(parser, "1" + INVALID_START_TIME_DESC,
                 StartTime.MESSAGE_TIME_CONSTRAINTS); // invalid start time
 

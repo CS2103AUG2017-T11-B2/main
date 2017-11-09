@@ -1,3 +1,4 @@
+// @@author tanchc
 package systemtests;
 
 import static seedu.address.commons.core.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
@@ -35,7 +36,7 @@ public class FindModuleCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: repeat previous find command where person list is displaying the persons we are finding
+        /* Case: repeat previous find module command where person list is displaying the persons we are finding
          * -> 2 persons found
          */
         command = FindModuleCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_CS1020;
@@ -90,52 +91,52 @@ public class FindModuleCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find person in address book, keyword is same as name but of different case -> 1 person found */
+        /* Case: find module in address book, keyword is same as name but of different case -> 1 person found */
         command = FindModuleCommand.COMMAND_WORD + " cs1020";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find person in address book, keyword is substring of name -> 0 persons found */
+        /* Case: find module in address book, keyword is substring of name -> 0 persons found */
         command = FindModuleCommand.COMMAND_WORD + " cs";
         ModelHelper.setFilteredPersonList(expectedModel);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find person in address book, name is substring of keyword -> 0 persons found */
+        /* Case: find module in address book, name is substring of keyword -> 0 persons found */
         command = FindModuleCommand.COMMAND_WORD + " CS1010s";
         ModelHelper.setFilteredPersonList(expectedModel);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find person not in address book -> 0 persons found */
+        /* Case: find module not in address book -> 0 persons found */
         command = FindModuleCommand.COMMAND_WORD + " CS2020";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find name of person in address book -> 0 persons found */
+        /* Case: find module using name of person in address book -> 0 persons found */
         command = FindModuleCommand.COMMAND_WORD + " " + DANIEL.getName();
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find phone number of person in address book -> 0 persons found */
+        /* Case: find module using phone number of person in address book -> 0 persons found */
         List<Phone> phones = new ArrayList<>(DANIEL.getPhones());
         command = FindModuleCommand.COMMAND_WORD + " " + phones.get(0);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find address of person in address book -> 0 persons found */
+        /* Case: find module using address of person in address book -> 0 persons found */
         command = FindModuleCommand.COMMAND_WORD + " " + DANIEL.getAddress().value;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find email of person in address book -> 0 persons found */
+        /* Case: find module using email of person in address book -> 0 persons found */
         List<Email> emails = new ArrayList<>(DANIEL.getEmails());
         command = FindModuleCommand.COMMAND_WORD + " " + emails.get(0);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
 
-        /* Case: find while a person is selected -> selected card deselected */
+        /* Case: find module while a person is selected -> selected card deselected */
         showAllPersons();
         selectPerson(Index.fromOneBased(1));
         assert !getPersonListPanel().getHandleToSelectedCard().getName().equals(DANIEL.getName().fullName);
@@ -144,7 +145,7 @@ public class FindModuleCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardDeselected();
 
-        /* Case: find person in empty address book -> 0 persons found */
+        /* Case: find module in empty address book -> 0 persons found */
         executeCommand(ClearCommand.COMMAND_WORD);
         assert getModel().getAddressBook().getPersonList().size() == 0;
         command = FindModuleCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_CS1020;

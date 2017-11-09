@@ -22,6 +22,7 @@ import seedu.address.commons.events.ui.GetModuleRequestEvent;
 import seedu.address.commons.events.ui.ShowBusRequestEvent;
 import seedu.address.commons.events.ui.ShowHelpRequestEvent;
 import seedu.address.commons.events.ui.ShowMapRequestEvent;
+import seedu.address.commons.events.ui.VenueRequestEvent;
 import seedu.address.commons.util.FxViewUtil;
 import seedu.address.logic.Logic;
 import seedu.address.model.UserPrefs;
@@ -45,7 +46,9 @@ public class MainWindow extends UiPart<Region> {
     // Independent Ui parts residing in this Ui container
     private BrowserPanel browserPanel;
     private PersonListPanel personListPanel;
+    // @@author tanchc
     private TaskListPanel taskListPanel;
+    // @@author
     private Config config;
     private UserPrefs prefs;
 
@@ -66,10 +69,10 @@ public class MainWindow extends UiPart<Region> {
 
     @FXML
     private StackPane statusbarPlaceholder;
-
+    // @@author tanchc
     @FXML
     private StackPane taskListPanelPlaceholder;
-
+    // @@author
     public MainWindow(Stage primaryStage, Config config, UserPrefs prefs, Logic logic) {
         super(FXML);
 
@@ -139,14 +142,15 @@ public class MainWindow extends UiPart<Region> {
 
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
-
+        // @@author tanchc
         taskListPanel = new TaskListPanel(logic.getFilteredTaskList());
         taskListPanelPlaceholder.getChildren().add(taskListPanel.getRoot());
-
+        // @@author
         ResultDisplay resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
-        StatusBarFooter statusBarFooter = new StatusBarFooter(prefs.getAddressBookFilePath());
+        StatusBarFooter statusBarFooter = new StatusBarFooter(prefs.getAddressBookFilePath(),
+                logic.getFilteredPersonList().size());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(logic);
@@ -223,11 +227,19 @@ public class MainWindow extends UiPart<Region> {
     }
 
     /**
-     * Opens the module in browser.
+     * Opens the module info in browser.
      */
     @FXML
     public void handleModule(String module) {
         browserPanel.loadPage("https://nusmods.com/modules/" + module);
+    }
+
+    /**
+     * Opens the venue info in browser.
+     */
+    @FXML
+    public void handleVenue(String venue) {
+        browserPanel.loadPage("https://nusmods.com/venues/" + venue);
     }
     //@@author
 
@@ -274,6 +286,12 @@ public class MainWindow extends UiPart<Region> {
     private void handleShowModuleEvent(GetModuleRequestEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         handleModule(event.module);
+    }
+
+    @Subscribe
+    private void handleShowVenueEvent(VenueRequestEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event));
+        handleVenue(event.venue);
     }
 
     //@@author

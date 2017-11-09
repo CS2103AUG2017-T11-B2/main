@@ -1,3 +1,4 @@
+// @@author tanchc
 package seedu.address.model.task;
 
 import static java.util.Objects.requireNonNull;
@@ -5,7 +6,7 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.exceptions.IllegalValueException;
 
 /**
- * Represents teh start time of the Task in the address book.
+ * Represents the start time of the Task in the address book.
  */
 public class StartTime {
 
