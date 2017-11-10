@@ -72,15 +72,15 @@ public class FindModuleCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-//        /* Case: undo previous find module command -> rejected */
-//        command = UndoCommand.COMMAND_WORD;
-//        String expectedResultMessage = UndoCommand.MESSAGE_FAILURE;
-//        assertCommandFailure(command, expectedResultMessage);
-//
-//        /* Case: redo previous find command -> rejected */
-//        command = RedoCommand.COMMAND_WORD;
-//        expectedResultMessage = RedoCommand.MESSAGE_FAILURE;
-//        assertCommandFailure(command, expectedResultMessage);
+        /* Case: undo previous find module command -> rejected */
+        command = UndoCommand.COMMAND_WORD;
+        String expectedResultMessage = UndoCommand.MESSAGE_FAILURE;
+        assertCommandFailure(command, expectedResultMessage);
+
+        /* Case: redo previous find command -> rejected */
+        command = RedoCommand.COMMAND_WORD;
+        expectedResultMessage = RedoCommand.MESSAGE_FAILURE;
+        assertCommandFailure(command, expectedResultMessage);
 
         /* Case: find same module in address book after deleting 1 of them -> 1 person found */
         executeCommand(DeleteCommand.COMMAND_WORD + " 2");
