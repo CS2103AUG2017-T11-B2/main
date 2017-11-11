@@ -489,7 +489,7 @@ Upon exiting ContactHub, the contact list will not be sorted in the next subsequ
 **Alternative 1 (current choice):** Uses the Java Collections.sort() method to sort the contact list in an alphabetical order. +
 **Pros:** Easy to implement. +
 **Cons:** It is difficult to debug. +
-**Alternative 2:** Creates a new sort algorithm. +
+**Alternative 2:** Create a new sort algorithm. +
 **Pros:** It is easier to debug. +
 **Cons:** We must ensure that the algorithm's logic is right and efficient.
 // end::sort[]
