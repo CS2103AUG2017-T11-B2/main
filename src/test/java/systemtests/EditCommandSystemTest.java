@@ -105,8 +105,8 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         editedPerson = new PersonBuilder(personToEdit).withModules().build();
         assertCommandSuccess(command, index, editedPerson);
 
-//        /* ------------------ Performing edit operation while a filtered list is being shown ------------------------ */
-//
+        /* ------------------ Performing edit operation while a filtered list is being shown ------------------------ */
+
 //        /* Case: filtered person list, edit index within bounds of address book and person list -> edited */
 //        showPersonsWithName(KEYWORD_MATCHING_MEIER);
 //        index = INDEX_FIRST_PERSON;
@@ -122,7 +122,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
 //        showPersonsWithName(KEYWORD_MATCHING_MEIER);
 //        int invalidIndex = getModel().getAddressBook().getPersonList().size();
 //        assertCommandFailure(EditCommand.COMMAND_WORD + " " + invalidIndex + NAME_DESC_BOB,
-//                Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+//        Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
 
         /* --------------------- Performing edit operation while a person card is selected -------------------------- */
 
@@ -163,35 +163,29 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: invalid name -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased()
-                        + INVALID_NAME_DESC,
-                Name.MESSAGE_NAME_CONSTRAINTS);
+                    + INVALID_NAME_DESC, Name.MESSAGE_NAME_CONSTRAINTS);
 
         /* Case: invalid phone -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased()
-                        + INVALID_PHONE_DESC,
-                Phone.MESSAGE_PHONE_CONSTRAINTS);
+                    + INVALID_PHONE_DESC, Phone.MESSAGE_PHONE_CONSTRAINTS);
 
         //@@author viviantan95
         /* Case: invalid birthday -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased()
-                        + INVALID_BIRTHDAY_DESC,
-                Birthday.MESSAGE_BIRTHDAY_CONSTRAINTS);
+                    + INVALID_BIRTHDAY_DESC, Birthday.MESSAGE_BIRTHDAY_CONSTRAINTS);
         //@@author
 
         /* Case: invalid email -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased()
-                        + INVALID_EMAIL_DESC,
-                Email.MESSAGE_EMAIL_CONSTRAINTS);
+                    + INVALID_EMAIL_DESC, Email.MESSAGE_EMAIL_CONSTRAINTS);
 
         /* Case: invalid address -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased()
-                        + INVALID_ADDRESS_DESC,
-                Address.MESSAGE_ADDRESS_CONSTRAINTS);
+                    + INVALID_ADDRESS_DESC, Address.MESSAGE_ADDRESS_CONSTRAINTS);
 
         /* Case: invalid module -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased()
-                        + INVALID_MODULE_DESC,
-                Module.MESSAGE_MODULE_CONSTRAINTS);
+                    + INVALID_MODULE_DESC, Module.MESSAGE_MODULE_CONSTRAINTS);
 
         /* Case: edit a person with new values same as another person's values -> rejected */
         executeCommand(PersonUtil.getAddCommand(BOB));

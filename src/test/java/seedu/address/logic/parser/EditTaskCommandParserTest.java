@@ -114,7 +114,8 @@ public class EditTaskCommandParserTest {
         // appointment
         Index targetIndex = INDEX_THIRD_TASK;
         String userInput = targetIndex.getOneBased() + APPOINTMENT_DESC_MEETING;
-        EditTaskDescriptor descriptor = new EditTaskDescriptorBuilder().withAppointment(VALID_APPOINTMENT_MEETING).build();
+        EditTaskDescriptor descriptor = new EditTaskDescriptorBuilder()
+                .withAppointment(VALID_APPOINTMENT_MEETING).build();
         EditTaskCommand expectedCommand = new EditTaskCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
