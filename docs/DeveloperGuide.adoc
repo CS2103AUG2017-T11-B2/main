@@ -1046,7 +1046,7 @@ Use case ends.
 Use case resumes at step 2.
 
 [discrete]
-=== Use case: Add Photo
+=== Use case: Add photo
 *MSS*
 
 1.  User requests to list persons
