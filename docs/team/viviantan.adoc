@@ -8,7 +8,7 @@ ContactHub is a desktop address book application used for teaching Software Engi
 
 *Code contributed*: [https://github.com/CS2103AUG2017-T11-B2/main/blob/master/collated/main/viviantan95.md[Functional code]] [https://github.com/CS2103AUG2017-T11-B2/main/blob/master/collated/test/viviantan95.md[Test code]] {give links to collated code files}
 
-=== Enhancement Added: AddPhoto
+=== Enhancement Added: Adding a photo to a contact in Contacthub
 
 ==== External behavior
 
@@ -21,14 +21,14 @@ include::../UserGuide.adoc[tag=addphoto]
 
 ---
 
-==== Justification
+=== Justification
 
 Adding a photo to each contact of ContactHub would make the contacts more recognisable to the user, hence easier
 identification of contacts.
 Furthermore ContactHub's target audience is university students, therefore to make the application more interesting
  and youthful, so as to add a fun factor when using ContactHub.
 
-==== Implementation
+=== Implementation
 
 ---
 #Start of Extract [from: Developer Guide]#
