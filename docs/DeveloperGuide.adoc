@@ -1045,6 +1045,38 @@ Use case ends.
 +
 Use case resumes at step 2.
 
+[discrete]
+=== Use case: Add Photo
+*MSS*
+
+1.  User requests to list persons
+2.  ContactHub shows a list of persons
+3.  User requests to add a photo to a person in the list
+4.  ContactHub adds a photo to that person
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a. The list is empty.
++
+Use case ends.
+
+* 3a. The given index is invalid.
++
+[none]
+** 3a1. ContactHub shows an error message.
++
+Use case resumes at step 2.
+* 3b. The given web URL is invalid.
++
+[none]
+** 3b1. ContactHub shows an error message.
++
+Use case resumes at step 2.
+
+[discrete]
 
 [discrete]
 === Use case: Select person
