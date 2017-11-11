@@ -525,7 +525,7 @@ public class AddPhotoCommand extends UndoableCommand {
 }
 ----
 
-Suppose the user has jus added a contact into ContactHub. The photo of this contact will be defaultPhoto.
+Suppose the user has just added a contact into ContactHub. The photo of this contact will be defaultPhoto.
 
 image::addphoto1.PNG[width="300"]
 
@@ -551,8 +551,8 @@ After the execution, the list will return to the main contact list.
 **Cons:** Might present a problem when there is no internet available for the user. +
 **Alternative 2:** Using local URL. +
 **Pros:** The contact may not have a photo stored in the web database. +
-**Cons:** If there is no local photo of the contact, the user must download from the web onto hes computer first then
-use the local URL in the `AddPhotoCommand`.
+**Cons:** If there is no local photo of the contact, the user must download the contact's photo from the web
+ onto he's computer first then use the local URL in the `AddPhotoCommand`.
 // end::addphoto[]
 
 // tag::keyboardshortcuts[]
