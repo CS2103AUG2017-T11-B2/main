@@ -176,7 +176,7 @@ public class EditTaskCommandSystemTest extends AddressBookSystemTest {
         expectedModel.updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
         System.out.println(command);
         System.out.println(expectedModel.getFilteredTaskList());
-//        assertApplicationDisplaysExpected(command, expectedResultMessage, expectedModel);
+        // assertApplicationDisplaysExpected(command, expectedResultMessage, expectedModel);
         assertCommandBoxShowsDefaultStyle();
         if (expectedSelectedCardIndex != null) {
             assertSelectedCardChanged(expectedSelectedCardIndex);
