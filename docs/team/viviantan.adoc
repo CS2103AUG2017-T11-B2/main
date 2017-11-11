@@ -76,7 +76,4 @@ include::../DeveloperGuide.adoc[tag=keyboardshortcuts]
 
 === Other contributions
 
-
-== Project: PowerPointLabs
-
-{Optionally (not graded), you may include other projects in your portfolio.}
+* Addition of `Birthday` property in Person Model.
