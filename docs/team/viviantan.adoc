@@ -15,7 +15,7 @@ ContactHub is a desktop address book application used for teaching Software Engi
 ---
 #Start of Extract [from: User Guide]#
 
-include::../UserGuide.adoc[tag=addPhoto]
+include::../UserGuide.adoc[tag=addphoto]
 
 #End of Extract#
 
@@ -33,7 +33,7 @@ Furthermore ContactHub's target audience is university students, therefore to ma
 ---
 #Start of Extract [from: Developer Guide]#
 
-include::../DeveloperGuide.adoc[tag=addPhoto]
+include::../DeveloperGuide.adoc[tag=addphoto]
 
 #End of Extract#
 
@@ -46,7 +46,7 @@ include::../DeveloperGuide.adoc[tag=addPhoto]
 ---
 #Start of Extract [from: User Guide]#
 
-include::../UserGuide.adoc[tag=Keyboardshortcuts]
+include::../UserGuide.adoc[tag=keyboardshortcuts]
 
 #End of Extract#
 
@@ -64,7 +64,7 @@ use ContactHub.
 ---
 #Start of Extract [from: Developer Guide]#
 
-include::../DeveloperGuide.adoc[tag=Keyboardshortcuts]
+include::../DeveloperGuide.adoc[tag=keyboardshortcuts]
 
 #End of Extract#
 
