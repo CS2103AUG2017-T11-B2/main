@@ -774,7 +774,7 @@ image::DeleteTask.PNG[width="300"]
 **Alternative 2:** Creates a new deletetTask algorithm. +
 **Pros:** This method is easier to debug. +
 **Cons:** We must ensure that the algorithm's logic is right and efficient.
-// end:: deletetask[]
+// end::deletetask[]
 
 == Documentation
 
