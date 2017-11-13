@@ -417,8 +417,8 @@ public class FindModuleCommandParser implements Parser<FindModuleCommand> {
 
     @Override
     public String toString() {
-        return persons.asObservableList().size() + " persons, " + modules.asObservableList().size() +  " modules";
-        // TODO: refine later
+        return persons.asObservableList().size() + " persons, " + modules.asObservableList().size() +  " modules"
+                + tasks.asObservableList().size();
     }
 
     @Override
@@ -606,8 +606,8 @@ public class Appointment {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || appointment.equals(((Appointment) other).appointment)
-                && this.appointment.equals(((Appointment) other).appointment);
+                || (other instanceof Appointment // instanceof handles nulls
+                && this.appointment.equals(((Appointment) other).appointment)); // state check
     }
 
     @Override
@@ -998,8 +998,13 @@ public class UniqueTaskList implements Iterable<Task> {
     public static Task[] getSampleTasks() {
         try {
             return new Task[] {
-                new Task(new Appointment("Meeting"), new Date("27/10/2017"), new StartTime("12:00")),
-                new Task(new Appointment("Birthday"), new Date("30/11/2017"), new StartTime("12:00"))
+                new Task(new Appointment("Meeting"), new Date("30/10/2017"), new StartTime("18:00")),
+                new Task(new Appointment("Soccer"), new Date("15/12/2017"), new StartTime("09:00")),
+                new Task(new Appointment("Birthday"), new Date("30/11/2017"), new StartTime("19:30")),
+                new Task(new Appointment("Work"), new Date("01/01/2018"), new StartTime("08:00")),
+                new Task(new Appointment("Homework"), new Date("12/01/2018"), new StartTime("23:59")),
+                new Task(new Appointment("Exam"), new Date("05/12/2017"), new StartTime("17:00")),
+                new Task(new Appointment("Competition"), new Date("25/11/2017"), new StartTime("12:00"))
             };
         } catch (IllegalValueException e) {
             throw new AssertionError("sample data cannot be invalid", e);
@@ -1104,21 +1109,6 @@ public class XmlAdaptedTask {
      * Loads the located address page of the user's address.
      */
     private void loadAddressPage(ReadOnlyPerson person) throws IOException {
-        /*ClassLoader classLoader = getClass().getClassLoader();
-        File locatedAddressFile = new File(classLoader.getResource("view/PersonBrowserPanel.html").getFile());
-        File htmlTemplateFile = new File(classLoader.getResource("view/Template.html").getFile());
-        resetPage(htmlTemplateFile, locatedAddressFile);
-        String htmlString = FileUtils.readFileToString(locatedAddressFile);
-        System.out.println(htmlString);
-        String title = "New Page";
-        int stopIndex = person.getAddress().getGMapsAddress().indexOf(',');
-        String address = person.getAddress().getGMapsAddress().substring(0, stopIndex);
-        System.out.println(address);
-        System.out.println(htmlString);
-        htmlString = htmlString.replace("$body", address.replace(" ", "+"));
-        System.out.println(htmlString);
-        FileUtils.writeStringToFile(locatedAddressFile, htmlString);*/
-
         URL addressPage = MainApp.class.getResource(FXML_FILE_FOLDER + ADDRESS_PAGE);
         loadPage(addressPage.toExternalForm());
     }
@@ -1146,17 +1136,6 @@ public class XmlAdaptedTask {
         loadAddressPage(event.getNewSelection().person);
     }
 }
-```
-###### \java\seedu\address\ui\CommandBox.java
-``` java
-    @FXML
-    private TextField commandTextField;
-
-    private String[] suggestions = {"add", "sort", "delete", "list", "find", "findmodule"};
-```
-###### \java\seedu\address\ui\CommandBox.java
-``` java
-        TextFields.bindAutoCompletion(commandTextField, suggestions);
 ```
 ###### \java\seedu\address\ui\MainWindow.java
 ``` java
@@ -1271,7 +1250,7 @@ public class TaskCard extends UiPart<Region> {
         return randNum;
     }
 
-    private static String getColorForMod(String modValue, int randNum) {
+    private static String getColorForModule(String modValue, int randNum) {
         if (!moduleColors.containsKey(modValue)) {
             moduleColors.put(modValue, colors[randNum]);
         }
@@ -1365,7 +1344,7 @@ public class TaskListPanel extends UiPart<Region> {
     }
 
     /**
-     * Scrolls to the {@code PersonCard} at the {@code index} and selects it.
+     * Scrolls to the {@code TaskCard} at the {@code index} and selects it.
      */
     private void scrollTo(int index) {
         Platform.runLater(() -> {
@@ -1505,12 +1484,4 @@ public class TaskListPanel extends UiPart<Region> {
 <VBox xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
   <ListView fx:id="taskListView" style="-fx-background-color: #383838;" VBox.vgrow="ALWAYS" />
 </VBox>
-###### /java/seedu/address/ui/BrowserPanel.java
-``` java
-    @Subscribe
-    private void handlePersonPanelSelectionChangedEvent(PersonPanelSelectionChangedEvent event) throws IOException {
-        logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        ReadOnlyPerson p = event.getNewSelection().person;
-        int stopIndex = p.getAddress().getGMapsAddress().indexOf(',');
-        String mapAddress;
 ```
